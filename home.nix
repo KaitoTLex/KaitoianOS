@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -33,7 +32,7 @@
     openrazer-daemon
     wineWowPackages.waylandFull
     wget
-    
+
     notion-app-enhanced
     # archives
     zip
@@ -82,7 +81,7 @@
     # productivity
     hugo # static site generator
     glow # markdown previewer in terminal
-    obsidian #markdown previewer
+    obsidian # markdown previewer
     thunderbird-unwrapped # Full Feature Email Client
 
     # LaTeX stuff
@@ -118,7 +117,6 @@
     kanagawa-gtk-theme
     kanagawa-icon-theme
 
-
     # system tools
     sysstat
     lm_sensors # for `sensors` command
@@ -131,8 +129,8 @@
     signal-desktop
     gh
 
-];
-
+    inputs.nixvim.packages.${pkgs.system}.default
+  ];
 
   services.dunst.enable = true;
 
@@ -178,9 +176,20 @@
           "DP-1"
           "HDMI-A-1"
         ];
-        modules-left = ["hyprland/workspaces" "sway/submap" "wlr/taskbar"];
-        modules-center = ["hyprland/window" "custom/hello-from-waybar"];
-        modules-right = ["mpd" "custom/mymodule#with-css-id" "temperature"];
+        modules-left = [
+          "hyprland/workspaces"
+          "sway/submap"
+          "wlr/taskbar"
+        ];
+        modules-center = [
+          "hyprland/window"
+          "custom/hello-from-waybar"
+        ];
+        modules-right = [
+          "mpd"
+          "custom/mymodule#with-css-id"
+          "temperature"
+        ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -288,29 +297,6 @@
   };
 
   programs.fzf.enable = true;
-
-  programs.neovim ={
-    enable = true;    
-    defaultEditor = true;
-  };  
-    #viAlias = true;
-    #vimAlias = true;
-    #extraPackages= [
-    #];
-    #plugins = [
-      #pkgs.vimPlugins.vim-latex-live-preview
-      #pkgs.vimPlugins.vimsence
-      #pkgs.vimPlugins.telescope-zoxide
-      #{
-      #plugin = pkgs.vimPlugins.vimtex;
-      #config = "let g:vimtex_enabled =1";
-      #}
-      #pkgs.vimPlugins.mason-tool-installer-nvim
-      #pkgs.vimPlugins.mason-lspconfig-nvim
-      #pkgs.vimPlugins.kanagawa-nvim
-   #];
-
-
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
