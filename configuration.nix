@@ -6,11 +6,6 @@
   pkgs,
   ...
 }:
-let
-  nixvim = import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nixvim";
-  });
-in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -132,7 +127,6 @@ in
   };
 
   programs.fish.enable = true;
-  programs.nixvim.enable = true;
   users.users.kaitotlex.shell = pkgs.fish;
 
   # Some programs need SUID wrappers, can be configured further or are
