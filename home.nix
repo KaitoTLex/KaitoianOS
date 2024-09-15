@@ -33,6 +33,17 @@
     wineWowPackages.waylandFull
     wget
 
+    gparted
+    gnumake
+
+    manga-cli
+
+    clang
+    macchanger
+    ani-cli
+    mpv
+    sherlock
+
     notion-app-enhanced
     # archives
     zip
@@ -47,6 +58,7 @@
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
     emacs # full featured everything
+    wl-clipboard
 
     # networking tools
     mtr # A network diagnostic tool
@@ -130,11 +142,22 @@
     gh
 
     inputs.nixvim.packages.${pkgs.system}.default
+
+    #Pentest
+    netcat
+    nmap
+    metasploit
+    john
+    lynis
+    hydra-cli
+    ghidra
+    social-engineer-toolkit
+    aircrack-ng
+
   ];
 
   services.dunst.enable = true;
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "KaitoTLex";

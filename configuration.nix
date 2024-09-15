@@ -10,7 +10,14 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-];
+  ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  boot.initrd.luks.fido2Support = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -88,7 +95,10 @@
   users.users.kaitotlex = {
     isNormalUser = true;
     description = "KaitoTLex";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
@@ -113,15 +123,15 @@
     enableDefaultPackages = true;
     fontconfig = {
       defaultFonts = {
-        serif = ["Noto Serif"];
-        sansSerif = ["Noto Sans"];
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
       };
     };
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override {fonts = ["CascadiaCode"];})
+      (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
     ];
   };
 

@@ -10,7 +10,7 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim.url = "github:youwen5/neovim-flake";
+    nixvim.url = "github:KaitoTLex/neovim-flake";
   };
 
   outputs =
