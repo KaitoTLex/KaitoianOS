@@ -147,6 +147,14 @@
 
   services.dunst.enable = true;
 
+  wayland.windowManager.sway = {
+    enable = true;
+    config = rec {
+      modifier = "Mod4";
+      terminal = "kitty";
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "KaitoTLex";
