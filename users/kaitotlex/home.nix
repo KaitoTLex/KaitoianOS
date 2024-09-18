@@ -152,6 +152,7 @@
     config = rec {
       modifier = "Mod4";
       terminal = "kitty";
+      colors = "client.focused #1f2335";
     };
   };
 
