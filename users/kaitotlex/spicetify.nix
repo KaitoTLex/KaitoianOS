@@ -1,13 +1,9 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs, pkgs, ... }:
+let
   spicepkgs = inputs.spicetify.legacyPackages.${pkgs.system};
-in {
-  imports = [
-    inputs.spicetify.homeManagerModules.default
-  ];
+in
+{
+  imports = [ inputs.spicetify.homeManagerModules.default ];
 
   programs.spicetify = {
     enable = true;
@@ -17,8 +13,6 @@ in {
       lastfm
       fullAppDisplayMod
     ];
-    enabledCustomApps = with spicepkgs.apps; [
-      lyricsPlus
-    ];
+    enabledCustomApps = with spicepkgs.apps; [ lyricsPlus ];
   };
 }

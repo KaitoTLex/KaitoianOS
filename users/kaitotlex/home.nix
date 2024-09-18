@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
   home.username = "kaitotlex";
   home.homeDirectory = "/home/kaitotlex";
@@ -26,7 +22,6 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-    firefox-devedition
     neofetch
     polychromatic
     openrazer-daemon
@@ -52,11 +47,8 @@
     p7zip
 
     # utils
-    ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
     yq-go # yaml processor https://github.com/mikefarah/yq
-    eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
     emacs # full featured everything
     wl-clipboard
 
@@ -91,7 +83,6 @@
     # with more details log output
     nix-output-monitor
     # productivity
-    hugo # static site generator
     glow # markdown previewer in terminal
     obsidian # markdown previewer
     thunderbird-unwrapped # Full Feature Email Client
@@ -141,8 +132,6 @@
     signal-desktop
     gh
 
-    inputs.nixvim.packages.${pkgs.system}.default
-
     #Pentest
     netcat
     nmap
@@ -168,6 +157,8 @@
     };
   };
 
+  programs.neovim.defaultEditor = true;
+
   programs.lazygit.enable = true;
 
   programs.zoxide = {
@@ -188,47 +179,12 @@
     };
   };
 
-  programs.waybar = {
+  programs.firefox = {
     enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        output = [
-          "DP-1"
-          "HDMI-A-1"
-        ];
-        modules-left = [
-          "hyprland/workspaces"
-          "sway/submap"
-          "wlr/taskbar"
-        ];
-        modules-center = [
-          "hyprland/window"
-          "custom/hello-from-waybar"
-        ];
-        modules-right = [
-          "mpd"
-          "custom/mymodule#with-css-id"
-          "temperature"
-        ];
-
-        "hyprland/workspaces" = {
-          disable-scroll = true;
-          all-outputs = true;
-        };
-        "custom/hello-from-waybar" = {
-          format = "hello {}";
-          max-length = 40;
-          interval = "once";
-          exec = pkgs.writeShellScript "hello-from-waybar" ''
-            echo "from within waybar"
-          '';
-        };
-      };
-    };
+    package = pkgs.firefox-devedition;
   };
+
+  programs.ripgrep.enable = true;
 
   programs.oh-my-posh = {
     enable = true;
