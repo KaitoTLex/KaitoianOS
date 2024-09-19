@@ -31,7 +31,7 @@
     gparted
     gnumake
 
-    manga-cli
+    manga-tui
 
     clang
     macchanger
@@ -103,8 +103,6 @@
     texlivePackages.csquotes-de
     texlivePackages.collection-latexextra
 
-    #ViM config
-
     btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
@@ -118,6 +116,7 @@
 
     #Rice
     kanagawa-gtk-theme
+    rofi
     kanagawa-icon-theme
 
     # system tools
@@ -144,17 +143,13 @@
     aircrack-ng
 
   ];
+  programs.rofi = {
+    enable = true;
+    cycle = true;
+    location = "center";
+  };
 
   services.dunst.enable = true;
-
-  wayland.windowManager.sway = {
-    enable = true;
-    config = rec {
-      modifier = "Mod4";
-      terminal = "kitty";
-      colors = "client.focused #1f2335";
-    };
-  };
 
   programs.git = {
     enable = true;
@@ -178,7 +173,7 @@
 
   programs.kitty = {
     enable = true;
-    theme = "Tokyo Night";
+    theme = "Rosé Pine";
     font.name = "CaskaydiaCove Nerd Font";
     settings = {
       font_size = 12;

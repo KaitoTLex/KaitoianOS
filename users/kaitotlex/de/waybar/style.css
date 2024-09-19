@@ -1,13 +1,14 @@
+@import "./rose-pine-dawn.css";
 window#waybar {
     font-family: "CaskaydiaCove Nerd Font";
-    background-color: rgba(0,0,0,0);
+    background-color: @base;
     font-size: 0.8rem;
     border-radius: 0.5rem;
 }
 
 .modules-left {
     opacity: 1;
-    background: linear-gradient(45deg, rgb(214, 39, 200), rgb(5, 83, 252));
+    background: linear-gradient(45deg, @muted, @subtle);
     border-radius: 0.5rem;
     padding: 2px;
 }
@@ -18,7 +19,7 @@ window#waybar {
 
 .modules-right {
     opacity: 1;
-    background-color: rgba(0,0,0,0.5);
+    background-color: @overlay;
     border-radius: 0.5rem;
     padding: 2px 2px 2px 10px
 }
@@ -28,7 +29,7 @@ window#waybar {
 } */
 
 #workspaces {
-    background-color: rgba(0,0,0,0.5);
+    background-color: @rose;
     border-radius: 0.5rem;
     padding: 0 2px;
 }
@@ -39,37 +40,36 @@ window#waybar {
 }
 
 #window {
-    background-color: rgba(0,0,0,0.5);
+    background-color: @iris;
     border-radius: 0.5rem;
     padding: 2px 5px;
 }
 
 #clock {
-    font-weight: bolder;
     border-radius: 0.5rem;
     padding: 0 3px 0 0;
 }
 
 #battery {
-    color: lightgreen;
+    color: @pine;
 }
 
 #memory {
-    color: lightpink;
+    color: @iris;
 }
 
 #disk {
-    color: lightskyblue;
+    color: @gold;
 }
 
 #cpu {
-    color: lightgoldenrodyellow;
+    color: @rose;
 }
 
 #temperature {
-    color: lightslategray;
+    color: @foam;
 }
 
 #network {
-    color: lightsteelblue;
+    color: @love;
 }

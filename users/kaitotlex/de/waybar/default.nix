@@ -3,7 +3,6 @@
   programs.waybar = {
     enable = true;
     style = ./style.css;
-    systemd.enable = true;
     settings = {
       mainBar = {
         name = "bar0";
@@ -25,8 +24,8 @@
         reload_style_on_change = true;
 
         modules-left = [
-          "hyprland/workspaces"
-          "hyprland/window"
+          "sway/workspaces"
+          "sway/window"
         ];
         modules-right = [
           "tray"
