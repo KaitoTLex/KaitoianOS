@@ -148,6 +148,7 @@
     enable = true;
     cycle = true;
     location = "center";
+    package = pkgs.rofi-wayland;
   };
 
   services.dunst.enable = true;
