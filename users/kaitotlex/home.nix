@@ -27,7 +27,8 @@
     openrazer-daemon
     wineWowPackages.waylandFull
     wget
-
+    vscode
+    floorp
     gparted
     gnumake
 
