@@ -28,10 +28,9 @@
     wineWowPackages.waylandFull
     wget
     vscode
-    floorp
     gparted
     gnumake
-
+    chromium
     manga-tui
 
     clang
