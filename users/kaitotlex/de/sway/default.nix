@@ -4,6 +4,7 @@
     config = rec {
       terminal = "kitty";
       modifier = "Mod4";
+      menu = "rofi -show drun";
       bars = [
         {
           command = "waybar";

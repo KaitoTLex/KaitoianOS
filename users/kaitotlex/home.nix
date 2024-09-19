@@ -32,6 +32,7 @@
     gnumake
     chromium
     manga-tui
+    thunderbird
 
     clang
     macchanger
@@ -76,7 +77,6 @@
     rustc
     arduino-cli
     jdk
-
     # nix related
     #
     # it provides the command `nom` works just like `nix`
@@ -116,7 +116,6 @@
 
     #Rice
     kanagawa-gtk-theme
-    rofi
     kanagawa-icon-theme
 
     # system tools
