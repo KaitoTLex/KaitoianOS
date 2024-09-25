@@ -20,6 +20,24 @@
   virtualisation.waydroid.enable = true;
   networking.hostName = "shiroko"; # Define your hostname.
 
+  services.fprintd.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      {
+        keys = [ 232 ];
+        events = [ "key" ];
+        command = "${pkgs.brightnessctl}/bin/brightnessctl set 1000";
+      }
+      {
+        keys = [ 233 ];
+        events = [ "key" ];
+        command = "${pkgs.brightnessctl}/bin/brightnessctl set 1000-";
+      }
+    ];
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

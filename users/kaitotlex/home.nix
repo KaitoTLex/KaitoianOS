@@ -34,6 +34,9 @@
     manga-tui
     thunderbird
 
+    dolphin
+    xfce.thunar
+
     clang
     macchanger
     ani-cli
@@ -78,14 +81,15 @@
     arduino-cli
     jdk
     # nix related
-    #
-    # it provides the command `nom` works just like `nix`
     # with more details log output
     nix-output-monitor
     # productivity
     glow # markdown previewer in terminal
     obsidian # markdown previewer
     thunderbird-unwrapped # Full Feature Email Client
+
+    #sway Modules
+    swaybg
 
     # LaTeX stuff
     texliveFull
@@ -102,6 +106,7 @@
     texlivePackages.csquotes
     texlivePackages.csquotes-de
     texlivePackages.collection-latexextra
+    texpresso
 
     btop # replacement of htop/nmon
     iotop # io monitoring
@@ -141,6 +146,7 @@
     social-engineer-toolkit
     aircrack-ng
 
+    brightnessctl
   ];
   programs.rofi = {
     enable = true;

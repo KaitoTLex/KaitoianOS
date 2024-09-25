@@ -51,8 +51,13 @@
         };
       };
       window = {
-        border = 5;
+        border = 3;
         titlebar = false;
+        #startup = [
+        #{
+        # command = "swaybg -i /home/kaitotlex/Pictures/bg.png";
+        # }
+        #];
       };
     };
   };
