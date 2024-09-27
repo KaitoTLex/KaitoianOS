@@ -34,6 +34,8 @@
     manga-tui
     thunderbird
 
+    sl
+
     dolphin
     xfce.thunar
 
