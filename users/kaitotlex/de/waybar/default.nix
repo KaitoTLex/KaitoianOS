@@ -66,8 +66,8 @@
         backlight = {
           interval = 2;
           format = "󰖨 {percent}%";
-          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set +4";
-          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 4-";
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl2 set 10%";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl2 set 10%-";
         };
 
         wireplumber = {
