@@ -34,6 +34,8 @@
     manga-tui
     thunderbird
 
+    pamixer
+
     sl
 
     dolphin

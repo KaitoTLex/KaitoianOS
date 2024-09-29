@@ -48,6 +48,49 @@
   # programs.mtr.enable = true;
 
   # List services that you want to enable:
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      {
+        keys = [ 233 ];
+        events = [ "key" ];
+        command = "brightnessctl -d amdgpu_bl2 set +10%";
+      }
+      {
+        keys = [ 232 ];
+        events = [ "key" ];
+        command = "brightnessctl -d amdgpu_bl2 set 10%-";
+      }
+      {
+        keys = [ 121 ];
+        events = [ "key" ];
+        command = "pamixer -t";
+      }
+      {
+        keys = [ 122 ];
+        events = [ "key" ];
+        command = "pamixer -i 5";
+      }
+      {
+        keys = [ 123 ];
+        events = [ "key" ];
+        command = "pamixer -d 5";
+      }
+      {
+        keys = [ 237 ];
+        events = [ "key" ];
+        command = "brightnessctl -d asus::kbd_backlight set 1-";
+      }
+      {
+        keys = [ 238 ];
+        events = [ "key" ];
+        command = "brightnessctl -d asus::kbd_backlight set +1";
+      }
+      #{ keys = [  ]; events = [ "key" ]; command = "brightnessctl -d amdgpu_bl2 set +10%"; }
+      #{ keys = [  ]; events = [ "key" ]; command = "brightnessctl -d amdgpu_bl2 set +10%"; }
+
+    ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
