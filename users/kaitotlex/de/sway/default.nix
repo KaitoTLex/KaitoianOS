@@ -53,12 +53,13 @@
       window = {
         border = 3;
         titlebar = false;
-        #startup = [
-        #{
-        # command = "swaybg -i /home/kaitotlex/Pictures/bg.png";
-        # }
-        #];
       };
+      startup = [
+        {
+          always = true;
+          command = "swaybg -i /home/kaitotlex/Pictures/fuckrocks.jpg";
+        }
+      ];
     };
   };
 }
