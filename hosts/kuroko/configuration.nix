@@ -48,6 +48,14 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #Power Saving Features 
+    prime = {
+      # Make sure to use the correct Bus ID values for your system!
+      #intelBusId = "PCI:";
+      nvidiaBusId = "PCI:01:0:0";
+      amdgpuBusId = "PCI:08:00:00";
+    };
+
   };
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -77,19 +85,13 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  hardware.nvidia.prime = {
-    # Make sure to use the correct Bus ID values for your system!
-    #intelBusId = "PCI:";
-    nvidiaBusId = "PCI:01:0:0";
-    amdgpuBusId = "PCI:08:00:00";
-  };
   services.fprintd = {
     enable = true;
-    package = pkgs.fprintd-tod;
-    tod = {
-      enable = false;
-      driver = pkgs.libfprint-2-tod1-elan;
-    };
+    #package = pkgs.fprintd-tod;
+    #tod = {
+    # enable = false;
+    # driver = pkgs.libfprint-2-tod1-elan;
+    #};
   };
   # List services that you want to enable:
   services.actkbd = {
