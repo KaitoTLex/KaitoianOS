@@ -57,7 +57,7 @@
       startup = [
         {
           always = true;
-          command = "swaybg -i /home/kaitotlex/Pictures/fuckrocks.jpg";
+          command = "swaybg -i /home/kaitotlex/Pictures/maic.png";
         }
       ];
     };
