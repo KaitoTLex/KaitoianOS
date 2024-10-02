@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --remember --greeting 'Access is restricted to authorized personnel only.'";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway --remember --greeting 'Access is restricted to authorized personnel only.'";
         user = "greeter";
       };
     };

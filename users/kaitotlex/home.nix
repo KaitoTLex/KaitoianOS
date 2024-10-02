@@ -183,7 +183,7 @@
 
   programs.kitty = {
     enable = true;
-    theme = "Rosé Pine";
+    theme = "Kanagawa_dragon";
     font.name = "CaskaydiaCove Nerd Font";
     settings = {
       font_size = 12;
