@@ -33,7 +33,8 @@
     chromium
     manga-tui
     thunderbird
-    rustup
+    rustc
+    cargo
 
     pamixer
 
