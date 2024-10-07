@@ -57,9 +57,14 @@
       startup = [
         {
           always = true;
-          command = "swaybg -i /home/kaitotlex/Pictures/maic.png";
+          command = "swaybg -i /home/kaitotlex/Pictures/eff.png";
         }
       ];
     };
+    xwayland = true;
+    #extraConfigs = {
+    # keybindings = "bindsym XF86MonBrightnessDown exec brightnessctl -d amdgpu_bl2 set 10%- \n
+    #   bindsym XF86MonBrightnessUp exec brightnessctl -d amdgpu_bl2 set 10%+";
+    #};
   };
 }

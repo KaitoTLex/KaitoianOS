@@ -15,6 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   networking.hostName = "kuroko"; # Define your hostname.
 
   #Nvidia Hardware begins 
@@ -63,7 +64,6 @@
   security.polkit.enable = true;
   # Enable networking
   networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
@@ -87,11 +87,11 @@
   # programs.mtr.enable = true;
   services.fprintd = {
     enable = true;
-    #package = pkgs.fprintd-tod;
-    #tod = {
-    # enable = false;
-    # driver = pkgs.libfprint-2-tod1-elan;
-    #};
+    package = pkgs.fprintd-tod;
+    tod = {
+      enable = true;
+      driver = pkgs.libfprint-2-tod1-elan;
+    };
   };
   # List services that you want to enable:
   services.actkbd = {

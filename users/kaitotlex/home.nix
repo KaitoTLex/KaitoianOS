@@ -33,6 +33,7 @@
     chromium
     manga-tui
     thunderbird
+    rustup
 
     pamixer
 
@@ -94,6 +95,7 @@
 
     #sway Modules
     swaybg
+    xwayland
 
     # LaTeX stuff
     texliveFull
@@ -204,7 +206,7 @@
   programs.oh-my-posh = {
     enable = true;
     # enableZshIntegration = true;
-    enableFishIntegration = true;
+    enableFishIntegration = false;
     enableBashIntegration = true;
     useTheme = "gruvbox";
   };
