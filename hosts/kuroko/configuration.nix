@@ -17,6 +17,7 @@
   virtualisation.waydroid.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
   networking.hostName = "kuroko"; # Define your hostname.
+  services.ratbagd.enable = true;
 
   #Nvidia Hardware begins 
   hardware.nvidia = {

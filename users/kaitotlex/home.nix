@@ -35,11 +35,14 @@
     thunderbird
     rustc
     cargo
-
+    yubikey-manager
+    libratbag
     pamixer
 
     sl
 
+    piper
+    nwg-displays
     dolphin
     xfce.thunar
 
@@ -155,6 +158,7 @@
 
     brightnessctl
   ];
+
   programs.rofi = {
     enable = true;
     cycle = true;
