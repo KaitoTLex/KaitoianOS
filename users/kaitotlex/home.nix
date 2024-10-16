@@ -52,6 +52,8 @@
     mpv
     sherlock
 
+    steam
+
     notion-app-enhanced
     # archives
     zip
