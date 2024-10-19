@@ -38,9 +38,7 @@
     yubikey-manager
     libratbag
     pamixer
-
     sl
-
     piper
     nwg-displays
     dolphin

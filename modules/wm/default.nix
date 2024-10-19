@@ -26,13 +26,13 @@
     wrapperFeatures.gtk = true;
   };
 
-  home.pointerCursor = {
-    name = "apple_cursor";
-    package = pkgs.apple-cursor;
-    size = 24;
-    x11 = {
-      enable = true;
-      defaultCursor = "apple_cursor";
-    };
-  };
+  #home.pointerCursor = {
+  #name = "apple_cursor";
+  #package = pkgs.apple-cursor;
+  #size = 24;
+  #x11 = {
+  #enable = true;
+  #defaultCursor = "apple_cursor";
+  #};
+  #};
 }
