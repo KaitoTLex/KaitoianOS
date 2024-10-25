@@ -161,8 +161,8 @@
           icon-size = 20;
           max-length = 50;
           rewrite = {
-            "(.*) — LibreWolf" = "$1";
-            "(.*) — Zen Browser" = "$1";
+            "(.*) — firefox" = "$1";
+            "(.*) — chromium" = "$1";
             "^$" = "👾";
           };
         };
