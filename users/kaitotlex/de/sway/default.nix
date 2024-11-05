@@ -62,9 +62,5 @@
       ];
     };
     xwayland = true;
-    #extraConfigs = {
-    # keybindings = "bindsym XF86MonBrightnessDown exec brightnessctl -d amdgpu_bl2 set 10%- \n
-    #   bindsym XF86MonBrightnessUp exec brightnessctl -d amdgpu_bl2 set 10%+";
-    #};
   };
 }

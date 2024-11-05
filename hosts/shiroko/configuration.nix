@@ -21,7 +21,7 @@
   networking.hostName = "shiroko"; # Define your hostname.
 
   services.fprintd.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = false;
   services.actkbd = {
     enable = true;
     bindings = [
