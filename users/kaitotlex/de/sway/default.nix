@@ -62,5 +62,13 @@
       ];
     };
     xwayland = true;
+    extraConfig = ''
+      bindsym XF86AudioRaiseVolume exec pamixer -i 5 
+      bindsym XF86AudioLowerVolume exec pamixer -d 5
+      bindsym XF86AudioMute exec pamixer -t 
+      bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
+      bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+    '';
   };
+
 }

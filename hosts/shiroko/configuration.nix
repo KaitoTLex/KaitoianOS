@@ -13,7 +13,7 @@
   ];
 
   boot.initrd.luks.fido2Support = true;
-
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,21 +22,6 @@
 
   services.fprintd.enable = true;
   services.desktopManager.plasma6.enable = false;
-  services.actkbd = {
-    enable = true;
-    bindings = [
-      {
-        keys = [ 232 ];
-        events = [ "key" ];
-        command = "${pkgs.brightnessctl}/bin/brightnessctl set 1000";
-      }
-      {
-        keys = [ 233 ];
-        events = [ "key" ];
-        command = "${pkgs.brightnessctl}/bin/brightnessctl set 1000-";
-      }
-    ];
-  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
