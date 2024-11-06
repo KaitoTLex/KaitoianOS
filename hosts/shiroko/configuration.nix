@@ -19,8 +19,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
   networking.hostName = "shiroko"; # Define your hostname.
+  security.pam.yubico.enable = true;
 
   services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
   services.desktopManager.plasma6.enable = false;
 
   # Configure network proxy if necessary
