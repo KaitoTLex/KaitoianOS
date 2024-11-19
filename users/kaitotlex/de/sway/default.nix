@@ -4,7 +4,7 @@
     config = rec {
       terminal = "kitty";
       modifier = "Mod4";
-      menu = "rofi -show drun";
+      menu = "rofi -show combi";
       bars = [
         {
           command = "waybar";
@@ -68,6 +68,13 @@
       bindsym XF86AudioMute exec pamixer -t 
       bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
       bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+      bindsym XF86AudioMicMute exec spotify
+      input "type:touchpad" {
+          natural_scroll enabled
+          tap enabled         # enables click-on-tap
+          tap_button_map lrm  # tap with 1 finger = left click, 2 fingers = right click, 3 fingers = middle click
+          dwt enabled         # disable (touchpad) while typing
+      }
     '';
   };
 

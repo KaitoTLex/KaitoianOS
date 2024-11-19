@@ -11,7 +11,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
+  hardware.graphics.enable32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
   boot.initrd.luks.fido2Support = true;
   boot.kernelParams = [ "mem_sleep_default=deep" ];
   # Bootloader.
@@ -19,10 +20,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
   networking.hostName = "shiroko"; # Define your hostname.
-  security.pam.yubico.enable = true;
+  #security yargen
+  # security.pam.yubico.enable = true;
+  services.fprintd = {
+    #tod.enable = true;
+    enable = true;
+  };
+  security.pam.services.root.fprintAuth = true;
 
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
+  #If i become a twat
   services.desktopManager.plasma6.enable = false;
 
   # Configure network proxy if necessary
@@ -31,6 +37,38 @@
   security.polkit.enable = true;
   # Enable networking
   networking.networkmanager.enable = true;
+
+  #Here's my Attempt of Sleep XD
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowHybridSleep=yes
+    AllowSuspendThenHibernate=yes
+  '';
+  #Conclusion: Intel Hates Me 
+
+  #laptop Optmization
+  powerManagement.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "balance_performance";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_performance";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+
+      #Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 20; # 40 and bellow it starts to charge
+      STOP_CHARGE_THRESH_BAT0 = 95; # 80 and above it stops charging
+
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
