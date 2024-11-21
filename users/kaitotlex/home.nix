@@ -48,12 +48,12 @@
     nwg-displays
     dolphin
     xfce.thunar
-
     clang
     macchanger
     ani-cli
     mpv
     sherlock
+    tinymist
 
     steam
 

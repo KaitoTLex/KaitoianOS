@@ -164,11 +164,11 @@
         "plugins-typst-preview": "plugins-typst-preview"
       },
       "locked": {
-        "lastModified": 1730298117,
-        "narHash": "sha256-2k0YeF7OiYUsNecw/OxsSqU6B5BGatlP4EYdUkacJH0=",
+        "lastModified": 1730314764,
+        "narHash": "sha256-f0t64L1CNt9fk5RybSzSVAfbxiN16/7n1e1AJ9RXz5k=",
         "owner": "kaitotlex",
         "repo": "vix1",
-        "rev": "4fc7cd70506dc34b2df9d9c9aed1b02caf144b17",
+        "rev": "8d6c23f9b75460f21d2853e83bde65d1eb63a0a6",
         "type": "github"
       },
       "original": {
