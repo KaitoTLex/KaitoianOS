@@ -22,7 +22,6 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-    xdg-desktop-portal-gtk
     pavucontrol
     ryujinx
     unzip
@@ -181,6 +180,11 @@
 
     brightnessctl
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
 
   programs.rofi = {
     enable = true;
