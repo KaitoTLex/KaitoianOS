@@ -4,7 +4,7 @@
     config = rec {
       terminal = "kitty";
       modifier = "Mod4";
-      menu = "rofi -show drun";
+      menu = "rofi -show combi";
       bars = [
         {
           command = "waybar";
@@ -62,9 +62,20 @@
       ];
     };
     xwayland = true;
-    #extraConfigs = {
-    # keybindings = "bindsym XF86MonBrightnessDown exec brightnessctl -d amdgpu_bl2 set 10%- \n
-    #   bindsym XF86MonBrightnessUp exec brightnessctl -d amdgpu_bl2 set 10%+";
-    #};
+    extraConfig = ''
+      bindsym XF86AudioRaiseVolume exec pamixer -i 5 
+      bindsym XF86AudioLowerVolume exec pamixer -d 5
+      bindsym XF86AudioMute exec pamixer -t 
+      bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
+      bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+      bindsym XF86AudioMicMute exec spotify
+      input "type:touchpad" {
+          natural_scroll enabled
+          tap enabled         # enables click-on-tap
+          tap_button_map lrm  # tap with 1 finger = left click, 2 fingers = right click, 3 fingers = middle click
+          dwt enabled         # disable (touchpad) while typing
+      }
+    '';
   };
+
 }

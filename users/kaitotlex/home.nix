@@ -22,6 +22,16 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
+    xdg-desktop-portal-gtk
+    pavucontrol
+    ryujinx
+    unzip
+    sixpair
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+    kdePackages.qtsvg
+    kdePackages.qtwayland
+    yubikey-personalization
     typst-live
     typst
     tmux
@@ -33,6 +43,7 @@
     wineWowPackages.waylandFull
     wget
     vscode
+    melonDS
     gparted
     gnumake
     chromium
@@ -48,6 +59,12 @@
     nwg-displays
     dolphin
     xfce.thunar
+<<<<<<< HEAD
+=======
+    tailwindcss
+
+    nodejs_22
+>>>>>>> refs/remotes/origin/main
     clang
     macchanger
     ani-cli
@@ -56,6 +73,7 @@
     tinymist
 
     steam
+    blueman
 
     notion-app-enhanced
     # archives
