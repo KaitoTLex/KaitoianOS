@@ -58,12 +58,9 @@
     nwg-displays
     dolphin
     xfce.thunar
-<<<<<<< HEAD
-=======
     tailwindcss
 
     nodejs_22
->>>>>>> refs/remotes/origin/main
     clang
     macchanger
     ani-cli

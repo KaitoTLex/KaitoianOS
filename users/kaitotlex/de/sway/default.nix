@@ -75,6 +75,9 @@
           tap_button_map lrm  # tap with 1 finger = left click, 2 fingers = right click, 3 fingers = middle click
           dwt enabled         # disable (touchpad) while typing
       }
+      bindsym XF86KbdBrightnessDown exec brightnessctl -d asus::kbd_backlight s 1- 
+      bindsym XF86KbdBrightnessUp exec brightnessctl -d asus::kbd_backlight s +1
+      bindsym XF86Tools exec suspend exec brightnessctl s 0
     '';
   };
 
