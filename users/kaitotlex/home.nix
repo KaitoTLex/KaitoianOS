@@ -60,6 +60,11 @@
     xfce.thunar
     tailwindcss
 
+    typescript
+    typescript-language-server
+    live-server
+    tailwindcss
+    tailwindcss-language-server
     nodejs_22
     clang
     macchanger

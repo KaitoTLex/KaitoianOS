@@ -11,6 +11,11 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+  #hardware.bluetooth.setting = {
+  #General = {
+  #  ClassicBondedOnly = false;
+  # };
+  #};
   hardware.graphics.enable32Bit = true;
   hardware.pulseaudio.support32Bit = true;
   boot.initrd.luks.fido2Support = true;

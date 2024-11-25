@@ -77,7 +77,8 @@
       }
       bindsym XF86KbdBrightnessDown exec brightnessctl -d asus::kbd_backlight s 1- 
       bindsym XF86KbdBrightnessUp exec brightnessctl -d asus::kbd_backlight s +1
-      bindsym XF86Tools exec suspend exec brightnessctl s 0
+      bindsym XF86Tools exec brightnessctl s 0
+      bindsym XF86WebCam exec systemctl sleep
     '';
   };
 
