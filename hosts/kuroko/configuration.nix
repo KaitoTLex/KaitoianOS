@@ -18,7 +18,8 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
-
+  hardware.graphics.enable32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
   #Nvidia Hardware begins 
   hardware.nvidia = {
 
