@@ -223,13 +223,18 @@
 
   programs.kitty = {
     enable = true;
-    theme = "Kanagawa_dragon";
-    font.name = "CaskaydiaCove Nerd Font";
     settings = {
       font_size = 12;
-      window_padding_width = "8 8 0";
+      window_padding_width = "8 8";
       confirm_os_window_close = -1;
-      shell_integration = "enabled";
+      enable_audio_bell = "no";
+      background_opacity = pkgs.lib.mkForce "0.8";
+      allow_remote_control = "yes";
+      listen_on = "unix:/tmp/kitty";
+      scrollback_pager = ''nvim --noplugin -c "set signcolumn=no showtabline=0" -c "silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - "'';
+      cursor = pkgs.lib.mkForce "#c0caf5";
+      cursor_text_color = pkgs.lib.mkForce "#1a1b26";
+      cursor_trail = 3;
     };
   };
 
@@ -317,9 +322,7 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "tokyo-night";
       vim_keys = true;
-      theme_background = false;
     };
   };
 

@@ -5,5 +5,6 @@
     ../../modules/wm
     ../../modules/security
     ../../modules/audio
+    ../../modules/stylix
   ];
 }

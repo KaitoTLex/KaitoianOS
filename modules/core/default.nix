@@ -19,11 +19,6 @@
       "flakes"
     ];
     optimise.automatic = true;
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
     # Free up to 1GiB when there is less than 100MiB left
     extraOptions = ''
       min-free = ${toString (100 * 1024 * 1024)}
@@ -50,7 +45,7 @@
     };
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
     ];
@@ -68,6 +63,13 @@
       "networkmanager"
       "wheel"
     ];
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 3 --keep-since 4d";
+    flake = "/home/kaitotlex/nixos";
   };
 
   programs.fish.enable = true;

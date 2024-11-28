@@ -3,5 +3,6 @@
     ./home.nix
     ./spicetify.nix
     ./de
+    ./stylix
   ];
 }

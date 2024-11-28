@@ -2,6 +2,7 @@
   description = "System configuration flake.";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,6 +12,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:kaitotlex/vix1";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wallpapers = {
+      url = "github:kaitotlex/wallpaper";
+      flake = false;
+    };
   };
 
   outputs =
