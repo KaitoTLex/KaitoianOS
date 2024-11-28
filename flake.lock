@@ -164,11 +164,11 @@
         "plugins-typst-preview": "plugins-typst-preview"
       },
       "locked": {
-        "lastModified": 1732575304,
-        "narHash": "sha256-0ksDSkidVOeWZtMkRp4+x3Oar3n/WKLdIuFdXQmHBqk=",
+        "lastModified": 1732647323,
+        "narHash": "sha256-kvGiJ3ANwrvxbQVNHPhnimOBxQXnAaUvL9yJKwkmgBs=",
         "owner": "kaitotlex",
         "repo": "vix1",
-        "rev": "4abad5c8c1abb2e07bf8da302c9fa1d45a47aaa5",
+        "rev": "ab175943cfd30f34dc74693203293c42b3dc9406",
         "type": "github"
       },
       "original": {
@@ -242,11 +242,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732508213,
-        "narHash": "sha256-0rfdpRO1KnesH0XHv8mAHmfsPQXnHiwiu79sN3nCy/0=",
+        "lastModified": 1732594596,
+        "narHash": "sha256-XGAdvRhat+DST+bRBsGYYyno9MKMUCPu6/KTKnRgpj4=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "4841814c6e22958aff9dd8c68fd2153237fbf15e",
+        "rev": "626e9d49eb7f5122a60e0500f08051267484ebee",
         "type": "github"
       },
       "original": {
