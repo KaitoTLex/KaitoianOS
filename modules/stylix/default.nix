@@ -8,6 +8,7 @@
     enable = true;
     image = "${inputs.wallpapers}/math/bifurcation.png";
     polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     fonts = {
       serif = {
@@ -30,7 +31,7 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 26;
+      size = 20;
     };
   };
 }

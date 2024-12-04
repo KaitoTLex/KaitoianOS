@@ -20,11 +20,28 @@
     graphics.enable32Bit = true;
     pulseaudio.support32Bit = true;
   };
-  boot.initrd.luks.fido2Support = true;
-  boot.kernelParams = [ "mem_sleep_default=deep" ];
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    # initrd.luks.fido2Support = true;
+    # Bootloader.
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    plymouth = {
+      enable = true;
+      font = "${config.stylix.fonts.monospace.package}/share/fonts/truetype/NerdFonts/CaskaydiaCoveNerdFontMono-Regular.ttf";
+    };
+    consoleLogLevel = 3;
+    initrd.systemd.enable = true;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      "mem_sleep_default=deep"
+    ];
+  };
   virtualisation.waydroid.enable = true;
   networking.hostName = "shiroko"; # Define your hostname.
 
@@ -33,6 +50,22 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings = {
+        main = {
+          capslock = "esc";
+          leftalt = "leftcontrol";
+          leftcontrol = "leftalt";
+          y = "z";
+          z = "y";
+        };
+      };
+    };
   };
   #security yargen
   # security.pam.yubico.enable = true;
