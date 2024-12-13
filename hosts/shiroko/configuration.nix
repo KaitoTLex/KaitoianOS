@@ -68,13 +68,6 @@
     };
   };
   #security yargen
-  # security.pam.yubico.enable = true;
-  services.fprintd = {
-    #tod.enable = true;
-    enable = true;
-  };
-  security.pam.services.root.fprintAuth = true;
-
   #If i become a twat
   services.desktopManager.plasma6.enable = false;
 

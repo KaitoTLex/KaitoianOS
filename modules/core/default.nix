@@ -47,7 +47,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      nerd-fonts.mononoki
+      nerd-fonts.caskaydia-cove
       #(nerdfonts.override { fonts = [ nerd-fonts.CascadiaCode ]; })
     ];
   };
