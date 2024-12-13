@@ -22,6 +22,11 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
+    tetrio-desktop
+    #tetrio-plus
+    cbonsai
+    xfce.tumbler
+    vitetris
     playerctl
     lunar-client
     texlab
@@ -75,6 +80,8 @@
     ani-cli
     mpv
     sherlock
+    clang-analyzer
+    clang-tools
     tinymist
 
     steam
@@ -206,10 +213,7 @@
     userName = "KaitoTLex";
     userEmail = "warrenlin1688@gmail.com";
     delta.enable = true;
-    extraConfig = {
-      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
-      init.defaultBranch = "main";
-    };
+
   };
 
   programs.neovim.defaultEditor = true;
@@ -229,13 +233,16 @@
       window_padding_width = "8 8";
       confirm_os_window_close = -1;
       enable_audio_bell = "no";
-      background_opacity = pkgs.lib.mkForce "0.8";
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/kitty";
       scrollback_pager = ''nvim --noplugin -c "set signcolumn=no showtabline=0" -c "silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - "'';
       cursor = pkgs.lib.mkForce "#c0caf5";
       cursor_text_color = pkgs.lib.mkForce "#1a1b26";
       cursor_trail = 3;
+      background_image = "${inputs.wallpapers}/kitty/moominResized.png";
+      background_image_layout = "cscaled";
+      #background_image_linear = "yes";
+      background_opacity = pkgs.lib.mkForce "0.8";
     };
   };
 

@@ -47,10 +47,10 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+      nerd-fonts.CascadiaCode
+      #(nerdfonts.override { fonts = [ nerd-fonts.CascadiaCode ]; })
     ];
   };
-
   environment.systemPackages = [
     inputs.nixvim.packages.${pkgs.system}.default
   ];
