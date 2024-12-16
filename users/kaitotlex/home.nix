@@ -24,6 +24,11 @@
     # feel free to add your own or remove some of them
     tetrio-desktop
     #tetrio-plus
+    prismlauncher
+    #minecraft
+    asciiquarium-transparent
+    fortune
+    cowsay
     cbonsai
     xfce.tumbler
     vitetris
@@ -242,7 +247,7 @@
       background_image = "${inputs.wallpapers}/kitty/moominResized.png";
       background_image_layout = "cscaled";
       #background_image_linear = "yes";
-      background_opacity = pkgs.lib.mkForce "0.8";
+      background_opacity = pkgs.lib.mkForce "0.6";
     };
   };
 

@@ -1,8 +1,6 @@
 {
   security.rtkit.enable = true;
   # Fingerprint Driver
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

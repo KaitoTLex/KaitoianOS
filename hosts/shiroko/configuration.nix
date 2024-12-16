@@ -11,6 +11,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
   #hardware.bluetooth.setting = {
   #General = {
   #  ClassicBondedOnly = false;
@@ -27,7 +29,7 @@
     loader.efi.canTouchEfiVariables = true;
     plymouth = {
       enable = true;
-      font = "${config.stylix.fonts.monospace.package}/share/fonts/truetype/NerdFonts/CaskaydiaCoveNerdFontMono-Regular.ttf";
+      font = "${config.stylix.fonts.monospace.package}/share/fonts/truetype/NerdFonts/CaskaydiaCove/CaskaydiaCoveNerdFontMono-Regular.ttf";
     };
     consoleLogLevel = 3;
     initrd.systemd.enable = true;
