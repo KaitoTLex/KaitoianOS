@@ -53,6 +53,10 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     #Power Saving Features 
     prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       # Make sure to use the correct Bus ID values for your system!
       #intelBusId = "PCI:";
       nvidiaBusId = "PCI:01:0:0";
@@ -60,7 +64,6 @@
     };
 
   };
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -85,6 +88,21 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings = {
+        main = {
+          capslock = "esc";
+          leftalt = "leftcontrol";
+          leftcontrol = "leftalt";
+          y = "z";
+          z = "y";
+        };
+      };
+    };
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
