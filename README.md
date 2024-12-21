@@ -52,6 +52,6 @@ cp /etc/nixos/hardware-configuration.nix ~/KaitoianOS/hosts/shiroko/hardware-con
 
 5. Recompile your os by 
 ```sh
-sudo nixos-rebuild switch --flake .#shiroko #or kuroko
+sudo nixos-rebuild switch --flake .\#shiroko #or kuroko
 ```
 6. Enjoy!
