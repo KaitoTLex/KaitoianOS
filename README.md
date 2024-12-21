@@ -14,31 +14,44 @@ Wayland provides a more stable graphical enviornment due to the simplicity of th
 ### Shiroko - *Named after a Character from [*Blue Archive*](https://schaledb.com/student/shiroko)
 MSI Summit E13 Flip Evo
 > Intel i5 1155G7 @ 4.5GhZ
+
 > 16 GB LPDDR5
+
 > 256 GB Samsung Evo 970 SSD
+
 ### Kuroko - *Named after a Character from [*Blue Archive*](https://bluearchive.fandom.com/wiki/Shiroko_Terror)
 ROG (ASUS) Flow X13 2022
 > AMD R9 5900HS @ 5.1GhZ
+
 > Nvidia RTX3050Ti Mobile + 4GB GDDR6
+
 > 16 GB LPDDR4
+
 > 1TB Crucial (Allocated 128 for NixOS)
+
 ## How to Install or Clone
 
 1. First off, have NixOS installed as Minimal(No GUI) on the Graphical ISO Image that could be found [here](https://nixos.org/download/#nix-install-linux)
-2. Clone this repository at your ```home``` directory using 
-`nix-shell -p git`
+2. Clone this repository at your `home` directory using 
 
+```sh
+nix-shell -p git
+```
 then 
+```sh
+git clone git@github.com:KaitoTLex/KaitoianOS.git #or https://github.com/KaitoTLex/KaitoianOS.git if you're weird
+```
 
-`git clone git@github.com:KaitoTLex/KaitoianOS.git \#or https://github.com/KaitoTLex/KaitoianOS.git if you're weird`
+3. `cd` into the cloned directory
 
-3. ```cd``` into the cloned directory
+4. Copy your `hardware-configuration.nix` from your Installed os(/etc/nixos) with the following command
 
-4. Copy your ```hardware-configuration.nix``` from your Installed os(/etc/nixos) with the following command
-
-`cp /etc/nixos/hardware-configuration.nix ~/KaitoianOS/hosts/shiroko/hardware-configuration.nix #or kuroko if you have an Nvidia Graphics Card`
+```sh
+cp /etc/nixos/hardware-configuration.nix ~/KaitoianOS/hosts/shiroko/hardware-configuration.nix #or kuroko if you have an Nvidia Graphics Card
+```
 
 5. Recompile your os by 
-`sudo nixos-rebuild switch --flake .#shiroko #or kuroko`
-t push
+```sh
+sudo nixos-rebuild switch --flake .#shiroko #or kuroko
+```
 6. Enjoy!
