@@ -52,6 +52,9 @@
       #(nerdfonts.override { fonts = [ nerd-fonts.CascadiaCode ]; })
     ];
   };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
   environment.systemPackages = [
     inputs.nixvim.packages.${pkgs.system}.default
   ];
