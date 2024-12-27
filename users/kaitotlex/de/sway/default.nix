@@ -5,6 +5,7 @@
       terminal = "kitty";
       modifier = "Mod4";
       menu = "rofi -show combi";
+      lock = "swaylock";
       bars = [
         {
           command = "waybar";
