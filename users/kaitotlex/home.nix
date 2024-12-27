@@ -196,7 +196,7 @@
     ghidra
     social-engineer-toolkit
     aircrack-ng
-
+    swaylock-fancy
     brightnessctl
   ];
 
