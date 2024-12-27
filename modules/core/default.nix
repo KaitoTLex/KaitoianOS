@@ -1,9 +1,14 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  options,
+  ...
+}:
 {
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = false;
-
+  #services.ntp.enable = true;
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -25,7 +30,6 @@
       max-free = ${toString (1024 * 1024 * 1024)}
     '';
   };
-
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
@@ -58,6 +62,8 @@
   environment.systemPackages = [
     inputs.nixvim.packages.${pkgs.system}.default
   ];
+  #services.automatic-timezoned.enable = true;
+  #networking.timeServers = options.networking.timeServers.default ++ [ "time-macos.apple.com" ]; 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kaitotlex = {
