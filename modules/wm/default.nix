@@ -25,11 +25,11 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
-  programs.swaylock = {
-    enable = true;
-  };
+  # programs.swaylock = {
+  #   enable = true;
+  # };
 
-  security.pam.services.swaylock = { };
+  #security.pam.services.swaylock = { };
   #home.pointerCursor = {
   #name = "apple_cursor";
   #package = pkgs.apple-cursor;
