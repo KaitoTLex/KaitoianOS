@@ -23,6 +23,8 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     #davinci-resolve
+    rasm
+
     geoclue2
     lua
     tetrio-desktop
