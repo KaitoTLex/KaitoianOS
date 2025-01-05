@@ -114,9 +114,25 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Asia/Taipei"; # lib.mkDefault
+  #time.timeZone = "Americas/"; # Asia/Taipei lib.mkDefault
   #services.automatic-timezoned.enable = true;
+  time.timeZone = lib.mkForce null;
+  services.timesyncd.enable = true;
+  systemd.services = {
+    # Ensure network uplink on boot
+    NetworkManager-wait-online.enable = true;
 
+    # Automatic time zone switching
+    updateTimezone = {
+      description = "Automatically update timezone using `timedatectl` and `tzupdate`";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network-online.target" ];
+      requires = [ "network-online.target" ];
+      script = ''
+        timedatectl set-timezone $("${pkgs.tzupdate}/bin/tzupdate" -p)
+      '';
+    };
+  };
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

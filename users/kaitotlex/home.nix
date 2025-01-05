@@ -24,7 +24,7 @@
     # feel free to add your own or remove some of them
     #davinci-resolve
     rasm
-
+    arduino-language-server
     geoclue2
     lua
     tetrio-desktop
