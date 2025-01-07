@@ -24,7 +24,11 @@
     # feel free to add your own or remove some of them
     #davinci-resolve
     rasm
+<<<<<<< HEAD
     arduino-language-server
+=======
+    betterbird-unwrapped
+>>>>>>> 1ae8f16 (No)
     geoclue2
     lua
     tetrio-desktop

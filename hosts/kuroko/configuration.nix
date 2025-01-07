@@ -19,6 +19,7 @@
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
   hardware.graphics.enable32Bit = true;
+  xwayland.enable = true;
   hardware.pulseaudio.support32Bit = true;
   #Nvidia Hardware begins 
   hardware.nvidia = {
