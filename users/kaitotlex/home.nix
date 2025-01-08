@@ -25,6 +25,8 @@
     #davinci-resolve
     rasm
     arduino-language-server
+    #betterbird-unwrapped
+    osu-lazer
     geoclue2
     lua
     tetrio-desktop
