@@ -28,6 +28,7 @@
     geoclue2
     lua
     tetrio-desktop
+    osu-lazer
     #tetrio-plus
     prismlauncher
     #minecraft

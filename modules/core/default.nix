@@ -79,7 +79,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep 3 --keep-since 4d";
-    flake = "/home/kaitotlex/nixos";
+    flake = "/home/kaitotlex/nix/KaitoianOS";
   };
 
   programs.fish.enable = true;
