@@ -114,10 +114,10 @@
   };
 
   # Set your time zone.
-  #time.timeZone = "Americas/"; # Asia/Taipei lib.mkDefault
+  time.timeZone = "America/Los_Angeles"; # Asia/Taipei lib.mkDefault
   #services.automatic-timezoned.enable = true;
-  time.timeZone = lib.mkForce null;
-  services.timesyncd.enable = true;
+  #time.timeZone = lib.mkForce null;
+  #services.timesyncd.enable = true;
   systemd.services = {
     # Ensure network uplink on boot
     NetworkManager-wait-online.enable = true;
