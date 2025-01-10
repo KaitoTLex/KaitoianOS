@@ -88,7 +88,7 @@
     AllowHybridSleep=yes
     AllowSuspendThenHibernate=yes
   '';
-  #Conclusion: Intel Hates Me 
+  #Conclusion: Intel Hates Me
 
   #laptop Optmization
   powerManagement.enable = true;
