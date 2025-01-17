@@ -19,6 +19,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen = {
+      url = "github:kaitotlex/zen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     wallpapers = {
       url = "github:kaitotlex/wallpaper";
       flake = false;

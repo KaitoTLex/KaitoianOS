@@ -12,20 +12,26 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  #systemdefaults
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
-  hardware.graphics.enable32Bit = true;
   hardware.pulseaudio.support32Bit = true;
+
   #Nvidia Hardware begins
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+
   hardware.nvidia = {
 
     # Modesetting is required.
-    modesetting.enable = true;
+    modesetting.enable = lib.mkForce true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
@@ -44,11 +50,11 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = true;
+    open = lib.mkForce true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+    nvidiaSettings = false;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.production;
@@ -115,10 +121,22 @@
       driver = pkgs.libfprint-2-tod1-elan;
     };
   };
+  #System specific power management to fix...
+  services.tlp = {
+    enable = true;
+    settings = {
+      #Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 20; # 40 and bellow it starts to charge
+      STOP_CHARGE_THRESH_BAT0 = 98; # 80 and above it stops charging
 
+    };
+  };
   #System specific packages to install
   environment.systemPackages = with pkgs; [
     nvtop
+    osu-lazer
+    davinci-resolve
+    wacomtablet
   ];
 
   # List services that you want to enable:
