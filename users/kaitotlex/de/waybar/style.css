@@ -1,14 +1,14 @@
-@import "./rose-pine-dawn.css";
+@import "./nord.css";
 window#waybar {
     font-family: "CaskaydiaCove Nerd Font";
-    background-color: @base;
+    background-color: @bg;
     font-size: 0.8rem;
     border-radius: 0.5rem;
 }
 
 .modules-left {
     opacity: 1;
-    background: linear-gradient(45deg, @muted, @subtle);
+    background-color: @nord_bg_blue;
     border-radius: 0.5rem;
     padding: 2px;
 }
@@ -19,7 +19,7 @@ window#waybar {
 
 .modules-right {
     opacity: 1;
-    background-color: @subtle;
+    background-color: @nord_bg_blue;
     border-radius: 0.5rem;
     padding: 2px 2px 2px 10px
 }
@@ -29,7 +29,7 @@ window#waybar {
 } */
 
 #workspaces {
-    background-color: @rose;
+    background-color: @nord_bg_blue;
     border-radius: 0.5rem;
     padding: 0 2px;
 }
@@ -40,7 +40,7 @@ window#waybar {
 }
 
 #window {
-    background-color: @iris;
+    background-color: @workspacefocused;
     border-radius: 0.5rem;
     padding: 2px 5px;
 }
@@ -51,25 +51,25 @@ window#waybar {
 }
 
 #battery {
-    color: @foam;
+    color: @battery;
 }
 
 #memory {
-    color: @iris;
+    color: @memory;
 }
 
 #disk {
-    color: @gold;
+    color: @date;
 }
 
 #cpu {
-    color: @rose;
+    color: @cpu;
 }
 
 #temperature {
-    color: @foam;
+    color: @temp;
 }
 
 #network {
-    color: @rose;
+    color: @network;
 }
