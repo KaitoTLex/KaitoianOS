@@ -4,7 +4,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
 {
@@ -14,15 +13,12 @@
   ];
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
-  #hardware.bluetooth.setting = {
-  #General = {
-  #  ClassicBondedOnly = false;
-  # };
-  #};
+
   hardware = {
     graphics.enable32Bit = true;
     pulseaudio.support32Bit = true;
   };
+
   boot = {
     # initrd.luks.fido2Support = true;
     # Bootloader.
@@ -46,6 +42,9 @@
     ];
   };
   virtualisation.waydroid.enable = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   networking.hostName = "shiroko"; # Define your hostname.
 
   services.printing.enable = true;
