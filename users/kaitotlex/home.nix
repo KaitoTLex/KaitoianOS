@@ -22,19 +22,13 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-    #davinci-resolve
     libreoffice
     rasm
     arduino-language-server
-    #betterbird-unwrapped
-    osu-lazer
     geoclue2
     lua
     tetrio-desktop
-    osu-lazer
-    #tetrio-plus
     prismlauncher
-    #minecraft
     asciiquarium-transparent
     fortune
     cowsay
