@@ -1,0 +1,76 @@
+@import "./rose-pine-dawn.css";
+window#waybar {
+    font-family: "CaskaydiaCove Nerd Font";
+    background-color: @base;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.modules-left {
+    opacity: 1;
+    background: linear-gradient(45deg, @muted, @subtle);
+    border-radius: 0.5rem;
+    padding: 2px;
+}
+
+.modules-center {
+    opacity: 0;
+}
+
+.modules-right {
+    opacity: 1;
+    background-color: @subtle;
+    border-radius: 0.5rem;
+    padding: 2px 2px 2px 10px
+}
+
+/* label.module {
+    margin-left: -1px;
+} */
+
+#workspaces {
+    background-color: @rose;
+    border-radius: 0.5rem;
+    padding: 0 2px;
+}
+
+#workspaces button {
+    font-size: 0.6rem;
+    padding: 0 0.3rem 0 0;
+}
+
+#window {
+    background-color: @iris;
+    border-radius: 0.5rem;
+    padding: 2px 5px;
+}
+
+#clock {
+    border-radius: 0.5rem;
+    padding: 0 3px 0 0;
+}
+
+#battery {
+    color: @foam;
+}
+
+#memory {
+    color: @iris;
+}
+
+#disk {
+    color: @gold;
+}
+
+#cpu {
+    color: @rose;
+}
+
+#temperature {
+    color: @foam;
+}
+
+#network {
+    color: @rose;
+}
+
