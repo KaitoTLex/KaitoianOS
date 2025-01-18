@@ -8,7 +8,7 @@ window#waybar {
 
 .modules-left {
     opacity: 1;
-    background-color: @nord_bg_blue;
+    background-color: #95a3bb;
     border-radius: 0.5rem;
     padding: 2px;
 }
@@ -19,7 +19,7 @@ window#waybar {
 
 .modules-right {
     opacity: 1;
-    background-color: @nord_bg_blue;
+    background-color: #95a3bb;
     border-radius: 0.5rem;
     padding: 2px 2px 2px 10px
 }
@@ -29,7 +29,7 @@ window#waybar {
 } */
 
 #workspaces {
-    background-color: @nord_bg_blue;
+    background-color: #6e7581;
     border-radius: 0.5rem;
     padding: 0 2px;
 }
@@ -40,7 +40,7 @@ window#waybar {
 }
 
 #window {
-    background-color: @workspacefocused;
+    background-color: #95a3bb;
     border-radius: 0.5rem;
     padding: 2px 5px;
 }
