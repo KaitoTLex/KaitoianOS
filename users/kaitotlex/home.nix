@@ -195,7 +195,7 @@
     john
     lynis
     hydra-cli
-    ghidra
+    #ghidra
     social-engineer-toolkit
     aircrack-ng
     swaylock-fancy
