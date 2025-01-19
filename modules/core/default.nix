@@ -60,10 +60,11 @@
     NIXOS_OZONE_WL = "1";
   };
   environment.systemPackages = [
-    inputs.nixvim.packages.${pkgs.system}.default
+    inputs.nixvim.packages.${pkgs.stdenv.targetPlatform.system}.default
+    inputs.zen.packages.${pkgs.stdenv.targetPlatform.system}.default
   ];
   #services.automatic-timezoned.enable = true;
-  #networking.timeServers = options.networking.timeServers.default ++ [ "time-macos.apple.com" ]; 
+  #networking.timeServers = options.networking.timeServers.default ++ [ "time-macos.apple.com" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kaitotlex = {
