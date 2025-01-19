@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen = {
-      url = "github:kaitotlex/zen";
+      url = "github:youwen5/zen-browser-source-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {

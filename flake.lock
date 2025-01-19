@@ -547,14 +547,14 @@
       "locked": {
         "lastModified": 1731377913,
         "narHash": "sha256-U/NKOKRChr15VE2zT583iOJ/uBpAARBKfiAeNB+XNq4=",
-        "owner": "kaitotlex",
-        "repo": "zen",
+        "owner": "youwen5",
+        "repo": "zen-browser-source-flake",
         "rev": "4d151693f8fdf58bdcdc63ea51d1420b5779577c",
         "type": "github"
       },
       "original": {
-        "owner": "kaitotlex",
-        "repo": "zen",
+        "owner": "youwen5",
+        "repo": "zen-browser-source-flake",
         "type": "github"
       }
     }

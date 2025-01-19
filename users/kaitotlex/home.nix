@@ -258,7 +258,6 @@
     enable = true;
     package = pkgs.firefox-devedition;
   };
-
   programs.ripgrep.enable = true;
 
   programs.oh-my-posh = {
