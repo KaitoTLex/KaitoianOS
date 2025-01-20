@@ -2,6 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -10,9 +11,10 @@
 {
   imports = [
     # Include the results of the hardware scan.
+    inputs.ucodenix.nixosModules.default
     ./hardware-configuration.nix
   ];
-
+  services.ucodenix.enable = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -137,6 +139,7 @@
     osu-lazer
     davinci-resolve
     wacomtablet
+    obs-studio
   ];
 
   # List services that you want to enable:
