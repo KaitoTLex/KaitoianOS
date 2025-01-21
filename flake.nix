@@ -23,6 +23,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ucodenix = {
+      url = "github:e-tho/ucodenix";
+      inputs.nixpks.follows = "nixpkgs";
+    };
     wallpapers = {
       url = "github:kaitotlex/wallpaper";
       flake = false;

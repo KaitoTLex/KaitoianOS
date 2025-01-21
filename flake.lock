@@ -66,6 +66,23 @@
         "type": "github"
       }
     },
+    "cpu-microcodes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737223256,
+        "narHash": "sha256-aETUoryCkJSRWlxbgL8im40+2FfOm0u4X9aP5aZueME=",
+        "owner": "platomav",
+        "repo": "CPUMicrocodes",
+        "rev": "984b766433e99c7e945b5cc17519bb088084b3fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "platomav",
+        "repo": "CPUMicrocodes",
+        "rev": "984b766433e99c7e945b5cc17519bb088084b3fd",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -350,6 +367,7 @@
         "nixvim": "nixvim",
         "spicetify": "spicetify",
         "stylix": "stylix",
+        "ucodenix": "ucodenix",
         "wallpapers": "wallpapers",
         "zen": "zen"
       }
@@ -488,6 +506,24 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "ucodenix": {
+      "inputs": {
+        "cpu-microcodes": "cpu-microcodes"
+      },
+      "locked": {
+        "lastModified": 1737386190,
+        "narHash": "sha256-r9UOn9nMqDjY+ohnNCKs8SgN55UXTPI+RWhka2RcsXY=",
+        "owner": "e-tho",
+        "repo": "ucodenix",
+        "rev": "4c7931fcf713c4ddf730d275f07d916c5f4c4e7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "e-tho",
+        "repo": "ucodenix",
         "type": "github"
       }
     },
