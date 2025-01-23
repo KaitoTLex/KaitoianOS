@@ -25,10 +25,14 @@
     };
     ucodenix = {
       url = "github:e-tho/ucodenix";
-      inputs.nixpks.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {
       url = "github:kaitotlex/wallpaper";
+      flake = false;
+    };
+    aq = {
+      url = "github:quantum9innovation/aquamarine/patch-125";
       flake = false;
     };
   };

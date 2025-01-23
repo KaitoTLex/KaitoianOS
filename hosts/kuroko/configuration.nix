@@ -19,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   #systemdefaults
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
@@ -49,6 +49,8 @@
   hardware.graphics.enable32Bit = true;
 
   hardware.nvidia = {
+    # custom option defined in graphics/default.nix
+    usePatchedAquamarine = true;
 
     # Modesetting is required.
     modesetting.enable = lib.mkForce true;

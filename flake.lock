@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "aq": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736050555,
+        "narHash": "sha256-TUoKhJ2QMK2AYTRvBCRpYFmaSihiF/OgB+HDZjamZtI=",
+        "owner": "quantum9innovation",
+        "repo": "aquamarine",
+        "rev": "546ce7963d18cbd30b32bf8d464f9ab3f6d54f74",
+        "type": "github"
+      },
+      "original": {
+        "owner": "quantum9innovation",
+        "ref": "patch-125",
+        "repo": "aquamarine",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -362,6 +379,7 @@
     },
     "root": {
       "inputs": {
+        "aq": "aq",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
