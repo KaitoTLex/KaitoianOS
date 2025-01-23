@@ -24,6 +24,21 @@
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
   hardware.pulseaudio.support32Bit = true;
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "boot.shell_on_fail"
+    "rd.systemd.show_status=false"
+    "rd.udev.log_level=3"
+    "udev.log_priority=3"
+    "mem_sleep_default=deep"
+  ];
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowHybridSleep=yes
+    AllowSuspendThenHibernate=yes
+  '';
 
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
