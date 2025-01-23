@@ -31,6 +31,10 @@
       url = "github:kaitotlex/wallpaper";
       flake = false;
     };
+    aq = {
+      url = "github:quantum9innovation/aquamarine/patch-125";
+      flake = false;
+    };
   };
 
   outputs =
