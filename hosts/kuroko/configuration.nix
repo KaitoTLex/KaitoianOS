@@ -19,38 +19,32 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_5_15;
   #systemdefaults
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
   hardware.pulseaudio.support32Bit = true;
   boot.kernelParams = [
-    "quiet"
-    "splash"
-    "boot.shell_on_fail"
-    "rd.systemd.show_status=false"
-    "rd.udev.log_level=3"
-    "udev.log_priority=3"
     "mem_sleep_default=deep"
   ];
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=yes
-    AllowHybridSleep=yes
-    AllowSuspendThenHibernate=yes
-  '';
+  # systemd.sleep.extraConfig = ''
+  #   AllowSuspend=yes
+  #   AllowHibernation=yes
+  #   AllowHybridSleep=yes
+  #   AllowSuspendThenHibernate=yes
+  # '';
 
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
     "nvidia"
-    # "amdgpu"
+    "amdgpu"
   ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
   hardware.nvidia = {
     # custom option defined in graphics/default.nix
-    usePatchedAquamarine = true;
+    #usePatchedAquamarine = true;
 
     # Modesetting is required.
     modesetting.enable = lib.mkForce true;
@@ -63,7 +57,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = lib.mkForce true;
+    powerManagement.finegrained = lib.mkForce false;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -76,7 +70,7 @@
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
-    nvidiaSettings = false;
+    nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.beta;
@@ -88,8 +82,8 @@
       };
       # Make sure to use the correct Bus ID values for your system!
       #intelBusId = "PCI:";
-      nvidiaBusId = "PCI:01:0:0";
-      amdgpuBusId = "PCI:08:0:0";
+      nvidiaBusId = "PCI:01:00:0";
+      amdgpuBusId = "PCI:08:00:0";
     };
 
   };
