@@ -25,7 +25,7 @@
     };
     ucodenix = {
       url = "github:e-tho/ucodenix";
-      inputs.nixpks.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {
       url = "github:kaitotlex/wallpaper";
