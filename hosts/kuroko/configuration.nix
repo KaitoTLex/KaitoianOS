@@ -26,7 +26,10 @@
   hardware.pulseaudio.support32Bit = true;
 
   #Nvidia Hardware begins
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    # "amdgpu"
+  ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
@@ -59,7 +62,7 @@
     nvidiaSettings = false;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     #Power Saving Features
     prime = {
       offload = {

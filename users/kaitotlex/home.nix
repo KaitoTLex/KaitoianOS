@@ -41,6 +41,7 @@
     texlab
     gramma
     pavucontrol
+    libsecret
     ryujinx
     unzip
     sixpair
@@ -183,6 +184,7 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+    git-credential-oauth
 
     # messaging apps
     vesktop
@@ -220,11 +222,8 @@
   programs.git = {
     enable = true;
     userName = "KaitoTLex";
-    userEmail = "warrenlin1688@gmail.com";
-    delta.enable = true;
-
+    userEmail = "wlin@kaitotlex.systems";
   };
-
   programs.neovim.defaultEditor = true;
 
   programs.lazygit.enable = true;
@@ -275,7 +274,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch";
+      nixr = "nh os switch .";
       ls = "eza -l --icons=auto";
     };
     functions = {
