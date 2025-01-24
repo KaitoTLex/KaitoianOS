@@ -19,14 +19,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.waydroid.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  #boot.kernelPackages = pkgs.linuxPackages_5_15;
   #systemdefaults
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
+
   hardware.pulseaudio.support32Bit = true;
-  boot.kernelParams = [
-    "mem_sleep_default=deep"
-  ];
+  # boot.kernelParams = [
+  #   "mem_sleep_default=deep"
+  # ];
   # systemd.sleep.extraConfig = ''
   #   AllowSuspend=yes
   #   AllowHibernation=yes
