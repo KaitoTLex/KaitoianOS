@@ -20,7 +20,6 @@
   };
 
   boot = {
-    # initrd.luks.fido2Support = true;
     # Bootloader.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -111,7 +110,9 @@
 
     };
   };
+  environment.systemPackages = with pkgs; [
 
+  ];
   # Set your time zone.
   time.timeZone = "America/Los_Angeles"; # Asia/Taipei lib.mkDefault
   #services.automatic-timezoned.enable = true;
