@@ -23,6 +23,7 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     android-tools
+    wacomtablet
     prusa-slicer
     openhantek6022
     tor
@@ -228,7 +229,7 @@
     userEmail = "wlin@kaitotlex.systems";
     signing = {
       signByDefault = true;
-      key = "BC04C0C14AEDA705B8FBACE8C5F52A3C0F3B4A77";
+      key = "2AE6771F14386F9B85E48685A9209668BFA39C0E";
     };
 
   };

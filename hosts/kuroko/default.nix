@@ -6,6 +6,6 @@
     ../../modules/security
     ../../modules/audio
     ../../modules/stylix
-    ../../modules/eletrical
+    ../../modules/electrical
   ];
 }

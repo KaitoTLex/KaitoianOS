@@ -129,6 +129,7 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
+  hardware.opentabletdriver.enable = true;
   services.fprintd = {
     enable = true;
     package = pkgs.fprintd-tod;
