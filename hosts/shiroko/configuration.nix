@@ -17,6 +17,7 @@
   hardware = {
     graphics.enable32Bit = true;
     pulseaudio.support32Bit = true;
+    openrazer.enable = true;
   };
 
   boot = {
@@ -111,7 +112,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-
+    openrazer-daemon
   ];
   # Set your time zone.
   time.timeZone = "America/Los_Angeles"; # Asia/Taipei lib.mkDefault
