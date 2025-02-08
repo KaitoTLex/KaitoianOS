@@ -15,6 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "kuroko"; # Define your hostname.
+  boot.kernelPackages = pkgs.linuxPackages_6_13;
   services.ratbagd.enable = true;
   hardware.pulseaudio.support32Bit = true;
 
