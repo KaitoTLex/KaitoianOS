@@ -92,5 +92,30 @@
           }
         ];
       };
+      nixosConfigurations.kurokoNightly = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/kurokoNightly
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+              users.kaitotlex = {
+                imports = [ ./users/kaitotlex ];
+              };
+            };
+          }
+        ];
+      };
+
     };
 }
