@@ -6,7 +6,7 @@
 
   stylix = {
     enable = true;
-    image = "${inputs.wallpapers}/vtubers/nordMachi-resized.png";
+    image = "${inputs.wallpapers}/math/fastInversNord.png";
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 

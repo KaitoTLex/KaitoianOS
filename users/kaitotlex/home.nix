@@ -22,6 +22,9 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
+    gfortran
+    affine-bin
+    elmPackages.elm
     kicad
     android-tools
     wacomtablet
@@ -80,7 +83,6 @@
     sl
     piper
     nwg-displays
-    dolphin
     xfce.thunar
     tailwindcss
 
@@ -166,7 +168,6 @@
     texlivePackages.csquotes
     texlivePackages.csquotes-de
     texlivePackages.collection-latexextra
-    texpresso
 
     btop # replacement of htop/nmon
     iotop # io monitoring
@@ -200,7 +201,7 @@
     netcat
     nmap
     metasploit
-    john
+    #john
     lynis
     hydra-cli
     #ghidra
@@ -230,7 +231,7 @@
     userEmail = "wlin@kaitotlex.systems";
     signing = {
       signByDefault = true;
-      key = "2AE6771F14386F9B85E48685A9209668BFA39C0E";
+      key = "BC04C0C14AEDA705B8FBACE8C5F52A3C0F3B4A77";
     };
 
   };

@@ -13,13 +13,26 @@
   ];
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
+ hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+   hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      # your Open GL, Vulkan and VAAPI drivers
+      vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
+      # onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
+      # intel-media-sdk   # for older GPUs
+    ];
+  };
 
   hardware = {
     graphics.enable32Bit = true;
     pulseaudio.support32Bit = true;
     openrazer.enable = true;
   };
-
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
   boot = {
     # Bootloader.
     loader.systemd-boot.enable = true;
@@ -113,6 +126,7 @@
   };
   environment.systemPackages = with pkgs; [
     openrazer-daemon
+    distrobox
   ];
   # Set your time zone.
   time.timeZone = "America/Los_Angeles"; # Asia/Taipei lib.mkDefault
@@ -135,7 +149,47 @@
     };
   };
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+
+networking.firewall = {
+    allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
+  };
+  # Enable WireGuard
+  # networking.wireguard.interfaces = {
+  #   # "wg0" is the network interface name. You can name the interface arbitrarily.
+  #   wg0 = {
+  #     # Determines the IP address and subnet of the client's end of the tunnel interface.
+  #     ips = [ "10.100.0.2/24" ];
+  #     listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+  #
+  #     # Path to the private key file.
+  #     #
+  #     # Note: The private key can also be included inline via the privateKey option,
+  #     # but this makes the private key world-readable; thus, using privateKeyFile is
+  #     # recommended.
+  #     privateKeyFile = "path to private key file";
+  #
+  #     peers = [
+  #       # For a client configuration, one peer entry for the server will suffice.
+  #
+  #       {
+  #         # Public key of the server (not a file path).
+  #         publicKey = "{server public key}";
+  #
+  #         # Forward all the traffic via VPN.
+  #         allowedIPs = [ "0.0.0.0/0" ];
+  #         # Or forward only particular subnets
+  #         #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
+  #
+  #         # Set this to the server IP and port.
+  #         endpoint = "{server ip}:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+  #
+  #         # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+  #         persistentKeepalive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
+i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -148,7 +202,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
+ 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
