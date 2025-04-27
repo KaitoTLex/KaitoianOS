@@ -24,7 +24,6 @@
     };
     ucodenix = {
       url = "github:e-tho/ucodenix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {
       url = "github:kaitotlex/wallpaper";
@@ -81,7 +80,14 @@
                 inherit inputs;
               };
               users.kaitotlex = {
-                imports = [ ./users/kaitotlex ];
+                imports = [
+                  ./users/kaitotlex
+                  {
+                    wayland.windowManager.hyprland.settings.monitor = [
+                      "eDP-1,1920x1200@120,0x0,1.25"
+                    ];
+                  }
+                ];
               };
             };
           }
