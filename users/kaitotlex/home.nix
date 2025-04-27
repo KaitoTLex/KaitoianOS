@@ -22,7 +22,11 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-    gfortran
+    #gfortran14
+    python312Packages.pip
+    pipx
+    rpcs3
+    dolphin-emu
     affine-bin
     elmPackages.elm
     kicad
@@ -147,7 +151,7 @@
     # productivity
     glow # markdown previewer in terminal
     obsidian # markdown previewer
-    thunderbird-unwrapped # Full Feature Email Client
+    #thunderbird-unwrapped # Full Feature Email Client
 
     #sway Modules
     swaybg
@@ -266,10 +270,10 @@
     };
   };
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition;
-  };
+  # programs.firefox = {
+  #   enable = true;
+  #   package = pkgs.firefox-devedition;
+  # };
   programs.ripgrep.enable = true;
 
   programs.oh-my-posh = {
