@@ -32,7 +32,7 @@ in
         "desktop"
       ]
     );
-    default = "laptop";
+    default = "desktop";
     description = ''
       Form factor of the machine. Adjusts some UI settings.
     '';
