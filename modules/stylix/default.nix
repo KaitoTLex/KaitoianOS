@@ -8,7 +8,7 @@
     enable = true;
     image = "${inputs.wallpapers}/math/fastInversNord.png";
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
 
     fonts = {
       serif = {
