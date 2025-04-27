@@ -220,13 +220,6 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
-  programs.rofi = {
-    enable = true;
-    cycle = true;
-    location = "center";
-    package = pkgs.rofi-wayland;
-  };
-
   services.dunst.enable = true;
 
   programs.git = {

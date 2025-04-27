@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "aq": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736050555,
-        "narHash": "sha256-TUoKhJ2QMK2AYTRvBCRpYFmaSihiF/OgB+HDZjamZtI=",
-        "owner": "quantum9innovation",
-        "repo": "aquamarine",
-        "rev": "546ce7963d18cbd30b32bf8d464f9ab3f6d54f74",
-        "type": "github"
-      },
-      "original": {
-        "owner": "quantum9innovation",
-        "ref": "patch-125",
-        "repo": "aquamarine",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -328,12 +311,26 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1745377448,
+        "narHash": "sha256-jhZDfXVKdD7TSEGgzFJQvEEZ2K65UMiqW5YJ2aIqxMA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "507b63021ada5fee621b6ca371c4fca9ca46f52c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "nixCats": "nixCats",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_2",
         "plugins-blink-ripgrep": "plugins-blink-ripgrep",
         "plugins-pomo-nvim": "plugins-pomo-nvim"
       },
@@ -408,7 +405,6 @@
     },
     "root": {
       "inputs": {
-        "aq": "aq",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

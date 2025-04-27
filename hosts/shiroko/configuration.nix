@@ -13,19 +13,22 @@
   ];
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
- hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
-   hardware.opengl = {
+  hardware.graphics.extraPackages = with pkgs; [
+    vaapiIntel
+    intel-media-driver
+  ];
+  hardware.graphics.enable32Bit = true;
+  hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       # your Open GL, Vulkan and VAAPI drivers
-      vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
+      vpl-gpu-rt # for newer GPUs on NixOS >24.05 or unstable
       # onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
       # intel-media-sdk   # for older GPUs
     ];
   };
 
   hardware = {
-    graphics.enable32Bit = true;
     pulseaudio.support32Bit = true;
     openrazer.enable = true;
   };
@@ -150,7 +153,7 @@
   };
   # Select internationalisation properties.
 
-networking.firewall = {
+  networking.firewall = {
     allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
   };
   # Enable WireGuard
@@ -189,7 +192,7 @@ networking.firewall = {
   #     ];
   #   };
   # };
-i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -202,7 +205,7 @@ i18n.defaultLocale = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
- 
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

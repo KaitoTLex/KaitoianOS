@@ -2,7 +2,10 @@
   imports = [
     ./home.nix
     ./spicetify.nix
-    ./de
     ./stylix
+    ./desktop-environment
   ];
+
+  liminalOS.formFactor = "desktop";
+  liminalOS.powersave = false;
 }

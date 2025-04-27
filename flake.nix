@@ -13,7 +13,6 @@
     };
     nixvim = {
       url = "github:kaitotlex/vix1";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:danth/stylix";
@@ -29,10 +28,6 @@
     };
     wallpapers = {
       url = "github:kaitotlex/wallpaper";
-      flake = false;
-    };
-    aq = {
-      url = "github:quantum9innovation/aquamarine/patch-125";
       flake = false;
     };
   };
