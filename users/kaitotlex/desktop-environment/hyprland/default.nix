@@ -211,7 +211,7 @@ in
           };
         };
         input = {
-          sensitivity = if config.liminalOS.formFactor == "laptop" then "0.0" else "-0.65";
+          sensitivity = "0.0";
         };
         plugin.scroller = {
           column_widths = "onethird onehalf twothirds one";
