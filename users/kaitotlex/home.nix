@@ -197,7 +197,6 @@
     git-credential-oauth
 
     # messaging apps
-    vesktop
     signal-desktop
     gh
 
@@ -221,6 +220,8 @@
   };
 
   services.dunst.enable = true;
+
+  programs.vesktop.enable = true;
 
   programs.git = {
     enable = true;
