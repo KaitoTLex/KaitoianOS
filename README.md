@@ -1,7 +1,7 @@
 # KaitoianOS
 > Fully customizable container-based operating system based on ```NixOS``` running SwayDE. 
 ## What even is this Config?
-So I believe I have no life, so I migrated from a super unstable and limited OS (DOS) to FreeBSD, however FreeBSD had limited packages being maintained on **Fresh Ports** so I figured might as well become a Linux user. After distro hopping for 3 months I was introduced to NixOS by [Youwen](https://youwen.dev) claiming that it would solve my problems of having to configure everything on seperate directories, common on most distros such as Arch or Debian. 
+So I believe I have no life, so I migrated from a super unstable and limited OS (DOS) to FreeBSD, however FreeBSD had limited packages being maintained on **Fresh Ports** so I figured might as well become a Linux user. After distro hopping for 3 months I was introduced to NixOS by [Youwen](https://web.youwen.dev) claiming that it would solve my problems of having to configure everything on seperate directories, common on most distros such as Arch or Debian. 
 ## Why Sway and Wayland
 Wayland provides a more stable graphical enviornment due to the simplicity of the code and it's security; moreover, it peforms significantly better on intergrated and discrete graphics cards for most of my systems. Why Sway and not Hyprland? Sway is a simple port of the popular x11 DE known as i3. Hyprland has too much eyecandy for a DE, too much bells and whistles such as dynamic colors and rounded edges. Also removing eyecandy on my config makes my input smoother and crispier. 
 ## What Basic Utilites do you have on here? 
