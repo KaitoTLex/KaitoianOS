@@ -219,8 +219,6 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
-  services.dunst.enable = true;
-
   programs.vesktop.enable = true;
 
   programs.git = {
