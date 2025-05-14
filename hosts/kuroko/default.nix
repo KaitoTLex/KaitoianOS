@@ -7,5 +7,6 @@
     ../../modules/audio
     ../../modules/stylix
     ../../modules/electrical
+    ../../modules/desktop-environment/
   ];
 }

@@ -25,15 +25,15 @@
   services.ratbagd.enable = true;
 
   hardware.pulseaudio.support32Bit = true;
-  # boot.kernelParams = [
-  #   "mem_sleep_default=deep"
-  # ];
-  # systemd.sleep.extraConfig = ''
-  #   AllowSuspend=yes
-  #   AllowHibernation=yes
-  #   AllowHybridSleep=yes
-  #   AllowSuspendThenHibernate=yes
-  # '';
+  boot.kernelParams = [
+    "mem_sleep_default=deep"
+  ];
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowHybridSleep=yes
+    AllowSuspendThenHibernate=yes
+  '';
 
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
