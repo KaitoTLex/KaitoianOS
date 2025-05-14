@@ -2,8 +2,11 @@
 > Fully customizable container-based operating system based on ```NixOS``` running SwayDE. 
 ## What even is this Config?
 So I believe I have no life, so I migrated from a super unstable and limited OS (DOS) to FreeBSD, however FreeBSD had limited packages being maintained on **Fresh Ports** so I figured might as well become a Linux user. After distro hopping for 3 months I was introduced to NixOS by [Youwen](https://youwen.dev) claiming that it would solve my problems of having to configure everything on seperate directories, common on most distros such as Arch or Debian. 
-## Why Sway and Wayland
-Wayland provides a more stable graphical enviornment due to the simplicity of the code and it's security; moreover, it peforms significantly better on intergrated and discrete graphics cards for most of my systems. Why Sway and not Hyprland? Sway is a simple port of the popular x11 DE known as i3. Hyprland has too much eyecandy for a DE, too much bells and whistles such as dynamic colors and rounded edges. Also removing eyecandy on my config makes my input smoother and crispier. 
+<!--## Why Sway and Wayland-->
+<!--Wayland provides a more stable graphical enviornment due to the simplicity of the code and it's security; moreover, it peforms significantly better on intergrated and discrete graphics cards for most of my systems. Why Sway and not Hyprland? Sway is a simple port of the popular x11 DE known as i3. Hyprland has too much eyecandy for a DE, too much bells and whistles such as dynamic colors and rounded edges. Also removing eyecandy on my config makes my input smoother and crispier. -->
+## Why switch to Hyprland
+Although Sway is a reliable and well developed window manager, it doesn't offer the same versatility as Hyprland in Wayland. Hyprland, although has too much eyecandy, it does offer a more polished and complete operating system especially to display beautiful color scheme. I adopted youwen's Hyprland configuration because it is preconfigured and it has all that I need in terms of productivity in this operating system. 
+
 ## What Basic Utilites do you have on here? 
 - Firefox Developer Edition
 - Spotify (Spicetify)
@@ -27,7 +30,7 @@ ROG (ASUS) Flow X13 2022
 
 > 16 GB LPDDR4
 
-> 1TB Crucial (Allocated 128 for NixOS)
+> 256 GB Kioxia 
 
 ## How to Install or Clone
 
@@ -52,6 +55,6 @@ cp /etc/nixos/hardware-configuration.nix ~/KaitoianOS/hosts/shiroko/hardware-con
 
 5. Recompile your os by 
 ```sh
-sudo nixos-rebuild switch --flake .\#shiroko #or kuroko
+sudo nixos-rebuild switch --flake .#shiroko #or kuroko
 ```
 6. Enjoy!
