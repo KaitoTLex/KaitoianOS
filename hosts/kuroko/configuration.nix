@@ -150,7 +150,7 @@
   };
   #System specific packages to install
   environment.systemPackages = with pkgs; [
-    nvtop
+    # nvtop
     osu-lazer
     davinci-resolve
     wacomtablet
