@@ -6,7 +6,7 @@
 
   stylix = {
     enable = true;
-    image = "${inputs.wallpapers}/math/fastInversNord.png";
+    image = "${inputs.wallpapers}/anime/mafuyuMum.jpg";
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
 

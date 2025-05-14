@@ -211,7 +211,7 @@ in
           };
         };
         input = {
-          sensitivity = "0.0";
+          sensitivity = "-0.25";
         };
         plugin.scroller = {
           column_widths = "onethird onehalf twothirds one";

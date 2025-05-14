@@ -22,7 +22,11 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-    #gfortran14
+    #gfortran1
+    gimp3
+    openssl
+    cmake
+    obs-studio
     python312Packages.pip
     pipx
     rpcs3
@@ -40,7 +44,6 @@
     arduino-language-server
     geoclue2
     lua
-    tetrio-desktop
     prismlauncher
     asciiquarium-transparent
     fortune
