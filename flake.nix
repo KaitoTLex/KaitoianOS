@@ -50,6 +50,29 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/kuroko
+          lanzaboote.nixosModules.lanzaboote
+
+          (
+            { pkgs, lib, ... }:
+            {
+
+              environment.systemPackages = [
+                # For debugging and troubleshooting Secure Boot.
+                pkgs.sbctl
+              ];
+
+              # Lanzaboote currently replaces the systemd-boot module.
+              # This setting is usually set to true in configuration.nix
+              # generated at installation time. So we force it to false
+              # for now.
+              boot.loader.systemd-boot.enable = lib.mkForce false;
+
+              boot.lanzaboote = {
+                enable = true;
+                pkiBundle = "/var/lib/sbctl";
+              };
+            }
+          )
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -60,7 +83,18 @@
                 inherit inputs;
               };
               users.kaitotlex = {
-                imports = [ ./users/kaitotlex ];
+                imports = [
+                  ./users/kaitotlex
+                  {
+                    wayland.windowManager.hyprland.settings.monitor = [
+                      "eDP-1,1920x1200@120,0x0,.90"
+                    ];
+                    programs.git.signing = {
+                      signByDefault = true;
+                      key = "BC04C0C14AEDA705B8FBACE8C5F52A3C0F3B4A77";
+                    };
+                  }
+                ];
               };
             };
           }
@@ -113,6 +147,10 @@
                       "eDP-1,1920x1200@120,0x0,1"
                       "DP-1, 1920x1080@144.04,1920x0,1"
                     ];
+                    programs.git.signing = {
+                      signByDefault = true;
+                      key = "BC04C0C14AEDA705B8FBACE8C5F52A3C0F3B4A77";
+                    };
                   }
                 ];
               };

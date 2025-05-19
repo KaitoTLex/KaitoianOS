@@ -228,11 +228,6 @@
     enable = true;
     userName = "KaitoTLex";
     userEmail = "wlin@kaitotlex.systems";
-    signing = {
-      signByDefault = true;
-      key = "BC04C0C14AEDA705B8FBACE8C5F52A3C0F3B4A77";
-    };
-
   };
 
   programs.neovim.defaultEditor = true;
