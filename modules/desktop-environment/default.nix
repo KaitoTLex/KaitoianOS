@@ -54,6 +54,10 @@ in
 
     programs.hyprland.enable = cfg.hyprland.enable;
 
+    # programs.niri.enable = cfg.niri.enable;
+
+    # programs.xwayland.enable = lib.mkIf cfg.niri.enable (lib.mkForce true);
+
     services.xserver.enable = false;
 
     services.xserver = {
