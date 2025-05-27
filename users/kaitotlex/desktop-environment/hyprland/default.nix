@@ -101,7 +101,7 @@ in
 
     wayland.windowManager.hyprland =
       let
-        hyprscroller = pkgs.callPackage ./pkgs/vendored/hyprscroller.nix {
+        hyprscroller = pkgs.callPackage ../../pkgs/hyprland/hyprscroller.nix {
           src = inputs.hyprscroller-src;
           version = inputs.hyprscroller-src.lastModified;
         };
