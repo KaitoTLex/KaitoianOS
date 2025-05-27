@@ -1,0 +1,24 @@
+name: update-flake-lock
+on:
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    # Runs weekly at 00:00 UTC on Sunday
+    - cron: "0 0 * * 0"
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+        with:
+          github-token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          pr-title: "deps(flake.lock): update"
+          pr-labels: |
+            dependencies,auto-merge
+          pr-assignees: youwen5
