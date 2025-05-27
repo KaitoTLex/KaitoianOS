@@ -87,11 +87,12 @@
                   ./users/kaitotlex
                   {
                     wayland.windowManager.hyprland.settings.monitor = [
-                      "eDP-1,1920x1200@120,0x0,.90"
+                      "eDP-1,1920x1200@120,0x0,1"
+                      "HDMI-A-1,1920x1080@165,1920x0,1"
                     ];
                     programs.git.signing = {
                       signByDefault = true;
-                      key = "BC04C0C14AEDA705B8FBACE8C5F52A3C0F3B4A77";
+                      key = "42F52D76F1B15B8D997E2AEE8AB934746F475D0B";
                     };
                   }
                 ];

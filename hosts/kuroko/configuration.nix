@@ -18,6 +18,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   virtualisation.waydroid.enable = true;
   #boot.kernelPackages = pkgs.linuxPackages_5_15;
   #systemdefaults
@@ -28,21 +29,23 @@
   boot.kernelParams = [
     "mem_sleep_default=deep"
   ];
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=yes
-    AllowHybridSleep=yes
-    AllowSuspendThenHibernate=yes
-  '';
+  # systemd.sleep.extraConfig = ''
+  #   AllowSuspend=yes
+  #   AllowHibernation=yes
+  #   AllowHybridSleep=yes
+  #   AllowSuspendThenHibernate=yes
+  # '';
 
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
-    "nvidia"
     "amdgpu"
+    "nvidia"
   ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-
+  hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
+  ];
   hardware.nvidia = {
     # custom option defined in graphics/default.nix
     #usePatchedAquamarine = true;
@@ -58,7 +61,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = lib.mkForce false;
+    powerManagement.finegrained = lib.mkForce true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -67,7 +70,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = lib.mkForce true;
+    open = lib.mkForce false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
@@ -77,14 +80,11 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     #Power Saving Features
     prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+      offload.enable = lib.mkForce true;
       # Make sure to use the correct Bus ID values for your system!
       #intelBusId = "PCI:";
-      nvidiaBusId = "PCI:01:00:0";
-      amdgpuBusId = "PCI:08:00:0";
+      nvidiaBusId = "PCI:1:0:0";
+      amdgpuBusId = "PCI:8:0:0";
     };
 
   };
