@@ -32,6 +32,10 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
     };
+    hyprscroller-src = {
+      url = "github:cpiber/hyprscroller";
+      flake = false;
+    };
   };
 
   outputs =

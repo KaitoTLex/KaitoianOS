@@ -6,6 +6,6 @@
     ./desktop-environment
   ];
 
-  liminalOS.formFactor = "desktop";
+  liminalOS.formFactor = "laptop";
   liminalOS.powersave = false;
 }

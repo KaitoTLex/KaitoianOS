@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --asterisks";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --asterisks --remember";
         # --remember tuigreet --time --cmd Hyprland --remember --asterisks --greeting 'Access granted for those who don't touch grass'
         user = "greeter";
       };
