@@ -23,6 +23,8 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     #gfortran1
+    tor-browser
+    opera
     bambu-studio
     gimp3
     openssl
@@ -228,7 +230,7 @@
   programs.git = {
     enable = true;
     userName = "KaitoTLex";
-    userEmail = "wlin@kaitotlex.systems";
+    userEmail = "renl@kaitotlex.systems";
   };
 
   programs.neovim.defaultEditor = true;
