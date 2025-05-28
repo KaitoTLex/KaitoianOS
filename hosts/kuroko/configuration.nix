@@ -18,9 +18,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   virtualisation.waydroid.enable = true;
-  #boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   #systemdefaults
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;

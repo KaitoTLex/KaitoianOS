@@ -1,12 +1,11 @@
 {
-
   lib,
   fetchFromGitHub,
   hyprland,
   pkg-config,
   cmake,
   unstableGitUpdater,
-
+  ...
 }:
 let
   mkHyprlandPlugin =
