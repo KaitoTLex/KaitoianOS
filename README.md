@@ -1,5 +1,5 @@
 # KaitoianOS
-> Fully customizable container-based operating system based on ```NixOS``` running SwayDE. 
+> Fully customizable container-based operating system based on ```NixOS``` running Hyprland && Hyprscroller. 
 ## What even is this Config?
 So I believe I have no life, so I migrated from a super unstable and limited OS (DOS) to FreeBSD, however FreeBSD had limited packages being maintained on **Fresh Ports** so I figured might as well become a Linux user. After distro hopping for 3 months I was introduced to NixOS by [Youwen](https://youwen.dev) claiming that it would solve my problems of having to configure everything on seperate directories, common on most distros such as Arch or Debian. 
 <!--## Why Sway and Wayland-->
