@@ -92,6 +92,7 @@
                   {
                     wayland.windowManager.hyprland.settings.monitor = [
                       "eDP-1,1920x1200@120,0x0,1"
+                      "DP-1, 1920x1080@75.03,3840, transform, 1"
                       "HDMI-A-1,1920x1080@165,1920x0,1"
                     ];
                     programs.git.signing = {

@@ -161,16 +161,16 @@
         events = [ "key" ];
         command = "pamixer -d 5";
       }
-      {
-        keys = [ 237 ];
-        events = [ "key" ];
-        command = "brightnessctl -d asus::kbd_backlight set 1-";
-      }
-      {
-        keys = [ 238 ];
-        events = [ "key" ];
-        command = "brightnessctl -d asus::kbd_backlight set +1";
-      }
+      # {
+      #   keys = [ 237 ];
+      #   events = [ "key" ];
+      #   command = "${pkgs.brightnessctl} -d asus::kbd_backlight set 1-";
+      # }
+      # {
+      #   keys = [ 238 ];
+      #   events = [ "key" ];
+      #   command = "${pkgs.brightnessctl} -d asus::kbd_backlight set +1";
+      # }
       #{ keys = [  ]; events = [ "key" ]; command = "brightnessctl -d amdgpu_bl2 set +10%"; }
       #{ keys = [  ]; events = [ "key" ]; command = "brightnessctl -d amdgpu_bl2 set +10%"; }
 

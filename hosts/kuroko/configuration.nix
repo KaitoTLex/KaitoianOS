@@ -18,7 +18,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   virtualisation.waydroid.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   #systemdefaults
@@ -110,7 +110,9 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
   services.keyd = {
     enable = true;
     keyboards.default = {
@@ -148,6 +150,10 @@
 
     };
   };
+  #Asus Specific Packages
+  services.asusd.enable = true;
+  programs.rog-control-center.enable = true;
+
   #System specific packages to install
   environment.systemPackages = with pkgs; [
     # nvtop
@@ -155,6 +161,9 @@
     davinci-resolve
     wacomtablet
     obs-studio
+    asusctl
+    supergfxctl
+    thinkfan
   ];
 
   # List services that you want to enable:
