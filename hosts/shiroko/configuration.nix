@@ -36,6 +36,9 @@
     enable = true;
     dockerCompat = true;
   };
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
   boot = {
     # Bootloader.
     loader.systemd-boot.enable = true;

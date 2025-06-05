@@ -70,7 +70,7 @@ in
             "clock"
           ];
           clock = {
-            format = " {:%a, %d %b, %I:%M %p}";
+            format = " {:%a, %D, %T}";
             tooltip = "true";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
             format-alt = " {:%d/%m}";

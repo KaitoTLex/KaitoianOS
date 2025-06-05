@@ -4,7 +4,9 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --asterisks --remember";
+        command = ''
+          ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --remember --asterisks --greeting "Welcome, generation $(readlink /nix/var/nix/profiles/system | grep -o '[0-9]*'). Access is restricted to authorized personnel only." 
+        '';
         # --remember tuigreet --time --cmd Hyprland --remember --asterisks --greeting 'Access granted for those who don't touch grass'
         user = "greeter";
       };
