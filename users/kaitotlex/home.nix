@@ -249,14 +249,11 @@
   };
   programs.iamb = {
     enable = true;
-    packages = inputs.iamb.packages.default;
+    package = inputs.iamb.packages.${pkgs.stdenv.targetPlatform.system}.default;
     settings = {
-      profiles."matrix.org" = {
-        user_id = "@kaitotlex:matrix.org";
-        style = "restore";
-      };
+      profiles."matrix.org".user_id = "@kaitotlex:matrix.org";
       settings = {
-        image_preview.protocol.type = "kitty";
+        image_preview = { };
         notifications = {
           enabled = true;
           show_message = true;
@@ -264,6 +261,24 @@
       };
     };
   };
+  # programs.iamb = {
+  #   enable = true;
+  #   packages = inputs.iamb.packages.${pkgs.stdenv.targetPlatform.system}.default;
+  #   settings = {
+  #     profiles."matrix.org" = {
+  #       user_id = "@kaitotlex:matrix.org";
+  #       style = "restore";
+  #     };
+  #     settings = {
+  #       image_preview = { };
+  #       image_preview.protocol.type = "kitty";
+  #       notifications = {
+  #         enabled = true;
+  #         show_message = true;
+  #       };
+  #     };
+  #   };
+  # };
   programs.kitty = {
     enable = true;
     settings = {
