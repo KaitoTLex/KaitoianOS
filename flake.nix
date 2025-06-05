@@ -36,6 +36,10 @@
       url = "github:cpiber/hyprscroller";
       flake = false;
     };
+    jkernel = {
+      url = "github:tweag/jupyenv";
+      flake = false;
+    };
   };
 
   outputs =
