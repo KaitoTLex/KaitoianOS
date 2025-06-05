@@ -23,6 +23,10 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     #gfortran1
+    gqrx
+    urh
+    rtl_433
+    rng-tools
     nheko
     openvpn
     tor-browser
@@ -243,7 +247,23 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
   };
-
+  programs.iamb = {
+    enable = true;
+    packages = inputs.iamb.packages.default;
+    settings = {
+      profiles."matrix.org" = {
+        user_id = "@kaitotlex:matrix.org";
+        style = "restore";
+      };
+      settings = {
+        image_preview.protocol.type = "kitty";
+        notifications = {
+          enabled = true;
+          show_message = true;
+        };
+      };
+    };
+  };
   programs.kitty = {
     enable = true;
     settings = {
