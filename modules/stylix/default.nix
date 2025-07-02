@@ -6,7 +6,7 @@
 
   stylix = {
     enable = true;
-    image = "${inputs.wallpapers}/anime/mafuyuMum.jpg";
+    image = "${inputs.wallpapers}/anime/N25/mafuAura.png";
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
 
