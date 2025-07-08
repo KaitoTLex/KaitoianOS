@@ -23,11 +23,13 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     #gfortran1
+    halloy
+    filezilla
     gqrx
-    urh
+    #urh
     rtl_433
     rng-tools
-    nheko
+    #nheko
     openvpn
     tor-browser
     bambu-studio
@@ -35,8 +37,9 @@
     openssl
     cmake
     obs-studio
+    conda
     python312Packages.pip
-    pipx
+    python312Packages.jupyter-core
     rpcs3
     dolphin-emu
     affine-bin
@@ -83,7 +86,7 @@
     openrazer-daemon
     wineWowPackages.waylandFull
     wget
-    vscode
+    vscodium
     melonDS
     gparted
     gnumake
@@ -152,7 +155,7 @@
     gawk
     zstd
     gnupg
-    python3
+    python312
     rustc
     arduino-cli
     jdk
@@ -208,7 +211,7 @@
     git-credential-oauth
 
     # messaging apps
-    signal-desktop
+    #signal-desktop
     gh
 
     #Pentest
@@ -219,7 +222,7 @@
     lynis
     hydra-cli
     #ghidra
-    social-engineer-toolkit
+    #social-engineer-toolkit
     aircrack-ng
     swaylock-fancy
     brightnessctl

@@ -36,10 +36,6 @@
       url = "github:cpiber/hyprscroller";
       flake = false;
     };
-    jkernel = {
-      url = "github:tweag/jupyenv";
-      flake = false;
-    };
     iamb = {
       url = "github:ulyssa/iamb";
       inputs.nixpkgs.follows = "nixpkgs";
