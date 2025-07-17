@@ -10,9 +10,9 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  networking.hostName = "callisto";
+  networking.hostName = "kanade";
   # time.timeZone = "America/Los_Angeles";
-  time.timeZone = "Asia/Shanghai";
+  time.timeZone = "Asia/Taipei";
 
   KaitoianOS = {
     flakeLocation = "/home/kaitotlex/Nix/KaitoianOS";
@@ -79,6 +79,8 @@
             leftcontrol = "leftalt";
             rightmeta = "leftalt";
             rightalt = "layer(rightalt)";
+            y = "z";
+            z = "y";
           };
           rightalt = {
             h = "left";
@@ -90,6 +92,7 @@
       };
     };
   };
-
-  system.stateVersion = "24.11";
+   wayland.windowManager.hyprland.settings.render.explicit_sync = 0;
+ 
+system.stateVersion = "24.11";
 }
