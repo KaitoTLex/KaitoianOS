@@ -11,26 +11,20 @@
   imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "kanade";
-  # time.timeZone = "America/Los_Angeles";
-  time.timeZone = "Asia/Taipei";
+  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "Asia/Taipei";
 
-  KaitoianOS = {
-    flakeLocation = "/home/kaitotlex/Nix/KaitoianOS";
-    config.allowUnfree = false;
-    defaultEditor = inputs.viminal.packages.${pkgs.system}.default;
-    system = {
-      networking = {
-        firewallPresets.vite = true;
-        cloudflareNameservers.enable = true;
-        backend = "iwd";
-      };
-    };
-  };
-
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
-  };
+  # KaitoianOS = {
+  #   flakeLocation = "/home/kaitotlex/Nix/KaitoianOS";
+  #   config.allowUnfree = false;
+  #   system = {
+  #     networking = {
+  #       firewallPresets.vite = true;
+  #       cloudflareNameservers.enable = true;
+  #       backend = "iwd";
+  #     };
+  #   };
+  # }; 
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -92,7 +86,7 @@
       };
     };
   };
-   wayland.windowManager.hyprland.settings.render.explicit_sync = 0;
+  wayland.windowManager.hyprland.settings.render.explicit_sync = 0;
  
 system.stateVersion = "24.11";
 }
