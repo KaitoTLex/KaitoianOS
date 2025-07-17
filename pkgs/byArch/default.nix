@@ -7,9 +7,9 @@ let
 
   archPackages =
     if system == "x86_64-linux" then
-      import ./x86 { inherit pkgs; }
+      import ./arch/x86-64 { inherit pkgs; }
     else if system == "aarch64-linux" then
-      import ./arm { inherit pkgs; }
+      import ./arch/aarch64 { inherit pkgs; }
     else
       [];
 in
