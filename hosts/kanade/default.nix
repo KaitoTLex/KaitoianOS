@@ -1,28 +1,12 @@
 {
-  self,
-  inputs,
-  ...
-}:
-{
-  imports =
-    [
-      ./configuration.nix
-      ../../modules
-      ../../modules/core
-      ../../modules/security
-      ../../modules/audio
-      ../../modules/electrical
-      self.nixosModules.KaitoianOS
-      {
-        home-manager.users.kaitotlex = {
-          imports = [
-            ./home.nix
-            self.homeManagerModules.default
-          ];
-        };
-      }
-    ]
-    ++ (with inputs; [
-      apple-silicon.nixosModules.apple-silicon-support
-    ]);
+  imports = [
+    ./configuration.nix
+    ../../modules/core
+    ../../modules/wm
+    ../../modules/security
+    ../../modules/audio
+    ../../modules/stylix
+    ../../modules/electrical
+    ../../modules/desktop-environment
+  ];
 }

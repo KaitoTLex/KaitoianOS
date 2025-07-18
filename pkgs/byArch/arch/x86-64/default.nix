@@ -9,6 +9,7 @@ with pkgs;[
   wacomtablet
   prusa-slicer  
   lunar-client
+  sbctl
 ]
   #formatter."x86_64-linux" = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     
