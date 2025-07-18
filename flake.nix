@@ -57,7 +57,7 @@
     let
       mkPkgs = system: let
         pkgs = import nixpkgs { inherit system; };
-        packages = import ./pkgs { inherit pkgs system; };
+        packages = import ./pkgs/byArch { inherit pkgs system; };
       in packages;
     in 
     {
@@ -179,7 +179,7 @@
           ./hosts/kanade
           (
             { pkgs, lib, ... }:
-            {environment.systemPackages = mkPkgs "x86_64-linux";
+            {environment.systemPackages = mkPkgs "aarch64-linux";
             }
           )
           home-manager.nixosModules.home-manager

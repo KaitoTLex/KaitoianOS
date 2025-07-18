@@ -1,10 +1,11 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+[
   halloy
-  gqrx
+  #gqrx
   #nheko
-  tor-browser
+  #tor-browser
   bambu-studio
   gimp3
   openssl
@@ -14,8 +15,7 @@ with pkgs; [
   python312Packages.jupyter-core
   rpcs3
   dolphin-emu
-  elmPackages.elm
-  kicad
+  #elmPackages.elm
   openhantek6022
   tor
   libreoffice
@@ -48,9 +48,7 @@ with pkgs; [
   pipes
   cmatrix
   neofetch
-  polychromatic
-  openrazer-daemon
-  wineWowPackages.waylandFull
+  #wineWowPackages.waylandFull
   wget
   vscodium
   melonDS
@@ -67,7 +65,7 @@ with pkgs; [
   # nwg-displays
   kdePackages.dolphin
   #xfce.thunar
-  
+
   thunderbird-latest-unwrapped
 
   typescript
@@ -75,7 +73,7 @@ with pkgs; [
   live-server
   tailwindcss
   tailwindcss-language-server
-  nodejs_22
+  nodejs_24
   clang
   macchanger
   ani-cli
@@ -136,7 +134,7 @@ with pkgs; [
   yq-go # yaml processor https://github.com/mikefarah/yq
   emacs # full featured everything
   wl-clipboard
-  
+
   #Networking Tools
   mtr # A network diagnostic tool
   iperf3
@@ -146,8 +144,8 @@ with pkgs; [
   socat # replacement of openbsd-netcat
   nmap # A utility for network discovery and security auditing
   ipcalc
-  
-  #Msc configs 
+
+  #Msc configs
   cowsay
   file
   which
@@ -159,12 +157,12 @@ with pkgs; [
   gnupg
   python312
   rustc
-  arduino-cli
+  #arduino-cli
   jdk
   # nix related
   # with more details log output
   nix-output-monitor
   # productivity
   glow # markdown previewer in terminal
-  obsidian #]; # fallback for other systems
+  #obsidian # ]; # fallback for other systems
 ]

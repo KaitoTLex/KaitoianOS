@@ -1,15 +1,17 @@
 {
-  nixpkgs,
   pkgs,
   ...
 }:
-with pkgs;[
+with pkgs;
+[
   affine-bin
-  conda
+  #conda
   wacomtablet
-  prusa-slicer  
-  lunar-client
+  prusa-slicer
+  #lunar-client
   sbctl
+  #kicad
+  polychromatic
+  openrazer-daemon
 ]
-  #formatter."x86_64-linux" = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-    
+#formatter."x86_64-linux" = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
