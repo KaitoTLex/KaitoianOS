@@ -16,7 +16,7 @@ with pkgs;
   python312Packages.jupyter-core
   rpcs3
   dolphin-emu
-  #elmPackages.elm
+  elmPackages.elm
   openhantek6022
   tor
   libreoffice
