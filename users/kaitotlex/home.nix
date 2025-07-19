@@ -294,7 +294,7 @@
       cursor = pkgs.lib.mkForce "#c0caf5";
       cursor_text_color = pkgs.lib.mkForce "#1a1b26";
       cursor_trail = 3;
-      background_image = "${inputs.wallpapers}/kitty/moominResized.png";
+      #background_image = "${inputs.wallpapers}/kitty/moominResized.png";
       background_image_layout = "cscaled";
       #background_image_linear = "yes";
       background_opacity = pkgs.lib.mkForce "0.6";

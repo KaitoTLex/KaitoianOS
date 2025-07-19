@@ -2,7 +2,8 @@
 
 with pkgs;
 [
-  cinny-unwrapped
+  yazi
+  cinny-desktop
   calcure
   halloy
   gqrx
@@ -84,6 +85,7 @@ with pkgs;
   tinymist
   xwayland
 
+  bluez
   # LaTeX stuff
   texliveFull
   texlivePackages.pdflatexpicscale

@@ -1,6 +1,7 @@
 {
   pkgs,
-  system ? builtins.currentSystem
+  lib,
+  system ? builtins.currentSystem,
 }:
 let
   commonPackages = import ./common.nix { inherit pkgs; };
@@ -11,7 +12,9 @@ let
     else if system == "aarch64-linux" then
       import ./arch/aarch64 { inherit pkgs; }
     else
-      [];
+      [ ];
+  unfreePackages = import ./unfreeCommon.nix { inherit lib; };
+
 in
 
-commonPackages ++ archPackages
+commonPackages ++ archPackages ++ unfreePackages

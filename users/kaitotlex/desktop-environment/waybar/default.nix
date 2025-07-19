@@ -188,7 +188,7 @@ in
           #"custom/powermenu"
         ];
         "custom/powermenu" = {
-          "format" = "󰙨";
+          "format" = "󰙨 二葉";
           "on-click" = "wlogout";
           "tooltip" = false;
         };

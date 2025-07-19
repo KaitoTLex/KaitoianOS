@@ -17,7 +17,7 @@
   time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = _: true;
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {
     enable = true;
