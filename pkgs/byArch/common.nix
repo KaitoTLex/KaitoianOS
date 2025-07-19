@@ -2,10 +2,11 @@
 
 with pkgs;
 [
+  cinny-unwrapped
+  calcure
   halloy
-  #gqrx
+  gqrx
   #nheko
-  #tor-browser
   bambu-studio
   gimp3
   openssl
@@ -48,7 +49,6 @@ with pkgs;
   pipes
   cmatrix
   neofetch
-  #wineWowPackages.waylandFull
   wget
   vscodium
   melonDS
@@ -104,8 +104,6 @@ with pkgs;
   iotop # io monitoring
   iftop # network monitoring
 
-  waydroid
-
   # system call monitoring
   strace # system call monitoring
   ltrace # library call monitoring
@@ -157,7 +155,6 @@ with pkgs;
   gnupg
   python312
   rustc
-  #arduino-cli
   jdk
   # nix related
   # with more details log output

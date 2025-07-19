@@ -8,19 +8,20 @@
   ...
 }:
 {
-  imports = [ ./hardware-configuration.nix
-	./apple-silicon-support
- ];
+  imports = [
+    ./hardware-configuration.nix
+    ./apple-silicon-support
+  ];
 
   networking.hostName = "kanade";
   time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
-  
-  nixpkgs.config.allowUnfree = true; 
+
+  nixpkgs.config.allowUnfree = true;
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {
-	enable = true;
-	wifi.backend = "iwd";
+    enable = true;
+    wifi.backend = "iwd";
   };
   # KaitoianOS = {
   #   flakeLocation = "/home/kaitotlex/Nix/KaitoianOS";
@@ -32,7 +33,7 @@
   #       backend = "iwd";
   #     };
   #   };
-  # }; 
+  # };
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -45,7 +46,7 @@
 
   hardware.asahi = {
     enable = true;
-    peripheralFirmwareDirectory = ./firmware ;
+    peripheralFirmwareDirectory = ./firmware;
     withRust = true;
   };
 
@@ -95,6 +96,6 @@
     };
   };
   #wayland.windowManager.hyprland.settings.render.explicit_sync = 0;
- 
-system.stateVersion = "24.11";
+
+  system.stateVersion = "24.11";
 }

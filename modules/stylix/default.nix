@@ -24,8 +24,8 @@
         package = pkgs.noto-fonts-emoji;
       };
       monospace = {
-        name = "CaskaydiaCove Nerd Font";
-        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "Mononoki Nerd Font";
+        package = pkgs.nerd-fonts.mononoki;
       };
     };
     cursor = {

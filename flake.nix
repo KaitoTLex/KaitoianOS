@@ -176,7 +176,7 @@
           specialArgs = {
             inherit inputs;
           };
-          system = "x86_64-linux";
+          system = "aarch64-linux";
           modules = [
             ./hosts/kanade
             (
@@ -199,7 +199,7 @@
                     ./users/kaitotlex
                     {
                       wayland.windowManager.hyprland.settings.monitor = [
-                        "eDP-1,1920x1200@120,0x0,1.25"
+                        "eDP-1,3024x1964@60Hz,0x0,2"
                       ];
                     }
                   ];

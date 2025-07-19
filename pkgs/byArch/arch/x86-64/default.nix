@@ -4,13 +4,17 @@
 }:
 with pkgs;
 [
+  waydroid
+  arduino-cli
+  wineWowPackages.waylandFull
+  tor-browser
   affine-bin
-  #conda
+  conda
   wacomtablet
   prusa-slicer
-  #lunar-client
+  lunar-client
   sbctl
-  #kicad
+  kicad
   polychromatic
   openrazer-daemon
 ]
