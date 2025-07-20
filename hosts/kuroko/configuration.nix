@@ -35,6 +35,18 @@
   #   AllowHybridSleep=yes
   #   AllowSuspendThenHibernate=yes
   # '';
+   
+  # Enable substituters
+  nix.settings = {
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://cache.garnix.io"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    ];
+  };
 
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
