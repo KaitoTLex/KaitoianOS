@@ -32,9 +32,13 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
     };
-    hyprscroller-src = {
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprscroller = {
       url = "github:cpiber/hyprscroller";
-      flake = false;
+      inputs.hyprland.follows = "hyprland";
     };
     jkernel = {
       url = "github:tweag/jupyenv";

@@ -100,15 +100,11 @@ in
     ];
 
     wayland.windowManager.hyprland =
-      let
-        hyprscroller = pkgs.callPackage ../../../../pkgs/hyprland/hyprscroller.nix {
-          src = inputs.hyprscroller-src;
-          version = inputs.hyprscroller-src.lastModified;
-        };
-      in
       {
         enable = true;
-        plugins = [ hyprscroller ];
+        package = inputs.hyprland.packages.x86_64-linux.hyprland;
+        portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
+        plugins = [ inputs.hyprscroller.packages.x86_64-linux.hyprscroller ];
         settings = {
           input.touchpad = lib.mkIf (config.liminalOS.formFactor == "laptop") {
             natural_scroll = true;
