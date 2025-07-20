@@ -25,7 +25,7 @@
   networking.hostName = "kuroko"; # Define your hostname.
   services.ratbagd.enable = true;
 
-  hardware.pulseaudio.support32Bit = true;
+  services.pulseaudio.support32Bit = true;
   boot.kernelParams = [
     "mem_sleep_default=deep"
   ];

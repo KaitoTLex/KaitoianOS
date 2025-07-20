@@ -17,7 +17,7 @@
   networking.hostName = "kuroko"; # Define your hostname.
   boot.kernelPackages = pkgs.linuxPackages_6_13;
   services.ratbagd.enable = true;
-  hardware.pulseaudio.support32Bit = true;
+  services.pulseaudio.support32Bit = true;
 
   # Enable substituters
   nix.settings = {
