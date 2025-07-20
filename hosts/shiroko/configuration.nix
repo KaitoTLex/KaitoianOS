@@ -33,8 +33,8 @@
     ];
   };
 
+  services.pulseaudio.support32Bit = true;
   hardware = {
-    pulseaudio.support32Bit = true;
     openrazer.enable = true;
   };
   virtualisation.podman = {
