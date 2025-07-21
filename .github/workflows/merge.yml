@@ -13,4 +13,4 @@ jobs:
           commit-title: 'build(lock): update'
           merge_method: 'squash'
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
