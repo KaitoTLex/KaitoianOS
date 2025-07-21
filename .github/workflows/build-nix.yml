@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  build-x86_64-demeter:
+  build-x86_64-kuroko-shiroko:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
@@ -18,11 +18,11 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
-      - name: Build demeter
+      - name: Build kuro-shiroko
         run: |
           # nix flake check --all-systems
           nix build .#nixosConfigurations.demeter.config.system.build.toplevel
-  build-aarch64-callisto:
+  build-aarch64-kanade:
     runs-on: ubuntu-24.04-arm
     permissions:
       contents: read
@@ -36,7 +36,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
-      - name: Build callisto
+      - name: Build kanade
         run: |
           # nix flake check --all-systems
           nix build .#nixosConfigurations.callisto.config.system.build.toplevel
