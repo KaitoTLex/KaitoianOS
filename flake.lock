@@ -357,6 +357,11 @@
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "76d0c31fce2aa0c71409de953e2f9113acd5b656",
+        "lastModified": 1749400020,
+        "narHash": "sha256-0nTmHO8AYgRYk5v6zw5oZ3x9nh+feb+Isn7WNe318M0=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2835e8ba0ad99ba86d4a5e497a962ec9fa35e48f",
         "type": "github"
       },
       "original": {
@@ -416,11 +421,32 @@
         "owner": "ulyssa",
         "repo": "iamb",
         "rev": "0ef5c39f7f61dd1e65ae94ba383037be604d78cb",
+        "lastModified": 1749177992,
+        "narHash": "sha256-B72RIr6pbf9kW0JhcbsgUhLSw22BxxODoKIdPd2YWFY=",
+        "owner": "ulyssa",
+        "repo": "iamb",
+        "rev": "33d3407694c9dece0f3e59aa577eda98c9384ea1",
         "type": "github"
       },
       "original": {
         "owner": "ulyssa",
         "repo": "iamb",
+        "type": "github"
+      }
+    },
+    "jkernel": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733188630,
+        "narHash": "sha256-TlUFZOqFsTXh97vRpNeyoJJ+WNOwxgvu7u3JcLGN7iU=",
+        "owner": "tweag",
+        "repo": "jupyenv",
+        "rev": "55e42c3dea87d3c1e3e9dfde28df637e88d6bd39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tweag",
+        "repo": "jupyenv",
         "type": "github"
       }
     },
@@ -518,6 +544,11 @@
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "30e2e2857ba47844aa71991daa6ed1fc678bcbb7",
+        "lastModified": 1749285348,
+        "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
         "type": "github"
       },
       "original": {
@@ -655,6 +686,7 @@
         "home-manager": "home-manager",
         "hyprscroller-src": "hyprscroller-src",
         "iamb": "iamb",
+        "jkernel": "jkernel",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
@@ -717,6 +749,11 @@
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
         "rev": "16adc163d966fc2bb5da47580df4602ae2c7a310",
+        "lastModified": 1749357231,
+        "narHash": "sha256-AbrPgGFVYR45TlYLHYTppayG0xzOG9XXhi+1j3Klbw8=",
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix",
+        "rev": "03783416f7416715c52166d4e8ba0492a7149397",
         "type": "github"
       },
       "original": {
@@ -754,6 +791,11 @@
         "owner": "danth",
         "repo": "stylix",
         "rev": "3a09d3f5cb940fa4142a2f3415b508a8be92b721",
+        "lastModified": 1749398498,
+        "narHash": "sha256-Usx6sGnT/D8ZnWiZg+J1OY3dp4ZssMQiN1XeXcsL/cs=",
+        "owner": "danth",
+        "repo": "stylix",
+        "rev": "5869510e48e64d916dc6905dc664a02b0f85f1bd",
         "type": "github"
       },
       "original": {
