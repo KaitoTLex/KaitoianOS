@@ -61,6 +61,7 @@
   environment.systemPackages = [
     inputs.nixvim.packages.${pkgs.stdenv.targetPlatform.system}.default
     inputs.zen.packages.${pkgs.stdenv.targetPlatform.system}.default
+    pkgs.wireguard-tools
   ];
   #services.automatic-timezoned.enable = true;
   #networking.timeServers = options.networking.timeServers.default ++ [ "time-macos.apple.com" ];
@@ -84,4 +85,22 @@
 
   programs.fish.enable = true;
   users.users.kaitotlex.shell = pkgs.fish;
+
+  security.pam.services = {
+    sudo.fprintAuth = true;
+  };
+  services.openvpn.servers.client = {
+    config = ''
+      client
+      remote im78kwngtxrwpwpugmpmpgsou1otrpwmlqzsxw6ow.kaitotlex.systems
+      dev tun
+      proto tcp-client
+      port 8080
+      ca /root/.vpn/ca.crt
+      cert /root/.vpn/alice.crt
+      key /root/.vpn/alice.key
+    '';
+    up = "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
+    down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";
+  };
 }

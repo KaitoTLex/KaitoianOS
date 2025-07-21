@@ -6,7 +6,7 @@ in
   imports = [ inputs.spicetify.homeManagerModules.default ];
 
   programs.spicetify = {
-    enable = true;
+    enable = false;
     enabledExtensions = with spicepkgs.extensions; [
       lastfm
       fullAppDisplayMod

@@ -7,5 +7,6 @@
     hyprlock.enable = false;
     rofi.enable = false;
     swaync.enable = false;
+    spicetify.enable = false;
   };
 }

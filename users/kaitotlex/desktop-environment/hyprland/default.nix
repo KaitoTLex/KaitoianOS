@@ -110,11 +110,11 @@ in
         enable = true;
         plugins = [ hyprscroller ];
         settings = {
-          input.touchpad = lib.mkIf (config.liminalOS.formFactor == "laptop") {
+          input.touchpad = {
             natural_scroll = true;
             disable_while_typing = true;
             clickfinger_behavior = true;
-            tap-to-click = true;
+            tap-to-click = false;
             scroll_factor = 0.15;
           };
 

@@ -6,7 +6,7 @@
 
   stylix = {
     enable = true;
-    image = "${inputs.wallpapers}/anime/N25/mafuAura.png";
+    image = "${inputs.wallpapers}/anime/N25/kanade.png";
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
 
@@ -24,8 +24,8 @@
         package = pkgs.noto-fonts-emoji;
       };
       monospace = {
-        name = "CaskaydiaCove Nerd Font";
-        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "Mononoki Nerd Font";
+        package = pkgs.nerd-fonts.mononoki;
       };
     };
     cursor = {

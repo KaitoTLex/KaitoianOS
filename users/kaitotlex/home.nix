@@ -19,211 +19,213 @@
   # '';
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-    #gfortran1
-    gqrx
-    urh
-    rtl_433
-    rng-tools
-    nheko
-    openvpn
-    tor-browser
-    bambu-studio
-    gimp3
-    openssl
-    cmake
-    obs-studio
-    python312Packages.pip
-    pipx
-    rpcs3
-    dolphin-emu
-    affine-bin
-    elmPackages.elm
-    kicad
-    android-tools
-    wacomtablet
-    prusa-slicer
-    openhantek6022
-    tor
-    libreoffice
-    rasm
-    arduino-language-server
-    geoclue2
-    lua
-    prismlauncher
-    asciiquarium-transparent
-    fortune
-    cowsay
-    cbonsai
-    xfce.tumbler
-    vitetris
-    playerctl
-    lunar-client
-    texlab
-    gramma
-    pavucontrol
-    libsecret
-    ryujinx
-    unzip
-    sixpair
-    kdePackages.kio-fuse
-    kdePackages.kio-extras
-    kdePackages.qtsvg
-    kdePackages.qtwayland
-    yubikey-personalization
-    typst-live
-    typst
-    tmux
-    pipes
-    cmatrix
-    neofetch
-    polychromatic
-    openrazer-daemon
-    wineWowPackages.waylandFull
-    wget
-    vscode
-    melonDS
-    gparted
-    gnumake
-    chromium
-    manga-tui
-    thunderbird
-    rustc
-    cargo
-    yubikey-manager
-    libratbag
-    pamixer
-    sl
-    piper
-    nwg-displays
-    xfce.thunar
-    tailwindcss
+  # home.packages = with pkgs; [
+  #   # here is some command line tools I use frequently
+  #   # feel free to add your own or remove some of them
+  #   #gfortran1
+  #   halloy
+  #   filezilla
+  #   gqrx
+  #   #urh
+  #   rtl_433
+  #   rng-tools
+  #   #nheko
+  #   openvpn
+  #   tor-browser
+  #   bambu-studio
+  #   gimp3
+  #   openssl
+  #   cmake
+  #   obs-studio
+  #   conda
+  #   python312Packages.pip
+  #   python312Packages.jupyter-core
+  #   rpcs3
+  #   dolphin-emu
+  #   affine-bin
+  #   elmPackages.elm
+  #   kicad
+  #   android-tools
+  #   wacomtablet
+  #   prusa-slicer
+  #   openhantek6022
+  #   tor
+  #   libreoffice
+  #   rasm
+  #   arduino-language-server
+  #   geoclue2
+  #   lua
+  #   prismlauncher
+  #   asciiquarium-transparent
+  #   fortune
+  #   cowsay
+  #   cbonsai
+  #   xfce.tumbler
+  #   vitetris
+  #   playerctl
+  #   lunar-client
+  #   texlab
+  #   gramma
+  #   pavucontrol
+  #   libsecret
+  #   ryujinx
+  #   unzip
+  #   sixpair
+  #   kdePackages.kio-fuse
+  #   kdePackages.kio-extras
+  #   kdePackages.qtsvg
+  #   kdePackages.qtwayland
+  #   yubikey-personalization
+  #   typst-live
+  #   typst
+  #   tmux
+  #   pipes
+  #   cmatrix
+  #   neofetch
+  #   polychromatic
+  #   openrazer-daemon
+  #   wineWowPackages.waylandFull
+  #   wget
+  #   vscodium
+  #   melonDS
+  #   gparted
+  #   gnumake
+  #   chromium
+  #   manga-tui
+  #   thunderbird
+  #   rustc
+  #   cargo
+  #   yubikey-manager
+  #   libratbag
+  #   pamixer
+  #   sl
+  #   piper
+  #   nwg-displays
+  #   xfce.thunar
 
-    typescript
-    typescript-language-server
-    live-server
-    tailwindcss
-    tailwindcss-language-server
-    nodejs_22
-    clang
-    macchanger
-    ani-cli
-    mpv
-    sherlock
-    clang-analyzer
-    clang-tools
-    tinymist
+  #   typescript
+  #   typescript-language-server
+  #   live-server
+  #   tailwindcss
+  #   tailwindcss-language-server
+  #   nodejs_22
+  #   clang
+  #   macchanger
+  #   ani-cli
+  #   mpv
+  #   sherlock
+  #   clang-analyzer
+  #   clang-tools
+  #   tinymist
 
-    steam
-    blueman
+  #   steam
+  #   blueman
 
-    notion-app-enhanced
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+  #   notion-app-enhanced
+  #   # archives
+  #   zip
+  #   xz
+  #   unzip
+  #   p7zip
 
-    # utils
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    emacs # full featured everything
-    wl-clipboard
+  #   # utils
+  #   jq # A lightweight and flexible command-line JSON processor
+  #   yq-go # yaml processor https://github.com/mikefarah/yq
+  #   emacs # full featured everything
+  #   wl-clipboard
 
-    # networking tools
-    mtr # A network diagnostic tool
-    iperf3
-    dnsutils # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    ipcalc # it is a calculator for the IPv4/v6 addresses
+  #   # networking tools
+  #   mtr # A network diagnostic tool
+  #   iperf3
+  #   dnsutils # `dig` + `nslookup`
+  #   ldns # replacement of `dig`, it provide the command `drill`
+  #   aria2 # A lightweight multi-protocol & multi-source command-line download utility
+  #   socat # replacement of openbsd-netcat
+  #   nmap # A utility for network discovery and security auditing
+  #   ipcalc # it is a calculator for the IPv4/v6 addresses
 
-    # misc
-    cowsay
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-    python3
-    rustc
-    arduino-cli
-    jdk
-    # nix related
-    # with more details log output
-    nix-output-monitor
-    # productivity
-    glow # markdown previewer in terminal
-    obsidian # markdown previewer
-    #thunderbird-unwrapped # Full Feature Email Client
+  #   # misc
+  #   cowsay
+  #   file
+  #   which
+  #   tree
+  #   gnused
+  #   gnutar
+  #   gawk
+  #   zstd
+  #   gnupg
+  #   python312
+  #   rustc
+  #   arduino-cli
+  #   jdk
+  #   # nix related
+  #   # with more details log output
+  #   nix-output-monitor
+  #   # productivity
+  #   glow # markdown previewer in terminal
+  #   obsidian # markdown previewer
+  #   #thunderbird-unwrapped # Full Feature Email Client
 
-    #sway Modules
-    swaybg
-    xwayland
+  #   #sway Modules
+  #   swaybg
+  #   xwayland
 
-    # LaTeX stuff
-    texliveFull
-    texlivePackages.pdflatexpicscale
-    texlivePackages.babel
-    texlivePackages.csquotes
-    texlivePackages.biblatex
-    texlivePackages.geometry
-    texlivePackages.times
-    texlivePackages.hyperref
-    texlivePackages.setspace
-    texlivePackages.fancyhdr
-    texlivePackages.biblatex
-    texlivePackages.csquotes
-    texlivePackages.csquotes-de
-    texlivePackages.collection-latexextra
+  #   # LaTeX stuff
+  #   texliveFull
+  #   texlivePackages.pdflatexpicscale
+  #   texlivePackages.babel
+  #   texlivePackages.csquotes
+  #   texlivePackages.biblatex
+  #   texlivePackages.geometry
+  #   texlivePackages.times
+  #   texlivePackages.hyperref
+  #   texlivePackages.setspace
+  #   texlivePackages.fancyhdr
+  #   texlivePackages.biblatex
+  #   texlivePackages.csquotes
+  #   texlivePackages.csquotes-de
+  #   texlivePackages.collection-latexextra
 
-    btop # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
+  #   btop # replacement of htop/nmon
+  #   iotop # io monitoring
+  #   iftop # network monitoring
 
-    waydroid
+  #   waydroid
 
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
-    lsof # list open files
+  #   # system call monitoring
+  #   strace # system call monitoring
+  #   ltrace # library call monitoring
+  #   lsof # list open files
 
-    #Rice
-    kanagawa-gtk-theme
-    kanagawa-icon-theme
+  #   #Rice
+  #   kanagawa-gtk-theme
+  #   kanagawa-icon-theme
 
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
-    git-credential-oauth
+  #   # system tools
+  #   sysstat
+  #   lm_sensors # for `sensors` command
+  #   ethtool
+  #   pciutils # lspci
+  #   usbutils # lsusb
+  #   git-credential-oauth
 
-    # messaging apps
-    signal-desktop
-    gh
+  #   # messaging apps
+  #   #signal-desktop
+  #   gh
 
-    #Pentest
-    netcat
-    nmap
-    metasploit
-    #john
-    lynis
-    hydra-cli
-    #ghidra
-    social-engineer-toolkit
-    aircrack-ng
-    swaylock-fancy
-    brightnessctl
-  ];
+  #   #Pentest
+  #   netcat
+  #   nmap
+  #   metasploit
+  #   #john
+  #   lynis
+  #   hydra-cli
+  #   #ghidra
+  #   #social-engineer-toolkit
+  #   aircrack-ng
+  #   swaylock-fancy
+  #   brightnessctl
+  # ];
 
   xdg.portal = {
     enable = true;
@@ -292,7 +294,7 @@
       cursor = pkgs.lib.mkForce "#c0caf5";
       cursor_text_color = pkgs.lib.mkForce "#1a1b26";
       cursor_trail = 3;
-      background_image = "${inputs.wallpapers}/kitty/moominResized.png";
+      #background_image = "${inputs.wallpapers}/kitty/moominResized.png";
       background_image_layout = "cscaled";
       #background_image_linear = "yes";
       background_opacity = pkgs.lib.mkForce "0.6";

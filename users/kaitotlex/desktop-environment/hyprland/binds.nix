@@ -83,8 +83,8 @@ in
       ",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%+"
       ",XF86KbdBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl -d asus::kbd_backlight set 1-"
       ",XF86KbdBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl -d asus::kbd_backlight set 1-"
-      ",XF86Launch1, exec, ${pkgs.supergfxctl}/bin/supergfxctl --mode Hybrid"
-      ",XF86Launch4, exec, ${pkgs.supergfxctl}/bin/supergfxctl --mode Integrated"
+      # ",XF86Launch1, exec, ${pkgs.supergfxctl}/bin/supergfxctl --mode Hybrid"
+      # ",XF86Launch4, exec, ${pkgs.supergfxctl}/bin/supergfxctl --mode Integrated"
       ",XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 5"
       ",XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 5"
     ];
