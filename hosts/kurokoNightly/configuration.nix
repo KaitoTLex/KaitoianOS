@@ -2,40 +2,23 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  inputs,
   config,
   pkgs,
-  lib,
   ...
 }:
 {
   imports = [
     # Include the results of the hardware scan.
-    inputs.ucodenix.nixosModules.default
     ./hardware-configuration.nix
   ];
-  services.ucodenix.enable = true;
-  # Bootloader.
+  # System Services/Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-  virtualisation.waydroid.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  #systemdefaults
   networking.hostName = "kuroko"; # Define your hostname.
+  boot.kernelPackages = pkgs.linuxPackages_6_13;
   services.ratbagd.enable = true;
-
   services.pulseaudio.support32Bit = true;
-  boot.kernelParams = [
-    "mem_sleep_default=deep"
-  ];
-  # systemd.sleep.extraConfig = ''
-  #   AllowSuspend=yes
-  #   AllowHibernation=yes
-  #   AllowHybridSleep=yes
-  #   AllowSuspendThenHibernate=yes
-  # '';
-   
+
   # Enable substituters
   nix.settings = {
     substituters = [
@@ -47,33 +30,29 @@
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
   };
-
+  
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
+    "nouveau"
     "amdgpu"
-    "nvidia"
   ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    amdvlk
-  ];
+
   hardware.nvidia = {
-    # custom option defined in graphics/default.nix
-    #usePatchedAquamarine = true;
 
     # Modesetting is required.
-    modesetting.enable = lib.mkForce true;
+    modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
-    powerManagement.enable = lib.mkForce true;
+    powerManagement.enable = false;
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = lib.mkForce true;
+    powerManagement.finegrained = false;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -82,7 +61,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = lib.mkForce false;
+    open = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
@@ -92,11 +71,14 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     #Power Saving Features
     prime = {
-      offload.enable = lib.mkForce true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       # Make sure to use the correct Bus ID values for your system!
       #intelBusId = "PCI:";
-      nvidiaBusId = "PCI:1:0:0";
-      amdgpuBusId = "PCI:8:0:0";
+      nvidiaBusId = "PCI:01:0:0";
+      amdgpuBusId = "PCI:08:00:00";
     };
 
   };
@@ -106,8 +88,10 @@
   security.polkit.enable = true;
   # Enable networking
   networking.networkmanager.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -122,9 +106,30 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16"
+
+  #System specific packages
+  environment.systemPackages = with pkgs; [
+    #nvtop
+    osu-lazer
+    davinci-resolve
+    wacomtablet
+    obs-studio
   ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  services.fprintd = {
+    enable = true;
+    #package = pkgs.fprintd-tod;
+    #tod = {
+    # enable = false;
+    # driver = pkgs.libfprint-2-tod1-elan;
+    #};
+  };
+  # List services that you want to enable:
+
+  # Keyboard related modifications
   services.keyd = {
     enable = true;
     keyboards.default = {
@@ -140,45 +145,6 @@
       };
     };
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  hardware.opentabletdriver.enable = true;
-  services.fprintd = {
-    enable = true;
-    package = pkgs.fprintd-tod;
-    tod = {
-      enable = true;
-      driver = pkgs.libfprint-2-tod1-elan;
-    };
-  };
-  #System specific power management to fix...
-  services.tlp = {
-    enable = true;
-    settings = {
-      #Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 20; # 40 and bellow it starts to charge
-      STOP_CHARGE_THRESH_BAT0 = 98; # 80 and above it stops charging
-
-    };
-  };
-  #Asus Specific Packages
-  services.asusd.enable = true;
-  programs.rog-control-center.enable = true;
-
-  #System specific packages to install
-  environment.systemPackages = with pkgs; [
-    # nvtop
-    osu-lazer
-    davinci-resolve
-    wacomtablet
-    obs-studio
-    asusctl
-    supergfxctl
-    thinkfan
-  ];
-
-  # List services that you want to enable:
   services.actkbd = {
     enable = true;
     bindings = [
@@ -207,20 +173,31 @@
         events = [ "key" ];
         command = "pamixer -d 5";
       }
-      {
-        keys = [ 237 ];
-        events = [ "key" ];
-        command = "brightnessctl -d asus::kbd_backlight set 1-";
-      }
-      {
-        keys = [ 238 ];
-        events = [ "key" ];
-        command = "brightnessctl -d asus::kbd_backlight set +1";
-      }
+      # {
+      #   keys = [ 237 ];
+      #   events = [ "key" ];
+      #   command = "${pkgs.brightnessctl} -d asus::kbd_backlight set 1-";
+      # }
+      # {
+      #   keys = [ 238 ];
+      #   events = [ "key" ];
+      #   command = "${pkgs.brightnessctl} -d asus::kbd_backlight set +1";
+      # }
       #{ keys = [  ]; events = [ "key" ]; command = "brightnessctl -d amdgpu_bl2 set +10%"; }
       #{ keys = [  ]; events = [ "key" ]; command = "brightnessctl -d amdgpu_bl2 set +10%"; }
 
     ];
+  };
+
+  # Laptop Power services
+  services.tlp = {
+    enable = true;
+    settings = {
+      #Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 20; # 40 and bellow it starts to charge
+      STOP_CHARGE_THRESH_BAT0 = 98; # 80 and above it stops charging
+
+    };
   };
 
   # Open ports in the firewall.

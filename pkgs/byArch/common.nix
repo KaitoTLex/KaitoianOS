@@ -7,7 +7,7 @@ with pkgs;
   yazi
   cinny-desktop
   calcure
-  halloy
+  kvirc
   gqrx
   #nheko
   bambu-studio

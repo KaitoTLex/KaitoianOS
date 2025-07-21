@@ -16,20 +16,25 @@
   hardware.graphics.extraPackages = with pkgs; [
     vaapiIntel
     intel-media-driver
+    vpl-gpu-rt
   ];
   hardware.graphics.enable32Bit = true;
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      # your Open GL, Vulkan and VAAPI drivers
-      vpl-gpu-rt # for newer GPUs on NixOS >24.05 or unstable
-      # onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
-      # intel-media-sdk   # for older GPUs
+  hardware.graphics.enable = true;
+  
+  # Enable substituters
+  nix.settings = {
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://cache.garnix.io"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
   };
 
+  services.pulseaudio.support32Bit = true;
   hardware = {
-    pulseaudio.support32Bit = true;
     openrazer.enable = true;
   };
   virtualisation.podman = {
