@@ -183,6 +183,17 @@
               { pkgs, lib, ... }:
               {
                 environment.systemPackages = mkPkgs "aarch64-linux";
+                nixpkgs.config.allowUnfreePredicate =
+                  pkg:
+                  builtins.elem (lib.getName pkg) [
+                    "steam"
+                    "steam-unwrapped"
+                    "obsidian"
+                    "via"
+                    "vial"
+
+                  ];
+
               }
             )
             home-manager.nixosModules.home-manager
@@ -200,10 +211,26 @@
                     {
                       wayland.windowManager.hyprland.settings.monitor = [
                         "eDP-1,3024x1964@60Hz,0x0,2"
+                        #"HDMI-A-1,1920x1080@165,3024x0,1"
                       ];
                     }
+
                   ];
+                  programs.iamb = {
+                    settings = {
+                      profiles."matrix.functor.systems".user_id = "@kaitotlex26:functor.systems";
+                      settings = {
+                        image_preview = { };
+                        notifications = {
+                          enabled = true;
+                          show_message = true;
+                        };
+                      };
+                    };
+                  };
+
                 };
+
               };
             }
           ];

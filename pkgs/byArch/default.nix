@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   system ? builtins.currentSystem,
 }:
 let
@@ -13,8 +12,5 @@ let
       import ./arch/aarch64 { inherit pkgs; }
     else
       [ ];
-  unfreePackages = import ./unfreeCommon.nix { inherit lib; };
-
 in
-
-commonPackages ++ archPackages ++ unfreePackages
+commonPackages ++ archPackages

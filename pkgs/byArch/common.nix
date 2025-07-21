@@ -2,6 +2,8 @@
 
 with pkgs;
 [
+  tuisky
+  bluetui
   yazi
   cinny-desktop
   calcure

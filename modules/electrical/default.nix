@@ -3,8 +3,12 @@
   ...
 }:
 {
-  services.udev.packages = [
-    (pkgs.writeTextFile {
+  services.udev.packages = with pkgs; [
+    qmk
+    qmk-udev-rules
+    qmk_hid
+    #arm-trusted-firmware
+    (writeTextFile {
       name = "60-openhantek";
       text = ''
         # rules for OpenHantek6022 (DSO program) as well as Hankek6022API (python tools)
