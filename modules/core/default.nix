@@ -89,18 +89,32 @@
   security.pam.services = {
     sudo.fprintAuth = true;
   };
-  services.openvpn.servers.client = {
-    config = ''
-      client
-      remote im78kwngtxrwpwpugmpmpgsou1otrpwmlqzsxw6ow.kaitotlex.systems
-      dev tun
-      proto tcp-client
-      port 8080
-      ca /root/.vpn/ca.crt
-      cert /root/.vpn/alice.crt
-      key /root/.vpn/alice.key
-    '';
-    up = "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
-    down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";
+  services.tor = {
+    enable = true;
+    client.dns.enable = true;
+    settings.DNSPort = [
+      {
+        addr = "127.0.0.1";
+        port = 53;
+      }
+    ];
   };
+  services.resolved = {
+    enable = true; # For caching DNS requests.
+    fallbackDns = [ "1.1.1.1" ]; # Overwrite compiled-in fallback DNS servers.
+  };
+  # services.openvpn.servers.client = {
+  #   config = ''
+  #     client
+  #     remote im78kwngtxrwpwpugmpmpgsou1otrpwmlqzsxw6ow.kaitotlex.systems
+  #     dev tun
+  #     proto tcp-client
+  #     port 8080
+  #     ca /root/.vpn/ca.crt
+  #     cert /root/.vpn/alice.crt
+  #     key /root/.vpn/alice.key
+  #   '';
+  #   up = "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
+  #   down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";
+  # };
 }
