@@ -1,3 +1,4 @@
+[kanade](img/main.png)
 # KaitoianOS
 > Fully customizable container-based operating system based on ```NixOS``` running Hyprland && Hyprscroller. 
 ## What even is this Config?
