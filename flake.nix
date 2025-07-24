@@ -195,7 +195,7 @@
                     "obsidian"
                     "via"
                     "vial"
-                    "checkra1n"
+                    "vscode-extensions.ms-python.vscode-pylance"
                   ];
 
               }

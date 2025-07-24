@@ -50,33 +50,20 @@
 
       destination = "/etc/udev/rules.d/60-openhantek.rules";
     })
-    # (writeTextFile {
-    #   name = "50-8bitdo-kbd";
-    #   text = ''
-    #
-    #     # Place in /etc/udev/rules.d/
-    #
-    #     # ACTION!="add|change", GOTO="openhantek_rules_end"
-    #     # SUBSYSTEM!="usb|usbmisc|usb_device", GOTO="openhantek_rules_end"
-    #     # ENV{DEVTYPE}!="usb_device", GOTO="openhantek_rules_end"
-    #
-    #     # Allow logged in users to read/write the device
-    #     SUBSYSTEM=="usb", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="5200", MODE="0660", TAG+="uaccess"
-    #
-    #     # Unbind usbhid from interface #2 so that python can use the interface
-    #     ACTION=="bind", SUBSYSTEM=="usb", ATTR{bInterfaceNumber}=="02", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="5200", RUN+="/usr/bin/sh -c 'echo $kernel > /sys/bus/usb/drivers/usbhid/unbind'"
-    #
-    #     # If you want to hack these rules using `udevadm info -a` will be useful. Example:
-    #     # udevadm info -a -n /dev/hidraw3
-    #     #
-    #     # It may be useful to use the following for debugging in the unbind rule:
-    #     # PROGRAM="/usr/bin/sh -c 'logger -p user.info usb matched! kernel=$kernel, number=$number, devpath=$devpath, id=$id, driver=$driver, major=$major, minor=$minor, result=$result, parent=$parent, name=$name, links=$links, root=$root, sys=$sys, devnode=$devnode'"
-    #     # LABEL="8bitdo-kbd_rules_end"
-    #
-    #   '';
-    #
-    #   destination = "/etc/udev/rules.d/50-8bitdo-kbd.rules";
-    # })
+    (writeTextFile {
+      name = "50-8bitdo-kbd";
+      text = ''
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="5200", MODE="0660", TAG+="uaccess"
+
+        # unbind
+        SUBSYSTEM=="usb", ACTION=="bind", ATTR{bInterfaceNumber}=="00", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="5200", RUN+="/bin/sh -c ' \
+        	echo $kernel > /sys/bus/usb/drivers/usbhid/unbind ; \
+        	logger -t RETRO unbind $kernel ; \
+        '"
+      '';
+
+      destination = "/etc/udev/rules.d/50-8bitdo-kbd.rules";
+    })
     (writeTextFile {
       name = "71-8bitdo-controller";
       text = ''
