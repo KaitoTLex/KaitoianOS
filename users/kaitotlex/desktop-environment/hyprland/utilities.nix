@@ -97,7 +97,7 @@ in
 
     services.swayosd.enable = true;
 
-    programs.hyprlock = lib.mkIf cfg.screenlocker.enable {
+    programs.hyprlock = {
       enable = true;
       settings = {
         general = {
@@ -129,12 +129,12 @@ in
           font_color = "rgb(10, 10, 10)";
           fade_on_empty = true;
           fade_timeout = 1000;
-          placeholder_text = "<i>Input Password...</i>";
+          placeholder_text = "<i>Authenticate</i>";
           hide_input = false;
           rounding = -1;
           check_color = "rgb(204, 136, 34)";
           fail_color = "rgb(204, 34, 34)";
-          fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
+          fail_text = "<i>$FAILED <b>($ATTEMPTS)</b></i>";
           fail_timeout = 2000;
           fail_transition = 300;
           capslock_color = -1;
@@ -155,16 +155,16 @@ in
       settings = {
         general = {
           lock_cmd =
-            if cfg.screenlocker.useCrashFix then
-              "pidof hyprlock || ${pkgs.grim}/bin/grim -o ${config.programs.hyprlock.settings.background.monitor} /tmp/__hyprlock-monitor-screenshot.png && ${pkgs.hyprlock}/bin/hyprlock"
-            else
-              "pidof hyprlock || hyprlock";
+            #if cfg.screenlocker.useCrashFix then
+            "pidof hyprlock || ${pkgs.grim}/bin/grim -o ${config.programs.hyprlock.settings.background.monitor} /tmp/__hyprlock-monitor-screenshot.png && ${pkgs.hyprlock}/bin/hyprlock";
+          # else
+          #   "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
           after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
         };
         listener = [
           {
-            timeout = 1500;
+            timeout = 150;
             on-timeout = "loginctl lock-session";
           }
           {

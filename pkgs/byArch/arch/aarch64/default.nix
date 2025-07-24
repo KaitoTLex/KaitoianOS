@@ -4,6 +4,8 @@
 }:
 with pkgs;
 [
+  asahi-wifisync
+  asahi-btsync
   spotify-player
   spotifyd
   asahi-audio

@@ -5,6 +5,7 @@
   inputs,
   pkgs,
   lib,
+  osConfig,
   ...
 }:
 {
@@ -16,7 +17,6 @@
   networking.hostName = "kanade";
   time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
-
   nixpkgs.config.allowUnfreePredicate = _: true;
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {

@@ -69,7 +69,7 @@ in
     };
     screenlocker.useCrashFix = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
       description = ''
         Whether to use a workaround for Hyprlock background blur not working on some machines. Before locking, a screenshot will be taken and placed at `/tmp/__hyprlock-monitor-screenshot.png`.
       '';
@@ -99,7 +99,6 @@ in
       libsForQt5.qt5ct
       hyprland-qtutils
     ];
-
     wayland.windowManager.hyprland =
       let
         # Determine system architecture

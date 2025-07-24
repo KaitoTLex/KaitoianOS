@@ -195,7 +195,7 @@
                     "obsidian"
                     "via"
                     "vial"
-
+                    "checkra1n"
                   ];
 
               }

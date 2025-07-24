@@ -2,6 +2,9 @@
 
 with pkgs;
 [
+  conda
+  brev-cli
+  kicad
   tuisky
   bluetui
   yazi
