@@ -21,7 +21,7 @@ MSI Summit E13 Flip Evo
 
 > 16 GB LPDDR5
 
-> 256 GB Samsung Evo 970 SSD
+> 512 GB Samsung Evo 970 SSD
 
 ### Kuroko - *Named after a Character from [*Blue Archive*](https://bluearchive.fandom.com/wiki/Shiroko_Terror)
 ROG (ASUS) Flow X13 2022
@@ -31,7 +31,7 @@ ROG (ASUS) Flow X13 2022
 
 > 16 GB LPDDR4
 
-> 256 GB Kioxia 
+> 256 GB Kioxia
 
 ## How to Install or Clone
 
