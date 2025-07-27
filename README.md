@@ -1,4 +1,4 @@
-[kanade](img/main.png)
+![kanade](img/main.png)
 # KaitoianOS
 > Fully customizable container-based operating system based on ```NixOS``` running Hyprland && Hyprscroller. 
 ## What even is this Config?
@@ -21,7 +21,7 @@ MSI Summit E13 Flip Evo
 
 > 16 GB LPDDR5
 
-> 256 GB Samsung Evo 970 SSD
+> 512 GB Samsung Evo 970 SSD
 
 ### Kuroko - *Named after a Character from [*Blue Archive*](https://bluearchive.fandom.com/wiki/Shiroko_Terror)
 ROG (ASUS) Flow X13 2022
@@ -31,7 +31,7 @@ ROG (ASUS) Flow X13 2022
 
 > 16 GB LPDDR4
 
-> 256 GB Kioxia 
+> 256 GB Kioxia
 
 ### Kanade - *Named after a Composer from [PJSK N25](https://www.sekaipedia.org/wiki/Yoisaki_Kanade)
 Apple MacBookPro18,4 M1 Pro 2021
