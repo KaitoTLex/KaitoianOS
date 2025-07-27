@@ -35,7 +35,7 @@
   #   AllowHybridSleep=yes
   #   AllowSuspendThenHibernate=yes
   # '';
-   
+
   # Enable substituters
   nix.settings = {
     substituters = [
@@ -47,7 +47,10 @@
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
   };
-
+  # wayland.windowManager.hyprland.settings.monitor = [
+  #   "eDP-1,1920x1200@120,0x0,1"
+  #   "desc:Microstep MSI G274 CC2H032401304,1920x1080@165,1920x0,1"
+  # ];
   #Nvidia Hardware begins
   services.xserver.videoDrivers = [
     "amdgpu"

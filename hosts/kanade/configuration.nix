@@ -8,6 +8,7 @@
   osConfig,
   ...
 }:
+
 {
   imports = [
     ./hardware-configuration.nix
@@ -17,7 +18,8 @@
   networking.hostName = "kanade";
   time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
-  nixpkgs.config.allowUnfreePredicate = _: true;
+  nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowUnfreePredicate = _: true;
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {
     enable = true;
@@ -34,7 +36,6 @@
   #     };
   #   };
   # };
-
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = false;
@@ -43,7 +44,10 @@
       options hid_apple iso_layout=0
     '';
   };
-
+  # wayland.windowManager.hyprland.settings.monitor = [
+  #   "eDP-1,3024x1964@60.00000,0x0,1"
+  #   "desc:Microstep MSI G274 CC2H032401304,1920x1080@165,1920x0,1"
+  # ];
   hardware.asahi = {
     enable = true;
     peripheralFirmwareDirectory = ./firmware;

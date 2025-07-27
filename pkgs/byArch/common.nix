@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  pulsemixer
   conda
   brev-cli
   kicad

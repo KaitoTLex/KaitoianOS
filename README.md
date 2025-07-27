@@ -17,7 +17,7 @@ Although Sway is a reliable and well developed window manager, it doesn't offer 
 ## Hosts
 ### Shiroko - *Named after a Character from [*Blue Archive*](https://schaledb.com/student/shiroko)
 MSI Summit E13 Flip Evo
-> Intel i5 1155G7 @ 4.5GhZ
+> Intel i5 1155G7 @ 4.5GhZ (x86-64)
 
 > 16 GB LPDDR5
 
@@ -25,13 +25,23 @@ MSI Summit E13 Flip Evo
 
 ### Kuroko - *Named after a Character from [*Blue Archive*](https://bluearchive.fandom.com/wiki/Shiroko_Terror)
 ROG (ASUS) Flow X13 2022
-> AMD R9 5900HS @ 5.1GhZ
+> AMD R9 5900HS @ 5.1GhZ (x86-64)
 
 > Nvidia RTX3050Ti Mobile + 4GB GDDR6
 
 > 16 GB LPDDR4
 
 > 256 GB Kioxia 
+
+### Kanade - *Named after a Composer from [PJSK N25](https://www.sekaipedia.org/wiki/Yoisaki_Kanade)
+Apple MacBookPro18,4 M1 Pro 2021
+> Apple M1 Pro @ 5.0 GhZ (aarch64)
+
+> AppleGPU - Asahi Lina RE
+
+> 32 GB LPDDR5-6400 OnDie
+
+> 1TB Micron NAND
 
 ## How to Install or Clone
 
