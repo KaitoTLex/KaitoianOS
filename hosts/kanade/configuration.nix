@@ -99,7 +99,6 @@
       };
     };
   };
-  #wayland.windowManager.hyprland.settings.render.explicit_sync = 0;
 
   system.stateVersion = "24.11";
 }

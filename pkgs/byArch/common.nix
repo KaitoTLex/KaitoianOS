@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  kiwix
   pulsemixer
   conda
   brev-cli
@@ -107,6 +108,7 @@ with pkgs;
   texlivePackages.csquotes
   texlivePackages.csquotes-de
   texlivePackages.collection-latexextra
+  texlivePackages.moderncv
 
   btop # replacement of htop/nmon
   iotop # io monitoring

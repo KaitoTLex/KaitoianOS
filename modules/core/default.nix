@@ -4,6 +4,31 @@
   ...
 }:
 {
+  #security.policies.enable = true;
+  services.udisks2 = {
+    enable = true;
+    # Allow users in the 'disk' group to manage disks
+    #mountOnLogin = true;
+    #remoteDevices = true;
+  };
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id.match("org.freedesktop.udisks2.") &&
+          subject.isInGroup("disk")) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
+  security.pam.services.hyprlock = {
+    text = ''
+      auth include login
+    '';
+  };
+  users.groups.disk = {
+    name = "disk";
+    gid = 6; # Standard GID for disk group
+  };
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = false;
@@ -73,6 +98,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "disk"
     ];
   };
 

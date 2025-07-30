@@ -218,7 +218,7 @@
                       # ];
                       wayland.windowManager.hyprland.settings.monitor = [
                         "eDP-1,3024x1964@60.00,0x0,2"
-                        "desc:Microstep MSI G274 CC2H032401304,1920x1080@165.00,3000x0,1"
+                        "desc:Microstep MSI G274 CC2H032401304,1920x1080@165.00,auto,1"
                       ];
                     }
 

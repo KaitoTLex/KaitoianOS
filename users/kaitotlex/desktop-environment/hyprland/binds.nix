@@ -95,5 +95,8 @@ in
       "$mod+Alt, $Up, resizeactive, 0 -30"
       "$mod+Alt, $Down, resizeactive, 0 30"
     ];
+    env = [
+      "GSK_RENDERER,ngl"
+    ];
   };
 }

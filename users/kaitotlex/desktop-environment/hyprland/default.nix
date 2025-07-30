@@ -48,21 +48,21 @@ in
     };
     gtkUseOpenGL = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
       description = ''
         Whether to set GSK_RENDERER environment variable to stop GTK apps from crashing.
       '';
     };
     idleDaemon.enable = lib.mkOption {
       type = lib.types.bool;
-      default = cfg.enable;
+      default = true;
       description = ''
         Whether to setup and enable Hypridle with some defaults to automatically lock the screen and suspend after idling.
       '';
     };
     screenlocker.enable = lib.mkOption {
       type = lib.types.bool;
-      default = cfg.enable && cfg.idleDaemon.enable;
+      default = true;
       description = ''
         Whether to set up Hyprlock for screen locking.
       '';
@@ -83,7 +83,7 @@ in
     };
     bluelight.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = ''
         Whether to enable `hyprsunset` as a daemon.
       '';
@@ -196,6 +196,7 @@ in
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
           };
+          #windowManager.hyprland.settings.render.explicit_sync = 0;
 
           cursor = {
             hide_on_key_press = true;

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 let
@@ -106,8 +107,7 @@ in
         };
         background = {
           monitor = cfg.screenlocker.monitor;
-          path =
-            if cfg.screenlocker.useCrashFix then "/tmp/__hyprlock-monitor-screenshot.png" else "screenshot";
+          path = "${inputs.wallpapers}/anime/N25/kanade.png";
           blur_passes = 3;
           blur_size = 7;
           noise = 0.0117;
@@ -147,6 +147,9 @@ in
           halign = "center";
           valign = "center";
         };
+        # label = {
+        #   text = "KaitoTLex";
+        # };
       };
     };
 
@@ -155,10 +158,14 @@ in
       settings = {
         general = {
           lock_cmd =
-            #if cfg.screenlocker.useCrashFix then
-            "pidof hyprlock || ${pkgs.grim}/bin/grim -o ${config.programs.hyprlock.settings.background.monitor} /tmp/__hyprlock-monitor-screenshot.png && ${pkgs.hyprlock}/bin/hyprlock";
+            if cfg.screenlocker.useCrashFix then
+              "pidof hyprlock || ${lib.getExe pkgs.hyprlock}"
+            else
+              "pidof hyprlock || hyprlock";
+          #if cfg.screenlocker.useCrashFix then
+          #"pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
           # else
-          #   "pidof hyprlock || hyprlock";
+          #"pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
           before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
           after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
         };
