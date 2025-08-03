@@ -48,14 +48,14 @@ in
     };
     gtkUseOpenGL = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = ''
         Whether to set GSK_RENDERER environment variable to stop GTK apps from crashing.
       '';
     };
     idleDaemon.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = cfg.enable;
       description = ''
         Whether to setup and enable Hypridle with some defaults to automatically lock the screen and suspend after idling.
       '';
@@ -127,11 +127,11 @@ in
           "$Right" = "L";
           "$Up" = "K";
           "$Down" = "J";
-          env = (
-            lib.optionals cfg.gtkUseOpenGL [
-              "GSK_RENDERER,ngl"
-            ]
-          );
+          # env = (
+          #   lib.optionals cfg.gtkUseOpenGL [
+          #     "GSK_RENDERER,ngl"
+          #   ]
+          # );
           layerrule = [
             "blur,rofi"
             "ignorezero,rofi"

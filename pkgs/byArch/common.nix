@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  libsoup_3
   kiwix
   pulsemixer
   conda
@@ -10,12 +11,11 @@ with pkgs;
   tuisky
   bluetui
   yazi
-  cinny-desktop
+  # cinny-desktop
   calcure
   kvirc
   gqrx
   #nheko
-  bambu-studio
   gimp3
   openssl
   cmake

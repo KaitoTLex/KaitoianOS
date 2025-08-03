@@ -7,7 +7,6 @@
   ];
 
   liminalOS.formFactor = "laptop";
-  liminalOS.powersave = true;
   liminalOS.desktop.hyprland.screenlocker.monitor = "eDP-1";
   liminalOS.desktop.hyprland.screenlocker.useCrashFix = true;
   wayland.windowManager.hyprland.settings.env = [
