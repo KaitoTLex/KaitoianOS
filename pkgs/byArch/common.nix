@@ -90,7 +90,6 @@ with pkgs;
   clang-analyzer
   clang-tools
   tinymist
-  xwayland
 
   bluez
   # LaTeX stuff

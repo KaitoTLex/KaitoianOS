@@ -52,11 +52,11 @@ in
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
 
-    programs.hyprland.enable = cfg.hyprland.enable;
+    programs.hyprland.enable = lib.mkForce true;
 
-    # programs.niri.enable = cfg.niri.enable;
+    #programs.niri.enable = cfg.niri.enable;
 
-    # programs.xwayland.enable = lib.mkIf cfg.niri.enable (lib.mkForce true);
+    programs.xwayland.enable = lib.mkForce true;
 
     services.xserver.enable = false;
 

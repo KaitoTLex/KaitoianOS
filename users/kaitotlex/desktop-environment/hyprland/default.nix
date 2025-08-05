@@ -127,11 +127,11 @@ in
           "$Right" = "L";
           "$Up" = "K";
           "$Down" = "J";
-          # env = (
-          #   lib.optionals cfg.gtkUseOpenGL [
-          #     "GSK_RENDERER,ngl"
-          #   ]
-          # );
+          env = (
+            lib.optionals cfg.gtkUseOpenGL [
+              "GSK_RENDERER,ngl"
+            ]
+          );
           layerrule = [
             "blur,rofi"
             "ignorezero,rofi"
