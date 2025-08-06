@@ -196,7 +196,6 @@ in
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
           };
-          #windowManager.hyprland.settings.render.explicit_sync = 0;
 
           cursor = {
             hide_on_key_press = true;
