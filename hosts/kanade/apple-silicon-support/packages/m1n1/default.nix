@@ -8,8 +8,11 @@
 , isRelease ? false
 , withTools ? true
 , withChainloading ? false
+, rust-bin ? null
 , customLogo ? null
 }:
+
+assert withChainloading -> rust-bin != null;
 
 let
   pyenv = python3.withPackages (p: with p; [
@@ -17,34 +20,21 @@ let
     pyserial
   ]);
 
-  stdenvOpts = {
-    targetPlatform.system = "aarch64-none-elf";
-    targetPlatform.rust.rustcTarget = "${stdenv.hostPlatform.parsed.cpu.name}-unknown-none-softfloat";
-    targetPlatform.rust.rustcTargetSpec = "${stdenv.hostPlatform.parsed.cpu.name}-unknown-none-softfloat";
-  };
-  rust = buildPackages.rust.override {
-    stdenv = lib.recursiveUpdate buildPackages.stdenv stdenvOpts;
-  };
-  rustPackages = rust.packages.stable.overrideScope (f: p: {
-    rustc-unwrapped = p.rustc-unwrapped.override {
-      stdenv = lib.recursiveUpdate p.rustc-unwrapped.stdenv stdenvOpts;
-    };
+  rustenv = rust-bin.selectLatestNightlyWith (toolchain: toolchain.minimal.override {
+    targets = [ "aarch64-unknown-none-softfloat" ];
   });
-  rustPlatform = buildPackages.makeRustPlatform rustPackages;
-
 in stdenv.mkDerivation rec {
   pname = "m1n1";
-  version = "1.4.21";
+  version = "1.4.17";
 
   src = fetchFromGitHub {
     # tracking: https://src.fedoraproject.org/rpms/m1n1
     owner = "AsahiLinux";
     repo = "m1n1";
     rev = "v${version}";
-    hash = "sha256-PEjTaSwcsV8PzM9a3rDWMYXGX9FlrM0oeElrP5HYRPg=";
+    hash = "sha256-p79TshQ/C4Uwmxga3GdzJR9Ku62ObrXEv5uVVpWncdY=";
     fetchSubmodules = true;
   };
-  cargoVendorDir = ".";
 
   makeFlags = [ "ARCH=${stdenv.cc.targetPrefix}" ]
     ++ lib.optional isRelease "RELEASE=1"
@@ -52,7 +42,8 @@ in stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     dtc
-  ] ++ lib.optionals withChainloading [rustPackages.rustc rustPackages.cargo rustPlatform.cargoSetupHook]
+    buildPackages.gcc
+  ] ++ lib.optional withChainloading rustenv
     ++ lib.optional (customLogo != null) imagemagick;
 
   postPatch = ''

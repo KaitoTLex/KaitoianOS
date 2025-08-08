@@ -9,10 +9,10 @@
     # tracking: https://pagure.io/fedora-asahi/uboot-tools/commits/main
     owner = "AsahiLinux";
     repo = "u-boot";
-    rev = "asahi-v2025.04-1";
-    hash = "sha256-/z37qj26AqsyEBsFT6UEN3GjG6KVsoJOoUB4s9BRDbE=";
+    rev = "asahi-v2024.10-1";
+    hash = "sha256-gtXt+BglBdEKW7j3U2x2QeKGeDH1FdmAMPXk+ntkROo=";
   };
-  version = "2025.04-1-asahi";
+  version = "2024.10-1-asahi";
 
   defconfig = "apple_m1_defconfig";
   extraMeta.platforms = [ "aarch64-linux" ];
@@ -22,15 +22,31 @@
   ];
   extraConfig = ''
     CONFIG_IDENT_STRING=" ${version}"
+    CONFIG_BOOTMETH_VBE=n
+    CONFIG_AUTOBOOT_KEYED=n
+    CONFIG_ARM64_SUPPORT_AARCH32=n
+    CONFIG_SYS_MALLOC_CLEAR_ON_INIT=n
+    CONFIG_BOOTDELAY=1
+    CONFIG_BOOTM_VXWORKS=n
+    CONFIG_BOOTM_NETBSD=n
+    CONFIG_BOOTM_PLAN9=n
+    CONFIG_BOOTM_RTEMS=n
+    CONFIG_CMD_LZMADEC=n
+    CONFIG_LZMA=n
+    CONFIG_CMD_UNLZ4=n
+    CONFIG_LZ4=n
+    CONFIG_TOOLS_KWBIMAGE=n
+    CONFIG_CMD_SELECT_FONT=n
+    CONFIG_VIDEO_LOGO=n
+    CONFIG_VIDEO_BMP_RLE8=n
     CONFIG_VIDEO_FONT_4X6=n
     CONFIG_VIDEO_FONT_8X16=n
     CONFIG_VIDEO_FONT_SUN12X22=n
-    CONFIG_VIDEO_FONT_16X32=y
     CONFIG_CMD_BOOTMENU=y
   '';
 }).overrideAttrs (o: {
   # nixos's downstream patches are not applicable
-  patches = [ 
+  patches = [ ./openssl-no-engine.patch
   ];
 
   # DTC= flag somehow breaks DTC compilation so we remove it

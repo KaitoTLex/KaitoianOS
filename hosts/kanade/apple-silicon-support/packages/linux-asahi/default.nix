@@ -1,5 +1,7 @@
 { lib
+, pkgs
 , callPackage
+, writeShellScriptBin
 , writeText
 , linuxPackagesFor
 , withRust ? true
@@ -46,14 +48,13 @@ let
   origConfigfile = ./config;
 
   linux-asahi-pkg = { stdenv, lib, fetchFromGitHub, fetchpatch, linuxKernel,
-      rustc, rust-bindgen, ... } @ args:
+      rustPlatform, rustc, rustfmt, rust-bindgen, ... } @ args:
     let
       origConfigText = builtins.readFile origConfigfile;
 
       # extraConfig from all patches in order
       extraConfig =
-        lib.fold (patch: ex: ex ++ (parsePatchConfig patch)) [] _kernelPatches
-        ++ (lib.optional withRust [ "CONFIG_RUST" "y" ]);
+        lib.fold (patch: ex: ex ++ (parsePatchConfig patch)) [] _kernelPatches;
       # config file text for above
       extraConfigText = let
         text = k: v: if (v == "y") || (v == "m") || (v == "n")
@@ -74,31 +75,51 @@ let
         configList = (parseConfig origConfigText) ++ extraConfig;
       in builtins.listToAttrs (map makePair (lib.lists.reverseList configList));
 
+      # used to (ostensibly) keep compatibility for those running stable versions of nixos
+      rustOlder = version: withRust && (lib.versionOlder rustc.version version);
+      bindgenOlder = version: withRust && (lib.versionOlder rust-bindgen.unwrapped.version version);
+
       # used to fix issues when nixpkgs gets ahead of the kernel
       rustAtLeast = version: withRust && (lib.versionAtLeast rustc.version version);
       bindgenAtLeast = version: withRust && (lib.versionAtLeast rust-bindgen.unwrapped.version version);
     in
-    linuxKernel.manualConfig rec {
+    (linuxKernel.manualConfig rec {
       inherit stdenv lib;
 
-      version = "6.14.8-asahi";
+      version = "6.12.4-asahi";
       modDirVersion = version;
-      extraMeta.branch = "6.14";
+      extraMeta.branch = "6.12";
 
       src = fetchFromGitHub {
         # tracking: https://github.com/AsahiLinux/linux/tree/asahi-wip (w/ fedora verification)
         owner = "AsahiLinux";
         repo = "linux";
-        rev = "asahi-6.14.8-1";
-        hash = "sha256-JrWVw1FiF9LYMiOPm0QI0bg/CrZAMSSVcs4AWNDIH3Q=";
+        rev = "asahi-6.12.4-1";
+        hash = "sha256-0JJtJWM0eNKcBMkNRCOA6Vpoi6Ca1QCOlsmSQKRHAUA=";
       };
 
       kernelPatches = [
+        { name = "coreutils-fix";
+          patch = ./0001-fs-fcntl-accept-more-values-as-F_DUPFD_CLOEXEC-args.patch;
+        }
       ] ++ _kernelPatches;
 
       inherit configfile;
-      config = configAttrs;
-    };
+      # hide Rust support from the nixpkgs infra to avoid it re-adding the rust packages.
+      # we can't use it until it's in stable and until we've evaluated the cross-compilation impact.
+      config = configAttrs // { "CONFIG_RUST" = "n"; };
+    } // (args.argsOverride or {})).overrideAttrs (old: if withRust then {
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+        rust-bindgen
+        rustfmt
+        rustc
+      ];
+      NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -march=armv8.5-a+fp16+fp16fml+aes+sha2+sha3+nosve+nosve2+nomemtag+norng+nosm4+nof32mm+nof64mm";
+      RUST_LIB_SRC = rustPlatform.rustLibSrc;
+      hardeningEnable = [ "pic" "format" "fortify" "stackprotector" ];
+      hardeningDisable = [ "bindnow" "pie" "relro" ];
+    } else {});
 
   linux-asahi = (callPackage linux-asahi-pkg { });
 in lib.recurseIntoAttrs (linuxPackagesFor linux-asahi)
+
