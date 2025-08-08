@@ -1,49 +1,71 @@
-{ stdenv
-, buildPackages
-, lib
-, fetchFromGitHub
-, python3
-, dtc
-, imagemagick
-, isRelease ? false
-, withTools ? true
-, withChainloading ? false
-, rust-bin ? null
-, customLogo ? null
+{
+  stdenv,
+  buildPackages,
+  lib,
+  fetchFromGitHub,
+  python3,
+  dtc,
+  imagemagick,
+  isRelease ? false,
+  withTools ? true,
+  withChainloading ? false,
+  customLogo ? null,
 }:
 
-assert withChainloading -> rust-bin != null;
-
 let
-  pyenv = python3.withPackages (p: with p; [
-    construct
-    pyserial
-  ]);
+  pyenv = python3.withPackages (
+    p: with p; [
+      construct
+      pyserial
+    ]
+  );
 
-  rustenv = rust-bin.selectLatestNightlyWith (toolchain: toolchain.minimal.override {
-    targets = [ "aarch64-unknown-none-softfloat" ];
-  });
-in stdenv.mkDerivation rec {
+  stdenvOpts = {
+    targetPlatform.system = "aarch64-none-elf";
+    targetPlatform.rust.rustcTarget = "${stdenv.hostPlatform.parsed.cpu.name}-unknown-none-softfloat";
+    targetPlatform.rust.rustcTargetSpec = "${stdenv.hostPlatform.parsed.cpu.name}-unknown-none-softfloat";
+  };
+  rust = buildPackages.rust.override {
+    stdenv = lib.recursiveUpdate buildPackages.stdenv stdenvOpts;
+  };
+  rustPackages = rust.packages.stable.overrideScope (
+    f: p: {
+      rustc-unwrapped = p.rustc-unwrapped.override {
+        stdenv = lib.recursiveUpdate p.rustc-unwrapped.stdenv stdenvOpts;
+      };
+    }
+  );
+  rustPlatform = buildPackages.makeRustPlatform rustPackages;
+
+in
+stdenv.mkDerivation rec {
   pname = "m1n1";
-  version = "1.4.17";
+  version = "1.4.21";
 
   src = fetchFromGitHub {
     # tracking: https://src.fedoraproject.org/rpms/m1n1
     owner = "AsahiLinux";
     repo = "m1n1";
     rev = "v${version}";
-    hash = "sha256-p79TshQ/C4Uwmxga3GdzJR9Ku62ObrXEv5uVVpWncdY=";
+    hash = "sha256-PEjTaSwcsV8PzM9a3rDWMYXGX9FlrM0oeElrP5HYRPg=";
     fetchSubmodules = true;
   };
+  cargoVendorDir = ".";
 
-  makeFlags = [ "ARCH=${stdenv.cc.targetPrefix}" ]
+  makeFlags =
+    [ "ARCH=${stdenv.cc.targetPrefix}" ]
     ++ lib.optional isRelease "RELEASE=1"
     ++ lib.optional withChainloading "CHAINLOADING=1";
 
-  nativeBuildInputs = [
-    dtc
-    buildPackages.gcc
-  ] ++ lib.optional withChainloading rustenv
+  nativeBuildInputs =
+    [
+      dtc
+    ]
+    ++ lib.optionals withChainloading [
+      rustPackages.rustc
+      rustPackages.cargo
+      rustPlatform.cargoSetupHook
+    ]
     ++ lib.optional (customLogo != null) imagemagick;
 
   postPatch = ''
@@ -67,35 +89,38 @@ in stdenv.mkDerivation rec {
     popd &>/dev/null
   '';
 
-  installPhase = ''
-    runHook preInstall
+  installPhase =
+    ''
+      runHook preInstall
 
-    mkdir -p $out/build
-    cp build/m1n1.bin $out/build
-  '' + (lib.optionalString withTools ''
-    mkdir -p $out/{bin,script,toolchain-bin}
-    cp -r proxyclient $out/script
-    cp -r tools $out/script
+      mkdir -p $out/build
+      cp build/m1n1.bin $out/build
+    ''
+    + (lib.optionalString withTools ''
+          mkdir -p $out/{bin,script,toolchain-bin}
+          cp -r proxyclient $out/script
+          cp -r tools $out/script
 
-    for toolpath in $out/script/proxyclient/tools/*.py; do
-      tool=$(basename $toolpath .py)
-      script=$out/bin/m1n1-$tool
-      cat > $script <<EOF
-#!/bin/sh
-${pyenv}/bin/python $toolpath "\$@"
-EOF
-      chmod +x $script
-    done
+          for toolpath in $out/script/proxyclient/tools/*.py; do
+            tool=$(basename $toolpath .py)
+            script=$out/bin/m1n1-$tool
+            cat > $script <<EOF
+      #!/bin/sh
+      ${pyenv}/bin/python $toolpath "\$@"
+      EOF
+            chmod +x $script
+          done
 
-    GCC=${buildPackages.gcc}
-    BINUTILS=${buildPackages.binutils-unwrapped}
+          GCC=${buildPackages.gcc}
+          BINUTILS=${buildPackages.binutils-unwrapped}
 
-    ln -s $GCC/bin/${stdenv.cc.targetPrefix}gcc $out/toolchain-bin/
-    ln -s $GCC/bin/${stdenv.cc.targetPrefix}ld $out/toolchain-bin/
-    ln -s $BINUTILS/bin/${stdenv.cc.targetPrefix}objcopy $out/toolchain-bin/
-    ln -s $BINUTILS/bin/${stdenv.cc.targetPrefix}objdump $out/toolchain-bin/
-    ln -s $GCC/bin/${stdenv.cc.targetPrefix}nm $out/toolchain-bin/
-  '') + ''
-    runHook postInstall
-  '';
+          ln -s $GCC/bin/${stdenv.cc.targetPrefix}gcc $out/toolchain-bin/
+          ln -s $GCC/bin/${stdenv.cc.targetPrefix}ld $out/toolchain-bin/
+          ln -s $BINUTILS/bin/${stdenv.cc.targetPrefix}objcopy $out/toolchain-bin/
+          ln -s $BINUTILS/bin/${stdenv.cc.targetPrefix}objdump $out/toolchain-bin/
+          ln -s $GCC/bin/${stdenv.cc.targetPrefix}nm $out/toolchain-bin/
+    '')
+    + ''
+      runHook postInstall
+    '';
 }

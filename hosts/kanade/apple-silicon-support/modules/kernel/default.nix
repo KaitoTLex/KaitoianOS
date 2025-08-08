@@ -1,14 +1,19 @@
 # the Asahi Linux kernel and options that must go along with it
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   config = lib.mkIf config.hardware.asahi.enable {
-    boot.kernelPackages = let
-      pkgs' = config.hardware.asahi.pkgs;
-    in
+    boot.kernelPackages =
+      let
+        pkgs' = config.hardware.asahi.pkgs;
+      in
       pkgs'.linux-asahi.override {
         _kernelPatches = config.boot.kernelPatches;
-        withRust = config.hardware.asahi.withRust;
       };
 
     # we definitely want to use CONFIG_ENERGY_MODEL, and
@@ -16,40 +21,38 @@
     # source: https://www.kernel.org/doc/html/latest/scheduler/sched-energy.html
     powerManagement.cpuFreqGovernor = lib.mkOverride 800 "schedutil";
 
-    # using an IO scheduler is pretty pointless on NVME devices as fast as Apple's
-    # it's a waste of CPU cycles, so disable the IO scheduler on NVME
-    # source: https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers
-    services.udev.extraRules = ''
-      ACTION=="add|change", KERNEL=="nvme[0-9]*n[0-9]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
-    '';
-    # these two lines save 4 whole seconds during userspace boot, according to systemd-analyze.
-    # if you're using a USB cellular internet modem (e.g. 4G, LTE, 5G, etc), then don't disable ModemManager
-    systemd.services.mount-pstore.enable = lib.mkDefault false;
-    systemd.services.ModemManager.enable = lib.mkDefault false;
-
-
     boot.initrd.includeDefaultModules = false;
     boot.initrd.availableKernelModules = [
-      # list of initrd modules originally stolen by tpwrules from
+      # list of initrd modules stolen from
       # https://github.com/AsahiLinux/asahi-scripts/blob/f461f080a1d2575ae4b82879b5624360db3cff8c/initcpio/install/asahi
-      # refined by zzywysm to match his custom kernel configs
+      "apple-mailbox"
+      "nvme_apple"
+      "pinctrl-apple-gpio"
+      "macsmc"
+      "macsmc-rtkit"
+      "i2c-pasemi-platform"
       "tps6598x"
+      "apple-dart"
       "dwc3"
-      "dwc3-haps"
       "dwc3-of-simple"
       "xhci-pci"
+      "pcie-apple"
+      "gpio_macsmc"
       "phy-apple-atc"
-      "phy-apple-dptx"
+      "nvmem_apple_efuses"
+      "spi-apple"
+      "spi-hid-apple"
+      "spi-hid-apple-of"
+      "rtc-macsmc"
+      "simple-mfd-spmi"
+      "spmi-apple-controller"
+      "nvmem_spmi_mfd"
+      "apple-dockchannel"
       "dockchannel-hid"
-      "mux-apple-display-crossbar"
-      "apple-dcp"
-      "apple-z2"
+      "apple-rtkit-helper"
 
       # additional stuff necessary to boot off USB for the installer
       # and if the initrd (i.e. stage 1) goes wrong
-      "uas"
-      "udc_core"
-      "xhci-hcd"
       "usb-storage"
       "xhci-plat-hcd"
       "usbhid"
@@ -57,23 +60,17 @@
     ];
 
     boot.kernelParams = [
-      # nice insurance against f***ing up the kernel so much, the Mac no longer boots
-      # (NixOS generations are another wonderful insurance policy, obvs)
+      "earlycon"
+      "console=tty0"
       "boot.shell_on_fail"
-      # There was originally a scary warning here from tpwrules based on the commit
-      # https://github.com/AsahiLinux/linux/commit/eecbf0d278c3a5785d460246e9baef22705410f1
-      # warning that if you set flush_interval > 0, there is a theoretical possibility
-      # of data loss for data written in the 1-2 seconds before power loss.  This is
-      # not a worry on laptops because they are battery-backed.  This risk can be mitigated
-      # on the desktop with a UPS.  Setting this to zero decreases disk performance by 95%
-      # so we set it to the recommended 1000 and don't worry too much about data loss
-      "nvme_apple.flush_interval=1000"
-      # make boot mostly silent, not because we don't appreciate the useful
-      # information (we do), but because spew slows down boot
-      "quiet"
-      "loglevel=4"
-      "systemd.show_status=auto"
-      "rd.udev.log_level=4"
+      # Apple's SSDs are slow (~dozens of ms) at processing flush requests which
+      # slows down programs that make a lot of fsync calls. This parameter sets
+      # a delay in ms before actually flushing so that such requests can be
+      # coalesced. Be warned that increasing this parameter above zero (default
+      # is 1000) has the potential, though admittedly unlikely, risk of
+      # UNBOUNDED data corruption in case of power loss!!!! Don't even think
+      # about it on desktops!!
+      "nvme_apple.flush_interval=0"
     ];
 
     # U-Boot does not support EFI variables
@@ -100,15 +97,11 @@
   };
 
   imports = [
-    (lib.mkRemovedOptionModule [ "hardware" "asahi" "addEdgeKernelConfig" ]
-      "All edge kernel config options are now the default.")
+    (lib.mkRemovedOptionModule [
+      "hardware"
+      "asahi"
+      "addEdgeKernelConfig"
+    ] "All edge kernel config options are now the default.")
+    (lib.mkRemovedOptionModule [ "hardware" "asahi" "withRust" ] "Rust support is now the default.")
   ];
-
-  options.hardware.asahi.withRust = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = ''
-      Build the Asahi Linux kernel with Rust support.
-    '';
-  };
 }
