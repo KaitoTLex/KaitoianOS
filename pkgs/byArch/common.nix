@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  pay-respects
   libsoup_3
   kiwix
   pulsemixer

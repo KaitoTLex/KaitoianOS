@@ -1,17 +1,14 @@
-{
-  python3,
-  fetchFromGitHub,
-  gzip,
-  gnutar,
-  lzfse,
+{ lib
+, python3
+, fetchFromGitHub
+, gzip
+, gnutar
+, lzfse
 }:
 
 python3.pkgs.buildPythonApplication rec {
   pname = "asahi-fwextract";
   version = "0.7.8";
-  pyproject = true;
-
-  build-system = [ python3.pkgs.setuptools ];
 
   # tracking version: https://packages.fedoraproject.org/pkgs/asahi-installer/python3-asahi_firmware/
   src = fetchFromGitHub {
@@ -28,6 +25,8 @@ python3.pkgs.buildPythonApplication rec {
       --replace '"tar"' '"${gnutar}/bin/tar"' \
       --replace '"xf"' '"-x", "-I", "${gzip}/bin/gzip", "-f"'
   '';
+
+  nativeBuildInputs = [ python3.pkgs.setuptools ];
 
   doCheck = false;
 }

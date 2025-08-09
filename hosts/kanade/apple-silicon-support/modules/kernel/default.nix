@@ -1,19 +1,14 @@
 # the Asahi Linux kernel and options that must go along with it
 
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, lib, ... }:
 {
   config = lib.mkIf config.hardware.asahi.enable {
-    boot.kernelPackages =
-      let
-        pkgs' = config.hardware.asahi.pkgs;
-      in
+    boot.kernelPackages = let
+      pkgs' = config.hardware.asahi.pkgs;
+    in
       pkgs'.linux-asahi.override {
         _kernelPatches = config.boot.kernelPatches;
+        withRust = config.hardware.asahi.withRust;
       };
 
     # we definitely want to use CONFIG_ENERGY_MODEL, and
@@ -97,11 +92,15 @@
   };
 
   imports = [
-    (lib.mkRemovedOptionModule [
-      "hardware"
-      "asahi"
-      "addEdgeKernelConfig"
-    ] "All edge kernel config options are now the default.")
-    (lib.mkRemovedOptionModule [ "hardware" "asahi" "withRust" ] "Rust support is now the default.")
+    (lib.mkRemovedOptionModule [ "hardware" "asahi" "addEdgeKernelConfig" ]
+      "All edge kernel config options are now the default.")
   ];
+
+  options.hardware.asahi.withRust = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = ''
+      Build the Asahi Linux kernel with Rust support.
+    '';
+  };
 }

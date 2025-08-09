@@ -1,24 +1,27 @@
-{ config, lib, ... }:
+{ options, config, pkgs, lib, ... }:
 {
-  config = lib.mkIf config.hardware.asahi.enable (
-    lib.mkMerge [
-      {
-        # required for proper DRM setup even without GPU driver
-        services.xserver.config = ''
-          Section "OutputClass"
-              Identifier "appledrm"
-              MatchDriver "apple"
-              Driver "modesetting"
-              Option "PrimaryGPU" "true"
-          EndSection
-        '';
-      }
-      (lib.mkIf config.hardware.asahi.useExperimentalGPUDriver {
-        # install the Asahi Mesa version
-        hardware.graphics.package = config.hardware.asahi.pkgs.mesa-asahi-edge;
-      })
-    ]
-  );
+  config = let
+    isMode = mode: (config.hardware.asahi.useExperimentalGPUDriver
+        && config.hardware.asahi.experimentalGPUInstallMode == mode);
+  in lib.mkIf config.hardware.asahi.enable (lib.mkMerge [
+    {
+      # required for proper DRM setup even without GPU driver
+      services.xserver.config = ''
+        Section "OutputClass"
+            Identifier "appledrm"
+            MatchDriver "apple"
+            Driver "modesetting"
+            Option "PrimaryGPU" "true"
+        EndSection
+      '';
+    }
+    (lib.mkIf config.hardware.asahi.useExperimentalGPUDriver {
+      # install the Asahi Mesa version
+      hardware.graphics.package = config.hardware.asahi.pkgs.mesa-asahi-edge;
+      # required for in-kernel GPU driver
+      hardware.asahi.withRust = true;
+    })
+  ]);
 
   options.hardware.asahi.useExperimentalGPUDriver = lib.mkOption {
     type = lib.types.bool;
@@ -32,11 +35,7 @@
 
   # hopefully no longer used, should be deprecated eventually
   options.hardware.asahi.experimentalGPUInstallMode = lib.mkOption {
-    type = lib.types.enum [
-      "driver"
-      "replace"
-      "overlay"
-    ];
+    type = lib.types.enum [ "driver" "replace" "overlay" ];
     default = "replace";
     description = ''
       Mode to use to install the experimental GPU driver into the system.

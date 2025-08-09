@@ -38,7 +38,7 @@
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
   };
   programs.iamb = {
     enable = true;
@@ -100,53 +100,51 @@
 
   programs.oh-my-posh = {
     enable = true;
-    # enableZshIntegration = true;
-    enableFishIntegration = false;
+    enableZshIntegration = true;
     enableBashIntegration = true;
-    useTheme = "gruvbox";
+    useTheme = "catppuccin_macchiato";
   };
 
   programs.bash = {
     enable = true;
   };
-  programs.fish = {
+  programs.zsh = {
     enable = true;
     shellAliases = {
       nixr = "nh os switch .";
       ls = "eza -l --icons=auto";
+      thefuck = "pay-respects";
     };
-    functions = {
-      update-nixos = {
-        description = "Update the system flake and attempt to build and switch to the new configuration.";
-        body = ''
-          cd /etc/nixos
-          nix flake update
-          sudo nixos-rebuild switch
-        '';
-      };
+    # interactiveShellInit = ''
+    #   fish_vi_key_bindings
+    #   set -g fish_greeting
+    #   oh-my-posh disable notice
+    # '';
+    oh-my-zsh = {
+      # "ohMyZsh" without Home Manager
+      enable = true;
+      plugins = [
+        "git"
+        "vi-mode"
+      ];
     };
-    interactiveShellInit = ''
-      fish_vi_key_bindings
-      set -g fish_greeting
-      oh-my-posh disable notice
-    '';
     plugins = [
-      {
-        name = "autopair";
-        src = pkgs.fetchFromGitHub {
-          owner = "jorgebucaran";
-          repo = "autopair.fish";
-          rev = "4d1752ff5b39819ab58d7337c69220342e9de0e2";
-          hash = "sha256-qt3t1iKRRNuiLWiVoiAYOu+9E7jsyECyIqZJ/oRIT1A=";
-        };
-      }
+      # {
+      #   name = "autopair";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "jorgebucaran";
+      #     repo = "zsh-autopair";
+      #     rev = "4d1752ff5b39819ab58d7337c69220342e9de0e2";
+      #     hash = "sha256-qt3t1iKRRNuiLWiVoiAYOu+";
+      #   };
+      # }
       {
         name = "fzf";
         src = pkgs.fetchFromGitHub {
-          owner = "PatrickF1";
-          repo = "fzf.fish";
-          rev = "8920367cf85eee5218cc25a11e209d46e2591e7a";
-          hash = "sha256-T8KYLA/r/gOKvAivKRoeqIwE2pINlxFQtZJHpOy9GMM=";
+          owner = "junegunn";
+          repo = "fzf";
+          rev = "e5cd7f0a3a73ef598267c1e9f29b0fe9a80925ab";
+          hash = "sha256-cYRA7TCKvfFkWUpI4q1xYR3qzenZvx3cjVSerl0gweU=";
         };
       }
       {
@@ -181,7 +179,7 @@
 
   programs.eza = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
     enableBashIntegration = true;
   };
 

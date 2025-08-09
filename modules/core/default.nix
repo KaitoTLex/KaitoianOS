@@ -11,23 +11,10 @@
     #mountOnLogin = true;
     #remoteDevices = true;
   };
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (action.id.match("org.freedesktop.udisks2.") &&
-          subject.isInGroup("disk")) {
-        return polkit.Result.YES;
-      }
-    });
-  '';
-
   security.pam.services.hyprlock = {
     text = ''
       auth include login
     '';
-  };
-  users.groups.disk = {
-    name = "disk";
-    gid = 6; # Standard GID for disk group
   };
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -99,6 +86,8 @@
       "networkmanager"
       "wheel"
       "disk"
+      "root"
+      "audio"
     ];
   };
 
@@ -109,8 +98,8 @@
     flake = "/home/kaitotlex/nix/KaitoianOS";
   };
 
-  programs.fish.enable = true;
-  users.users.kaitotlex.shell = pkgs.fish;
+  programs.zsh.enable = true;
+  users.users.kaitotlex.shell = pkgs.zsh;
 
   security.pam.services = {
     sudo.fprintAuth = true;
