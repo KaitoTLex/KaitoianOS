@@ -44,7 +44,13 @@
       options hid_apple iso_layout=0
     '';
   };
-  # ];
+  networking.firewall = {
+    allowedTCPPorts = [ 57621 ];
+    allowedUDPPorts = [
+      51820
+      5353
+    ]; # Clients and peers can use the same port, see listenport
+  };
   hardware.asahi = {
     enable = true;
     peripheralFirmwareDirectory = ./firmware;

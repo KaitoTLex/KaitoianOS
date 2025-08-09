@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  spotify-qt
   pay-respects
   libsoup_3
   kiwix
