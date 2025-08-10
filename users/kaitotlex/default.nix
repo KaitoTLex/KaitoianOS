@@ -4,6 +4,7 @@
     ./spicetify.nix
     ./stylix
     ./desktop-environment
+    ../../modules/localization
   ];
 
   liminalOS.formFactor = "laptop";
