@@ -192,6 +192,7 @@
                   builtins.elem (lib.getName pkg) [
                     "steam"
                     "steam-unwrapped"
+                    "spotify-unwrapped"
                     "via"
                     "vial"
                     "vscode-extensions.ms-python.vscode-pylance"

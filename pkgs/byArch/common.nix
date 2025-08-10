@@ -2,7 +2,8 @@
 
 with pkgs;
 [
-  spotify-qt
+  protonvpn-gui
+  psst
   pay-respects
   libsoup_3
   kiwix
@@ -13,7 +14,7 @@ with pkgs;
   tuisky
   bluetui
   yazi
-  # cinny-desktop
+  #cinny-desktop
   calcure
   kvirc
   gqrx
@@ -45,7 +46,7 @@ with pkgs;
   gramma
   pavucontrol
   libsecret
-  ryujinx
+  ryubing
   unzip
   sixpair
   kdePackages.kio-fuse
