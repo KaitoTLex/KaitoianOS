@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  cfg = config.liminalOS.desktop.hyprlan;
+  cfg = config.liminalOS.desktop.hyprland;
 in
 {
   config.waylan.windowManager.hyprland.settings.windowrulev2 =

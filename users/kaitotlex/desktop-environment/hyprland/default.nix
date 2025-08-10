@@ -88,7 +88,7 @@ in
         Whether to enable `hyprsunset` as a daemon.
       '';
     };
-    fcitx5.enable = lib.mkOption {
+    localization.enable = lib.mkOption {
       type = lib.types.bool;
 
       default = osConfig.i18n.inputMethod.enable && (osConfig.i18n.inputMethod.type == "fcitx5");
