@@ -88,8 +88,16 @@ in
         Whether to enable `hyprsunset` as a daemon.
       '';
     };
-  };
+    fcitx5.enable = lib.mkOption {
+      type = lib.types.bool;
 
+      default = osConfig.i18n.inputMethod.enable && (osConfig.i18n.inputMethod.type == "fcitx5");
+      description = ''
+        Whether to execute fcitx5 at startup.
+      '';
+    };
+
+  };
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       wl-clipboard
@@ -119,9 +127,17 @@ in
             scroll_factor = 0.15;
           };
 
-          exec-once = [
-            "hyprctl dispatch workspace 100000"
-          ];
+          exec-once =
+            [
+              "hyprctl dispatch workspace 100000"
+            ]
+            ++ (lib.optionals cfg.fcitx5.enable [
+
+              "fcitx5 -d -r"
+
+              "fcitx5-remote -r"
+
+            ]);
           "$mod" = "SUPER";
           "$Left" = "H";
           "$Right" = "L";

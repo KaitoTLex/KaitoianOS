@@ -327,7 +327,7 @@ in
         "network" = {
           "format-disconnected" = "/ nocomms :c /";
           "format-ethernet" = "/ 󱊪  /";
-          "format-linked" = "/ 󰌘  (No IP) /";
+          "format-linked" = "/ 󰒍 Proton /";
           "format-wifi" = "/ 󰑩 /";
           "interval" = 1;
           "tooltip" = true;

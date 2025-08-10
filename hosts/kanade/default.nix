@@ -8,5 +8,6 @@
     ../../modules/stylix
     ../../modules/electrical
     ../../modules/desktop-environment
+    ../../modules/localization
   ];
 }
