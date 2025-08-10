@@ -6,7 +6,7 @@
 }:
 {
   options.liminalOS.desktop.localization = {
-    chinese.input.enable = lib.mkEnableOption "Chinese input method using fcitx5.";
+    chinese.input.enable = lib.mkEnableOption;
     chinese.script = lib.mkOption {
       type = lib.types.enum [
         "simplified"
