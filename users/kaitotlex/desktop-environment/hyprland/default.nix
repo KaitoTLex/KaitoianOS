@@ -127,17 +127,14 @@ in
             scroll_factor = 0.15;
           };
 
-          exec-once =
-            [
-              "hyprctl dispatch workspace 100000"
-            ]
-            ++ (lib.optionals cfg.fcitx5.enable [
+          exec-once = [
+            "hyprctl dispatch workspace 100000"
 
-              "fcitx5 -d -r"
+            "fcitx5 -d -r"
 
-              "fcitx5-remote -r"
+            "fcitx5-remote -r"
 
-            ]);
+          ];
           "$mod" = "SUPER";
           "$Left" = "H";
           "$Right" = "L";

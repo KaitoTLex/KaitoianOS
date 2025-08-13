@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  openutau
   protonvpn-gui
   psst
   pay-respects

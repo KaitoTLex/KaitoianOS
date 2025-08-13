@@ -29,6 +29,10 @@
     enable = true;
     userName = "KaitoTLex";
     userEmail = "renl@kaitotlex.systems";
+    signing = {
+      signByDefault = true;
+      key = "42F52D76F1B15B8D997E2AEE8AB934746F475D0B";
+    };
   };
 
   programs.neovim.defaultEditor = true;
@@ -112,6 +116,7 @@
     enable = true;
     shellAliases = {
       nixr = "nh os switch .";
+      brokie = "sudo nixos-rebuild switch .#kanade";
       ls = "eza -l --icons=auto";
       thefuck = "pay-respects";
     };

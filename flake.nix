@@ -110,10 +110,7 @@
                       #   "DP-1, 1920x1080@75.03,3840x0,1,transform, 1"
                       #   "HDMI-A-1,1920x1080@165,1920x0,1"
                       # ];
-                      programs.git.signing = {
-                        signByDefault = true;
-                        key = "42F52D76F1B15B8D997E2AEE8AB934746F475D0B";
-                      };
+
                     }
                   ];
                 };
@@ -196,6 +193,7 @@
                     "via"
                     "vial"
                     "vscode-extensions.ms-python.vscode-pylance"
+                    "obsidian"
                   ];
 
               }
@@ -215,7 +213,7 @@
                     {
                       wayland.windowManager.hyprland.settings.monitor = [
                         "eDP-1,3024x1964@60.00,0x0,2"
-                        #" ,perferred,auto,1"
+                        " ,preferred,auto,1"
                       ];
                     }
 
@@ -232,9 +230,7 @@
                       };
                     };
                   };
-
                 };
-
               };
             }
           ];
