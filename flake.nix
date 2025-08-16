@@ -2,7 +2,8 @@
   description = "System configuration flake.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "hyprland/nixpkgs";
     apple-silicon = {
       # url = "github:zzywysm/nixos-asahi";
       url = "github:nix-community/nixos-apple-silicon";
@@ -38,8 +39,8 @@
       url = "github:nix-community/lanzaboote/v0.4.2";
     };
     hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:gulafaran/hyprland/rendernode";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprscroller = {
       url = "github:cpiber/hyprscroller";
