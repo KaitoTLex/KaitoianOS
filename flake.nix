@@ -49,6 +49,10 @@
       url = "github:ulyssa/iamb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rio = {
+      url = "github:raphamorim/rio/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -194,6 +198,7 @@
                     "vial"
                     "vscode-extensions.ms-python.vscode-pylance"
                     "obsidian"
+                    "basalt"
                   ];
 
               }

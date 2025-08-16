@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  pandoc
   openutau
   protonvpn-gui
   psst

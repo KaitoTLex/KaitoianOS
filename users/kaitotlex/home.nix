@@ -22,7 +22,7 @@
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
-
+  programs.rio.enable = true;
   programs.vesktop.enable = true;
 
   programs.git = {

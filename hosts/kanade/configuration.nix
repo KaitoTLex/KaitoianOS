@@ -54,7 +54,8 @@
   hardware.asahi = {
     enable = true;
     peripheralFirmwareDirectory = ./firmware;
-    withRust = true;
+    #useExperimentalGPUDriver = true;
+    #withRust = true;
   };
 
   nixpkgs.overlays = [
