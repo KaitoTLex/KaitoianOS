@@ -48,7 +48,7 @@ with pkgs;
   gramma
   pavucontrol
   libsecret
-  ryubing
+  # ryubing
   unzip
   sixpair
   kdePackages.kio-fuse

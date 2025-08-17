@@ -115,8 +115,6 @@ in
       in
       {
         enable = true;
-        package = inputs.hyprland.packages.${sys}.hyprland;
-        portalPackage = inputs.hyprland.packages.${sys}.xdg-desktop-portal-hyprland;
         plugins = [ inputs.hyprscroller.packages.${sys}.hyprscroller ];
         settings = {
           input.touchpad = {

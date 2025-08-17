@@ -2,14 +2,14 @@
   description = "System configuration flake.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     apple-silicon = {
       # url = "github:zzywysm/nixos-asahi";
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify = {
@@ -20,7 +20,7 @@
       url = "github:kaitotlex/vix1";
     };
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen = {
@@ -37,13 +37,8 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
     };
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprscroller = {
       url = "github:cpiber/hyprscroller";
-      inputs.hyprland.follows = "hyprland";
     };
     iamb = {
       url = "github:ulyssa/iamb";
