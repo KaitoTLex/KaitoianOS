@@ -12,7 +12,7 @@ with pkgs;
   pulsemixer
   conda
   brev-cli
-  kicad
+  #kicad
   tuisky
   bluetui
   yazi
@@ -37,10 +37,10 @@ with pkgs;
   arduino-language-server
   lua
   prismlauncher
-  asciiquarium-transparent
-  fortune
-  cowsay
-  cbonsai
+  #asciiquarium-transparent
+  #fortune
+  #cowsay
+  #cbonsai
   xfce.tumbler
   vitetris
   playerctl
@@ -58,13 +58,12 @@ with pkgs;
   yubikey-personalization
   typst-live
   typst
-  tmux
-  pipes
-  cmatrix
+  #pipes
+  #cmatrix
   neofetch
   wget
   vscodium
-  melonDS
+  #melonDS
   gparted
   gnumake
   chromium

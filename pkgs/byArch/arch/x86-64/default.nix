@@ -8,15 +8,14 @@ with pkgs;
   arduino-cli
   wineWowPackages.waylandFull
   tor-browser
-  affine-bin
+  #affine-bin
   conda
   wacomtablet
-  prusa-slicer
-  lunar-client
+  #prusa-slicer
   sbctl
-  kicad
+  #kicad
   polychromatic
   openrazer-daemon
-  bambu-studio
+  #bambu-studio
 ]
 #formatter."x86_64-linux" = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;

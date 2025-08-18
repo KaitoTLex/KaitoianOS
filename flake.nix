@@ -2,14 +2,14 @@
   description = "System configuration flake.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     apple-silicon = {
       # url = "github:zzywysm/nixos-asahi";
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify = {
@@ -20,7 +20,7 @@
       url = "github:kaitotlex/vix1";
     };
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen = {
@@ -37,11 +37,15 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
     };
-    hyprscroller = {
-      url = "github:cpiber/hyprscroller";
-    };
-    iamb = {
-      url = "github:ulyssa/iamb";
+    # hyprscroller = {
+    #   url = "github:cpiber/hyprscroller";
+    # };
+    # iamb = {
+    #   url = "github:ulyssa/iamb";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    hyprland = {
+      url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio = {
@@ -85,7 +89,19 @@
                 # generated at installation time. So we force it to false
                 # for now.
                 boot.loader.systemd-boot.enable = lib.mkForce false;
-
+                nixpkgs.config.allowUnfreePredicate =
+                  pkg:
+                  builtins.elem (lib.getName pkg) [
+                    "steam"
+                    "steam-unwrapped"
+                    #"spotify-unwrapped"
+                    "via"
+                    "vial"
+                    "vscode-extensions.ms-python.vscode-pylance"
+                    "obsidian"
+                    "basalt"
+                    "lunar-client"
+                  ];
                 boot.lanzaboote = {
                   enable = true;
                   pkiBundle = "/var/lib/sbctl";
@@ -105,11 +121,11 @@
                   imports = [
                     ./users/kaitotlex
                     {
-                      #   "eDP-1,1920x1200@120,0x0,1"
-                      #   "DP-1, 1920x1080@75.03,3840x0,1,transform, 1"
-                      #   "HDMI-A-1,1920x1080@165,1920x0,1"
-                      # ];
-
+                      wayland.windowManager.hyprland.settings.monitor = [
+                        "eDP-1,1920x1200@120,0x0,1"
+                        "DP-1, 1920x1080@75.03,3840x0,1,transform, 1"
+                        "HDMI-A-1,1920x1080@165,1920x0,1"
+                      ];
                     }
                   ];
                 };

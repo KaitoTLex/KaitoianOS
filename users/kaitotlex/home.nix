@@ -44,20 +44,20 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
-  programs.iamb = {
-    enable = true;
-    package = inputs.iamb.packages.${pkgs.stdenv.targetPlatform.system}.default;
-    settings = {
-      profiles."matrix.org".user_id = "@kaitotlex:matrix.org";
-      settings = {
-        image_preview = { };
-        notifications = {
-          enabled = true;
-          show_message = true;
-        };
-      };
-    };
-  };
+  # programs.iamb = {
+  #   enable = true;
+  #   package = inputs.iamb.packages.${pkgs.stdenv.targetPlatform.system}.default;
+  #   settings = {
+  #     profiles."matrix.org".user_id = "@kaitotlex:matrix.org";
+  #     settings = {
+  #       image_preview = { };
+  #       notifications = {
+  #         enabled = true;
+  #         show_message = true;
+  #       };
+  #     };
+  #   };
+  # };
   # programs.iamb = {
   #   enable = true;
   #   packages = inputs.iamb.packages.${pkgs.stdenv.targetPlatform.system}.default;

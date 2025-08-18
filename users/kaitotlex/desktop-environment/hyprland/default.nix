@@ -115,7 +115,7 @@ in
       in
       {
         enable = true;
-        plugins = [ inputs.hyprscroller.packages.${sys}.hyprscroller ];
+        #plugins = [ inputs.hyprscroller.packages.${sys}.hyprscroller ];
         settings = {
           input.touchpad = {
             natural_scroll = true;

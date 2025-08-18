@@ -11,22 +11,22 @@ in
 {
   wayland.windowManager.hyprland.settings = lib.mkIf cfg.enable {
     bind = [
-      "$mod+Shift, $Left, scroller:movewindow, l"
-      "$mod+Shift, $Right, scroller:movewindow, r"
-      "$mod+Shift, $Up, scroller:movewindow, u"
-      "$mod+Shift, $Down, scroller:movewindow, d"
+      "$mod+Shift, $Left, movewindow, l"
+      "$mod+Shift, $Right, movewindow, r"
+      "$mod+Shift, $Up, movewindow, u"
+      "$mod+Shift, $Down, movewindow, d"
 
       # Move around
-      "$mod, $Left, scroller:movefocus, l"
-      "$mod, $Right, scroller:movefocus, r"
-      "$mod, $Up, scroller:movefocus, u"
-      "$mod, $Down, scroller:movefocus, d"
-      "$mod, comma, scroller:admitwindow"
-      "$mod, period, scroller:expelwindow"
-      "$mod, F, scroller:fitsize, active"
-      "$mod, Y, scroller:fitsize, all"
-      "$mod, semicolon, scroller:cyclesize, next"
-      "$mod, apostrophe, scroller:cyclesize, previous"
+      "$mod, $Left, movefocus, l"
+      "$mod, $Right, movefocus, r"
+      "$mod, $Up, movefocus, u"
+      "$mod, $Down, movefocus, d"
+      "$mod, comma, admitwindow"
+      "$mod, period, expelwindow"
+      "$mod, F, fitsize, active"
+      "$mod, Y, fitsize, all"
+      "$mod, semicolon, cyclesize, next"
+      "$mod, apostrophe, cyclesize, previous"
 
       "$mod+Shift, U, exec, ${hyprnome} --move"
       "$mod+Shift, I, exec, ${hyprnome} --previous --move"
@@ -34,11 +34,11 @@ in
       "$mod, U, exec, ${hyprnome}"
       "$mod, I, exec, ${hyprnome} --previous"
 
-      "$mod, C, scroller:setmode, c"
-      "$mod, V, scroller:setmode, r"
+      "$mod, C, setmode, c"
+      "$mod, V, setmode, r"
 
-      "$mod, G, scroller:jump"
-      "$mod+Ctrl, G, scroller:toggleoverview"
+      "$mod, G, jump"
+      "$mod+Ctrl, G, toggleoverview"
       # Window actions
       "$mod, Q, killactive"
       "$mod, W, togglefloating"
