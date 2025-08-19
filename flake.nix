@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     apple-silicon = {
       # url = "github:zzywysm/nixos-asahi";
-      url = "github:nix-community/nixos-apple-silicon";
+      url = "github:flokli/nixos-apple-silicon/mainline-mesa";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
