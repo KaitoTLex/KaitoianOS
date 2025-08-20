@@ -46,7 +46,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/hyprland/c4a4c341568944bd4fb9cd503558b2de602c0213";
+      url = "github:hyprwm/hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio = {
