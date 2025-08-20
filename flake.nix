@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify = {
@@ -38,15 +38,15 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
     };
-    # hyprscroller = {
-    #   url = "github:cpiber/hyprscroller";
-    # };
-    # iamb = {
-    #   url = "github:ulyssa/iamb";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprscroller = {
+      url = "github:cpiber/hyprscroller";
+    };
+    iamb = {
+      url = "github:ulyssa/iamb";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
-      url = "github:hyprwm/hyprland";
+      url = "github:hyprwm/hyprland/c4a4c341568944bd4fb9cd503558b2de602c0213";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio = {
