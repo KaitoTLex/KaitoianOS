@@ -3,10 +3,10 @@
 
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpgks.url = "github:nixos/nixpkgs/ee930f9755f58096ac6e8ca94a1887e0534e2d81";
+    nixpgks.url = "github:nixos/nixpkgs/4dd107af08fd31510f3de9417617ad1d0726e211";
     apple-silicon = {
       #url = "github:nix-community/nixos-apple-silicon";
-      url = "github:nix-community/nixos-apple-silicon/54e6cc0f2342f5ff55eae7f147a923ecc7c78f8a";
+      url = "github:nix-community/nixos-apple-silicon/3ddc251d2acce5019b0fa770e224d068610a34e4";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -45,10 +45,10 @@
       url = "github:ulyssa/iamb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00";
+    #   #inputs.nixpkgs.follows = "nixpkgs";
+    # };
     rio = {
       url = "github:raphamorim/rio/main";
       inputs.nixpkgs.follows = "nixpkgs";
