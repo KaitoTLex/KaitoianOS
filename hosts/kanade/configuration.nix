@@ -12,7 +12,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./apple-silicon-support
+    "${inputs.apple-silicon}/apple-silicon-support"
   ];
 
   networking.hostName = "kanade";
