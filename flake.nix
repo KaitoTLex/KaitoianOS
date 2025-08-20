@@ -7,7 +7,7 @@
     apple-silicon = {
       #url = "github:nix-community/nixos-apple-silicon";
       url = "github:nix-community/nixos-apple-silicon/54e6cc0f2342f5ff55eae7f147a923ecc7c78f8a";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
