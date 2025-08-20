@@ -7,7 +7,7 @@
     apple-silicon = {
       #url = "github:nix-community/nixos-apple-silicon";
       url = "github:nix-community/nixos-apple-silicon/54e6cc0f2342f5ff55eae7f147a923ecc7c78f8a";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -47,7 +47,7 @@
     };
     hyprland = {
       url = "github:hyprwm/hyprland/9958d297641b5c84dcff93f9039d80a5ad37ab00";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     rio = {
       url = "github:raphamorim/rio/main";
