@@ -5,8 +5,8 @@
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpgks.url = "github:nixos/nixpkgs/ee930f9755f58096ac6e8ca94a1887e0534e2d81";
     apple-silicon = {
-      url = "github:nix-community/nixos-apple-silicon";
-      # url = "github:nix-community/nixos-apple-silicon/3ddc251d2acce5019b0fa770e224d068610a34e4";
+      #url = "github:nix-community/nixos-apple-silicon";
+      url = "github:nix-community/nixos-apple-silicon/54e6cc0f2342f5ff55eae7f147a923ecc7c78f8a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
