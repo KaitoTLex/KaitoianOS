@@ -3,38 +3,24 @@
 with pkgs;
 [
   pandoc
-  openutau
   protonvpn-gui
   psst
-  pay-respects
-  libsoup_3
   kiwix
   pulsemixer
   conda
-  brev-cli
-  #kicad
+  kicad
   tuisky
   bluetui
   yazi
-  #cinny-desktop
   calcure
   kvirc
-  gqrx
   #nheko
-  gimp3
   openssl
   cmake
   obs-studio
-  python312Packages.pip
-  python312Packages.jupyter-core
-  rpcs3
-  dolphin-emu
   elmPackages.elm
   openhantek6022
-  tor
   libreoffice
-  rasm
-  arduino-language-server
   lua
   prismlauncher
   #asciiquarium-transparent
@@ -45,7 +31,6 @@ with pkgs;
   vitetris
   playerctl
   texlab
-  gramma
   pavucontrol
   libsecret
   # ryubing
@@ -55,18 +40,14 @@ with pkgs;
   kdePackages.kio-extras
   kdePackages.qtsvg
   kdePackages.qtwayland
-  yubikey-personalization
-  typst-live
   typst
   #pipes
   #cmatrix
-  neofetch
+  fastfetch
   wget
   vscodium
   #melonDS
-  gparted
   gnumake
-  chromium
   manga-tui
   rustc
   cargo
@@ -80,14 +61,8 @@ with pkgs;
 
   thunderbird-latest-unwrapped
 
-  typescript
-  typescript-language-server
-  live-server
-  tailwindcss
-  tailwindcss-language-server
-  nodejs_24
-  clang
   macchanger
+
   ani-cli
   mpv
   sherlock

@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
     "${inputs.apple-silicon}/apple-silicon-support"
   ];
-
+  virtualisation.waydroid.enable = true;
   networking.hostName = "kanade";
   time.timeZone = "America/Los_Angeles";
   # time.timeZone = "Asia/Taipei";
